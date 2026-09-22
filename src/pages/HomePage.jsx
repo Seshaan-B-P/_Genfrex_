@@ -6,6 +6,7 @@ import Metrics from '../components/Metrics';
 import EditorialIntro from '../components/EditorialIntro';
 import ServicesList from '../components/ServicesList';
 import SelectedWork from '../components/SelectedWork';
+import Marquee from '../components/Marquee';
 import Capabilities from '../components/Capabilities';
 import Process from '../components/Process';
 import Clients from '../components/Clients';
@@ -21,37 +22,40 @@ export default function HomePage() {
       <Preloader onComplete={() => setPreloaderDone(true)} />
 
       <main className="bg-[#050505]">
-        {/* 01 ─ HERO ("BUILDING WHAT'S NEXT.") */}
+        {/* 01 ─ HERO (DIGITAL EXPERTISE. CONNECTED TALENT. MEANINGFUL GROWTH.) */}
         <Hero />
 
-        {/* 02 ─ ABOUT GENFREX (Cinematic Storytelling) */}
+        {/* 02 ─ ABOUT GENFREX (WHERE DIGITAL EXPERTISE MEETS THE RIGHT TALENT.) */}
         <AboutStudio />
 
-        {/* 03 ─ QUANTITATIVE IMPACT (00+ / 00+ / 00+ / 00+) */}
+        {/* 03 ─ QUANTITATIVE IMPACT (BUILDING CONNECTIONS. CREATING OPPORTUNITIES.) */}
         <Metrics />
 
-        {/* 04 ─ PHILOSOPHY & MANDATE (01 / 02 / 03) */}
+        {/* 04 ─ PHILOSOPHY & MANDATE (01 CONNECT, 02 ENABLE, 03 GROW) */}
         <EditorialIntro />
 
-        {/* 05 ─ CORE CAPABILITIES (01 → 06) */}
+        {/* 05 ─ CORE CAPABILITIES (01 → 06 Interactive Services & Deliverables) */}
         <ServicesList />
 
-        {/* 06 ─ ARCHIVE & SELECTED WORK (Horizontal Case Studies) */}
+        {/* 06 ─ ARCHIVE & SELECTED WORK (IDEAS INTO DIGITAL EXPERIENCES.) */}
         <SelectedWork />
 
-        {/* 07 ─ CRAFT DOMAINS & WORKFLOW (01 → 09) */}
+        {/* EDITORIAL MARQUEE TRANSITION */}
+        <Marquee />
+
+        {/* 07 ─ CRAFT DOMAINS & WORKFLOW (WHAT WE MASTER: 01 → 09) */}
         <Capabilities />
 
-        {/* 08 ─ METHODOLOGY (01 → 06 Pipeline) */}
+        {/* 08 ─ METHODOLOGY (HOW WE WORK: 01 → 06 Connected Pipeline) */}
         <Process />
 
-        {/* 09 ─ OUR CLIENTS (Stats + Logo Marquee) */}
+        {/* 09 ─ OUR CLIENTS (BUILDING AN ECOSYSTEM OF OPPORTUNITY) */}
         <Clients />
 
-        {/* 10 ─ TALKS (3D Coverflow) */}
+        {/* 10 ─ TALKS (PEOPLE. EXPERIENCES. PERSPECTIVES. 3D Coverflow) */}
         <Testimonials />
 
-        {/* 11 ─ FINAL CTA ("LET'S BUILD SOMETHING SIGNIFICANT.") */}
+        {/* 11 ─ FINAL CTA (THE RIGHT CONNECTION CAN CHANGE WHAT'S POSSIBLE.) */}
         <FinalCTA />
       </main>
     </>

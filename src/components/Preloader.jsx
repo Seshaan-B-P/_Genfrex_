@@ -64,9 +64,9 @@ export default function Preloader({ onComplete }) {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xs md:text-sm text-[#0052FF] tracking-[0.2em] uppercase font-semibold"
+              className="text-xs md:text-sm text-white/90 tracking-[0.25em] uppercase font-semibold"
             >
-              Empowering Your Digital Growth &amp; Talent Connections
+              DIGITAL SERVICES <span className="text-[#0052FF]">×</span> DIGITAL TALENT
             </motion.p>
           </div>
         </div>

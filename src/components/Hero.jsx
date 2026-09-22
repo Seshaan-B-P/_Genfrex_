@@ -1,34 +1,35 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const canvasRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
 
-  // Subtle ambient particle/network canvas
+  // Subtle dynamic abstract node canvas for digital ecosystem atmosphere
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
 
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
     };
     window.addEventListener('resize', handleResize);
 
-    const nodeCount = window.innerWidth < 768 ? 20 : 38;
-    const nodes = Array.from({ length: nodeCount }, () => ({
+    // Subtle floating nodes (represents connection of business + digital expertise + talent)
+    const nodes = Array.from({ length: 28 }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
       radius: Math.random() * 1.5 + 0.8,
       alpha: Math.random() * 0.35 + 0.15,
     }));
@@ -36,15 +37,15 @@ export default function Hero() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Lines
+      // Connecting trace lines
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 180) {
-            const opacity = (1 - dist / 180) * 0.12;
+          if (dist < 170) {
+            const opacity = (1 - dist / 170) * 0.12;
             ctx.strokeStyle = `rgba(0, 82, 255, ${opacity})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
@@ -71,9 +72,7 @@ export default function Hero() {
         ctx.fill();
       }
 
-      if (!shouldReduceMotion) {
-        animationFrameId = requestAnimationFrame(render);
-      }
+      animationFrameId = requestAnimationFrame(render);
     };
 
     render();
@@ -85,7 +84,7 @@ export default function Hero() {
   }, [shouldReduceMotion]);
 
   const lineReveal = (delay) => ({
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
@@ -126,20 +125,20 @@ export default function Hero() {
         >
           <span className="w-2 h-2 bg-[#0052FF] rounded-full shadow-[0_0_10px_rgba(0,82,255,0.9)]" />
           <span className="text-xs md:text-sm tracking-[0.25em] text-[#A0A0A0] uppercase font-medium">
-            Strategy &bull; Technology &bull; Creativity
+            DIGITAL SERVICES &bull; TECHNOLOGY &bull; TALENT ECOSYSTEM
           </span>
         </motion.div>
 
-        {/* Hero Title: BUILDING WHAT'S NEXT. */}
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white max-w-5xl mb-8 md:mb-12">
+        {/* Hero Title: DIGITAL EXPERTISE. CONNECTED TALENT. MEANINGFUL GROWTH. */}
+        <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[72px] leading-[1.06] tracking-tight text-white max-w-5xl mb-6 md:mb-8">
           <span className="block overflow-hidden pb-1">
             <motion.span variants={lineReveal(0.35)} initial="hidden" animate="visible" className="block">
-              BUILDING
+              DIGITAL EXPERTISE.
             </motion.span>
           </span>
           <span className="block overflow-hidden pb-1">
             <motion.span variants={lineReveal(0.5)} initial="hidden" animate="visible" className="block text-neutral-300">
-              WHAT'S
+              CONNECTED TALENT.
             </motion.span>
           </span>
           <span className="block overflow-hidden pb-1">
@@ -149,50 +148,70 @@ export default function Hero() {
               animate="visible"
               className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-[#0052FF]"
             >
-              NEXT.
+              MEANINGFUL GROWTH.
             </motion.span>
           </span>
         </h1>
 
-        {/* CTA Actions */}
+        {/* Supporting text */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.75 }}
+          className="text-sm sm:text-base md:text-lg text-[#A0A0A0] font-light max-w-2xl leading-relaxed mb-8 md:mb-10"
+        >
+          GENFREX is a modern digital services and talent ecosystem helping businesses grow through technology, digital marketing, and skilled professionals.
+        </motion.p>
+
+        {/* CTA Actions: Rectangular Editorial Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/[0.08]"
+          className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-white/[0.08]"
         >
-          {/* Primary CTA: EXPLORE WORK ↗ */}
+          {/* Primary CTA: EXPLORE GENFREX ↗ */}
           <a
-            href="#work"
+            href="#about"
             data-cursor="hover"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-xs tracking-[0.2em] uppercase font-bold hover:bg-[#0052FF] hover:text-white transition-all duration-300 active:scale-98 hover:shadow-[0_0_25px_rgba(0,82,255,0.4)]"
           >
-            <span>EXPLORE WORK</span>
+            <span>EXPLORE GENFREX</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
-          {/* Secondary: SCROLL TO EXPLORE ↓ */}
-          <div
-            onClick={() => {
-              const targetEl = document.querySelector('#about') || document.querySelector('#intro');
-              if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
-            }}
+          {/* Secondary CTA: START A PROJECT ↗ */}
+          <a
+            href="#contact"
             data-cursor="hover"
-            className="inline-flex items-center gap-2.5 text-xs tracking-[0.2em] text-[#A0A0A0] hover:text-white uppercase transition-colors cursor-pointer font-medium"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white/[0.04] text-white border border-white/20 hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 active:scale-98"
           >
-            <span>SCROLL TO EXPLORE</span>
-            <ArrowDown className="w-3.5 h-3.5 text-[#0052FF] animate-bounce" />
-          </div>
+            <span>START A PROJECT</span>
+            <ArrowUpRight className="w-4 h-4 text-[#0052FF] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </motion.div>
       </div>
 
-      {/* Bottom Metadata: DIGITAL STUDIO (Left) & 2026 (Right) */}
+      {/* Bottom Metadata: DIGITAL SERVICES × DIGITAL TALENT | 2026 | SCROLL ↓ */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.1 }}
         className="max-w-7xl mx-auto w-full flex items-center justify-between pt-4 border-t border-white/[0.06] text-[10px] md:text-xs tracking-[0.25em] text-[#666666] uppercase font-medium relative z-10"
       >
+        <span>DIGITAL SERVICES &times; DIGITAL TALENT</span>
+        <span className="hidden sm:inline-block text-[#A0A0A0]">2026 RELEASE</span>
+        <div
+          onClick={() => {
+            const targetEl = document.querySelector('#about') || document.querySelector('#intro');
+            if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+          }}
+          data-cursor="hover"
+          className="inline-flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors cursor-pointer"
+        >
+          <span>SCROLL</span>
+          <ArrowDown className="w-3.5 h-3.5 text-[#0052FF] animate-bounce" />
+        </div>
       </motion.div>
     </section>
   );

@@ -3,177 +3,277 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 export default function Capabilities() {
   const shouldReduceMotion = useReducedMotion();
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(4); // Default to Development (05)
 
-  const workflowSteps = [
+  const domains = [
     {
       number: '01',
-      name: 'Strategy',
-      title: 'Strategy',
+      name: 'STRATEGY',
+      tagline: 'Market architecture & business model alignment',
+      capabilities: [
+        'Commercial Architecture',
+        'Competitive Positioning',
+        'Product Roadmapping',
+        'Technology Audits',
+        'Resource Planning',
+      ],
       description:
-        'Deconstructing business models, mapping competitive market dynamics, and architecting long-term technological and commercial leverage with measurable ROI milestones.',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
+        'Deconstructing business models and mapping competitive market dynamics to build execution roadmaps with definitive commercial leverage.',
     },
     {
       number: '02',
-      name: 'Research',
-      title: 'Research',
+      name: 'RESEARCH',
+      tagline: 'Empirical data & behavioral intelligence',
+      capabilities: [
+        'User Interviews',
+        'Friction Point Telemetry',
+        'Data Synthesis',
+        'Market Verification',
+        'Competitive Benchmarking',
+      ],
       description:
-        'Interrogating behavioral analytics, auditing technical friction points, and exploring user dynamics to ground every product and architectural decision in indisputable truth.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+        'Interrogating analytics, studying behavioral friction, and validating market assumptions to ground architectural decisions in truth.',
     },
     {
       number: '03',
-      name: 'Brand',
-      title: 'Brand',
+      name: 'BRAND',
+      tagline: 'Typographic identity & editorial narratives',
+      capabilities: [
+        'Visual Identity Systems',
+        'Typographic Direction',
+        'Design Systems',
+        'Brand Guidelines',
+        'Verbal Identity',
+      ],
       description:
-        'Forging uncompromising visual identities, distinctive design systems, and emotive narrative positioning that anchor market authority and lasting customer loyalty.',
-      image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200&auto=format&fit=crop',
+        'Forging uncompromising brand identities, typographic systems, and visual guidelines that command authority and anchor lasting recall.',
     },
     {
       number: '04',
-      name: 'Design',
-      title: 'Design',
+      name: 'DESIGN',
+      tagline: 'Tokenized interfaces & tactile micro-interactions',
+      capabilities: [
+        'UI/UX Architecture',
+        'Tokenized Design Systems',
+        'Interactive Prototyping',
+        'Responsive Design',
+        'Ergonomic Interfaces',
+      ],
       description:
-        'Engineering tokenized design systems, tactile micro-interactions, and responsive interfaces that transform complex digital ecosystems into effortless, elegant experiences.',
-      image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+        'Engineering tokenized design systems and responsive interfaces that transform complex digital workflows into effortless experiences.',
     },
     {
       number: '05',
-      name: 'Technology',
-      title: 'Technology',
+      name: 'DEVELOPMENT',
+      tagline: 'Ultra-fast web flagships & cloud systems',
+      capabilities: [
+        'Websites',
+        'Web Applications',
+        'WordPress',
+        'Frontend',
+        'Backend',
+        'APIs',
+      ],
       description:
-        'Building ultra-fast web flagships, resilient cloud microservices, and reactive custom web applications engineered for sub-second latency and zero downtime under extreme scale.',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop',
+        'Building ultra-fast business websites, responsive web applications, bespoke WordPress themes, and high-concurrency API microservices.',
     },
     {
       number: '06',
-      name: 'Content',
-      title: 'Content',
+      name: 'CONTENT',
+      tagline: 'Editorial narrative & digital storytelling',
+      capabilities: [
+        'Editorial Copywriting',
+        'Content Frameworks',
+        'Campaign Content',
+        'Technical Documentation',
+        'Story Architecture',
+      ],
       description:
-        'Crafting bespoke editorial copywriting, cinematic video productions, and compelling commercial media that elevate brand resonance and command audience attention.',
-      image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop',
+        'Crafting bespoke editorial copywriting, structured content systems, and high-resonance narratives that communicate brand value clearly.',
     },
     {
       number: '07',
       name: 'AI',
-      title: 'AI',
+      tagline: 'Intelligent automation & model integration',
+      capabilities: [
+        'Workflow Automation',
+        'LLM Integration',
+        'Data Processing Pipelines',
+        'Intelligent Tooling',
+        'AI Roadmapping',
+      ],
       description:
-        'Applying autonomous agent pipelines, intelligent data workflows, and custom LLM integrations directly into core enterprise operations to unlock exponential efficiency.',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+        'Applying modern AI capabilities, automated data pipelines, and smart workflows directly into core business operations for efficiency.',
     },
     {
       number: '08',
-      name: 'Marketing',
-      title: 'Marketing',
+      name: 'MARKETING',
+      tagline: 'Demand generation & organic visibility',
+      capabilities: [
+        'SEO Strategy',
+        'Social Media Marketing',
+        'Performance Marketing',
+        'Content Distribution',
+        'Campaign Analytics',
+      ],
       description:
-        'Executing precision demand generation, multi-channel programmatic distribution, and algorithmic conversion rate optimization to scale market reach sustainably.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+        'Executing precision organic SEO, multi-channel social media marketing, and performance frameworks that drive qualified demand.',
     },
     {
       number: '09',
-      name: 'Growth',
-      title: 'Growth',
+      name: 'GROWTH',
+      tagline: 'Compounding momentum & talent loops',
+      capabilities: [
+        'Conversion Rate Optimization',
+        'Retention Systems',
+        'Talent Matching Loops',
+        'Analytics Telemetry',
+        'Continuous Evolution',
+      ],
       description:
-        'Engineering self-reinforcing product loops, behavioral retention mechanics, and verified telemetry analytics to drive compounding enterprise value.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop',
+        'Engineering self-reinforcing growth mechanics and connecting the right talent with business opportunities to compound value over time.',
     },
   ];
 
-  const current = workflowSteps[activeIdx];
+  const current = domains[activeIdx];
 
   return (
     <section
       id="domains"
       className="py-28 md:py-36 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
     >
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#0052FF]/[0.04] rounded-full blur-[170px] pointer-events-none -z-10" />
+      {/* Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#0052FF]/[0.035] rounded-full blur-[170px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Top Centered Header Matching Specification */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 space-y-4">
-          <span className="text-xs sm:text-sm tracking-[0.25em] text-[#0052FF] uppercase font-bold block">
-            07 — CRAFT DOMAINS &amp; WORKFLOW
-          </span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-[1.12] text-white tracking-tight">
-            WHAT WE MASTER
-          </h2>
-          <p className="text-sm md:text-base text-[#A0A0A0] font-light max-w-xl mx-auto leading-relaxed">
-            Nine interconnected disciplines operating in concert to build enduring digital flagships and scalable business systems.
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/[0.08] pb-10 mb-16 md:mb-20">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold">
+                04 — CRAFT DOMAINS &amp; WORKFLOW
+              </span>
+              <div className="h-[1px] w-12 bg-[#0052FF]" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
+              WHAT WE MASTER
+            </h2>
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#A0A0A0] font-light max-w-sm leading-relaxed">
+            Nine specialized craft disciplines operating as a synchronized execution engine across technology, marketing, and talent.
           </p>
         </div>
 
-        {/* 2-Column Interactive Workflow Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* LEFT COLUMN: Vertical Navigation Tabs (01 to 09) */}
-          <div className="lg:col-span-4 flex flex-col gap-2.5">
-            {workflowSteps.map((step, idx) => {
+        {/* Two-Column Interactive Layout: 9 Domains on Left, Active Context on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Interactive Domain Typography List */}
+          <div className="lg:col-span-6 space-y-1">
+            {domains.map((domain, idx) => {
               const isActive = activeIdx === idx;
 
               return (
-                <button
-                  key={step.number}
+                <div
+                  key={domain.number}
                   onClick={() => setActiveIdx(idx)}
-                  className={`w-full flex items-center gap-4 px-5 py-3.5 rounded-xl text-left transition-all duration-300 group ${
+                  onMouseEnter={() => setActiveIdx(idx)}
+                  data-cursor="explore"
+                  className={`group py-3.5 px-4 flex items-center justify-between border-b transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? 'bg-[#0052FF] text-white shadow-[0_0_25px_rgba(0,82,255,0.4)]'
-                      : 'bg-[#09090D] text-[#A0A0A0] hover:text-white border border-white/[0.08] hover:border-[#0052FF]/40'
+                      ? 'border-[#0052FF] bg-[#0A0A0A]'
+                      : 'border-white/[0.06] hover:border-white/20'
                   }`}
                 >
+                  <div className="flex items-center gap-4">
+                    <span
+                      className={`font-mono text-xs font-bold transition-colors ${
+                        isActive ? 'text-[#0052FF]' : 'text-[#555555] group-hover:text-white/70'
+                      }`}
+                    >
+                      {domain.number}
+                    </span>
+                    <span
+                      className={`font-display font-bold text-lg sm:text-xl md:text-2xl tracking-tight transition-all duration-300 ${
+                        isActive
+                          ? 'text-white translate-x-1'
+                          : 'text-[#888888] group-hover:text-white'
+                      }`}
+                    >
+                      {domain.name}
+                    </span>
+                  </div>
+
                   <span
-                    className={`text-xs font-semibold ${
-                      isActive ? 'text-white/80' : 'text-[#666666] group-hover:text-[#A0A0A0]'
+                    className={`font-mono text-[10px] uppercase tracking-wider transition-opacity ${
+                      isActive ? 'text-[#0052FF] opacity-100' : 'opacity-0 group-hover:opacity-60'
                     }`}
                   >
-                    {step.number}
+                    ACTIVE &rarr;
                   </span>
-                  <span className="text-sm font-medium tracking-wide">
-                    {step.name}
-                  </span>
-                </button>
+                </div>
               );
             })}
           </div>
 
-          {/* RIGHT COLUMN: Interactive Showcase Card */}
-          <div className="lg:col-span-8 rounded-2xl bg-[#08080C] border border-white/10 p-6 sm:p-8 md:p-10 flex flex-col justify-between shadow-2xl">
-            {/* Top Media Frame */}
-            <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-[#040406] border border-white/10">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current.image}
-                  src={current.image}
-                  alt={current.title}
-                  initial={{ opacity: 0, scale: 1.03 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: shouldReduceMotion ? 0.01 : 0.4, ease: 'easeOut' }}
-                  className="w-full h-full object-cover"
-                />
-              </AnimatePresence>
+          {/* Right Column: Contextual Capabilities Display for Active Domain */}
+          <div className="lg:col-span-6 lg:sticky lg:top-28">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.number}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: shouldReduceMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="p-8 md:p-10 bg-[#0A0A0A] border border-white/10 rounded-none relative overflow-hidden space-y-8"
+              >
+                {/* Active Domain Indicator */}
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-[#0052FF] font-bold">
+                      DOMAIN {current.number}
+                    </span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0052FF]" />
+                  </div>
+                  <span className="text-[11px] font-mono text-[#666666] uppercase tracking-widest">
+                    CAPABILITY SPECIFICATION
+                  </span>
+                </div>
 
-              {/* Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                {/* Title and Tagline */}
+                <div>
+                  <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+                    {current.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#0052FF] font-medium tracking-wide mt-1">
+                    {current.tagline}
+                  </p>
+                </div>
 
-              {/* Tag Pill inside image */}
-              <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 text-[11px] text-white font-medium">
-                DOMAIN {current.number} &bull; {current.name.toUpperCase()}
-              </div>
-            </div>
+                {/* Overview Description */}
+                <p className="text-sm md:text-base text-[#A0A0A0] font-light leading-relaxed">
+                  {current.description}
+                </p>
 
-            {/* Bottom Content Body */}
-            <div className="mt-8 space-y-3">
-              <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#0052FF] tracking-tight">
-                {current.title}
-              </h3>
-              <p className="text-sm sm:text-base text-[#A0A0A0] font-light leading-relaxed max-w-2xl">
-                {current.description}
-              </p>
-            </div>
+                {/* Contextual Capabilities (No pill-heavy UI, sleek matrix) */}
+                <div className="space-y-3 pt-4 border-t border-white/[0.08]">
+                  <span className="text-xs font-mono tracking-widest text-[#666666] uppercase block">
+                    CORE DELIVERABLES &amp; CAPABILITIES:
+                  </span>
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    {current.capabilities.map((cap) => (
+                      <div
+                        key={cap}
+                        className="p-3 bg-[#111111] border border-white/[0.06] text-xs sm:text-sm text-white font-medium flex items-center gap-2"
+                      >
+                        <span className="w-1.5 h-1.5 bg-[#0052FF]" />
+                        <span>{cap}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-
         </div>
       </div>
     </section>
