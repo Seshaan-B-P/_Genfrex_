@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GenfrexLogo from './GenfrexLogo';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -14,13 +15,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-20 border-b border-white/[0.08]">
           
           {/* Brand & Mission Statement (5 cols) */}
-          <div className="md:col-span-5 space-y-6">
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 bg-[#0052FF] rounded-full shadow-[0_0_10px_rgba(0,82,255,0.9)]" />
-              <span className="font-display font-extrabold text-2xl tracking-[0.2em] text-white">
-                GENFREX
-              </span>
+          <div className="md:col-span-5 space-y-5">
+            <div>
+              <GenfrexLogo className="h-14 sm:h-16 md:h-20 w-auto mb-2" />
             </div>
+
+            <p className="text-xs sm:text-sm text-[#0052FF] font-semibold tracking-wider">
+              Empowering Your Digital Growth &amp; Talent Connections
+            </p>
 
             <div className="text-sm text-[#A0A0A0] leading-relaxed space-y-1 font-medium">
               <p>Digital Growth.</p>

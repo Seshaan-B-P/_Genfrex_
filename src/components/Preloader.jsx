@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import GenfrexLogo from './GenfrexLogo';
 
 export default function Preloader({ onComplete }) {
   const [progress, setProgress] = useState(0);
@@ -51,24 +52,21 @@ export default function Preloader({ onComplete }) {
 
         {/* Center Brand Identity */}
         <div className="space-y-4 max-w-xl">
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display font-extrabold text-4xl md:text-6xl text-white tracking-[0.18em]"
-            >
-              GENFREX
-            </motion.h1>
-          </div>
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <GenfrexLogo className="h-16 sm:h-20 md:h-24 w-auto mb-2" />
+          </motion.div>
           <div className="overflow-hidden">
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xs md:text-sm text-[#A0A0A0] tracking-[0.3em] uppercase font-medium"
+              className="text-xs md:text-sm text-[#0052FF] tracking-[0.2em] uppercase font-semibold"
             >
-              DIGITAL EXPERIENCES
+              Empowering Your Digital Growth &amp; Talent Connections
             </motion.p>
           </div>
         </div>

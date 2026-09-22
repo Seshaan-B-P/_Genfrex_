@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, X, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import GenfrexLogo from './GenfrexLogo';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,22 +40,19 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#050505]/85 backdrop-blur-md border-b border-white/[0.08] py-4'
-            : 'bg-transparent py-6 md:py-8'
+            ? 'bg-[#050505]/85 backdrop-blur-md border-b border-white/[0.08] py-3'
+            : 'bg-transparent py-5 md:py-7'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Logo: GENFREX (Typography based) */}
+          {/* Official GENFREX Brand Logo */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="group flex items-center gap-2.5 focus:outline-none"
-            aria-label="GENFREX Digital Studio"
+            className="group flex items-center gap-3 focus:outline-none"
+            aria-label="GENFREX — Empowering Your Digital Growth & Talent Connections"
           >
-            <span className="w-2 h-2 bg-[#0052FF] rounded-full shadow-[0_0_10px_rgba(0,82,255,0.8)] transition-transform duration-300 group-hover:scale-125" />
-            <span className="font-display font-extrabold tracking-[0.24em] text-lg text-white group-hover:text-neutral-300 transition-colors">
-              GENFREX
-            </span>
+            <GenfrexLogo className="h-8 sm:h-9 md:h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
