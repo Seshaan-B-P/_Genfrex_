@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GenfrexLogo from './GenfrexLogo';
 
 export default function Navbar({ onOpenQuote }) {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,20 +18,26 @@ export default function Navbar({ onOpenQuote }) {
   }, []);
 
   const navLinks = [
-    { label: 'About us', href: '#about' },
-    { label: 'Services', href: '#services' },
+    { label: 'About us', to: '/about', isRoute: true },
+    { label: 'Services', to: '/services', isRoute: true },
     { label: 'Portfolio', href: '#works' },
     { label: 'Clients', href: '#clients' },
     { label: 'Workflow', href: '#workflow' },
     { label: 'Contact us', href: '#footer' },
   ];
 
-  const handleLinkClick = (e, href) => {
-    e.preventDefault();
+  const handleLinkClick = (e, link) => {
     setDrawerOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    if (link.isRoute) return;
+
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const target = document.querySelector(link.href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/${link.href}`);
     }
   };
 
@@ -55,14 +63,25 @@ export default function Navbar({ onOpenQuote }) {
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-7 text-[15px] font-normal text-white/80">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="hover:text-white transition-colors duration-200"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link)}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
 
@@ -114,14 +133,28 @@ export default function Navbar({ onOpenQuote }) {
 
         <nav className="flex flex-col gap-6 py-8">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-2xl font-light text-white/90 hover:text-[#0052FF] transition-colors"
-            >
-              {link.label}
-            </a>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => {
+                  setDrawerOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="text-2xl font-light text-white/90 hover:text-[#0052FF] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link)}
+                className="text-2xl font-light text-white/90 hover:text-[#0052FF] transition-colors"
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </nav>
 

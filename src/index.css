@@ -941,30 +941,26 @@ body {
 
 .footer-watermark-text {
   font-family: var(--font-head);
-  font-size: clamp(80px, 19vw, 290px);
+  font-size: clamp(72px, 18vw, 270px);
   font-weight: 900;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
   white-space: nowrap;
   line-height: 0.85;
-  /* Strictly black and vibrant electric blue color change across letters */
   background: linear-gradient(
-    90deg,
-    #07070a 0%,
-    #090c14 25%,
-    #002b80 38%,
-    #0052FF 47%,
-    #00D4FF 50%,
-    #0052FF 53%,
-    #002b80 62%,
-    #090c14 75%,
-    #07070a 100%
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 20%,
+    #0052FF 50%,
+    #00D4FF 68%,
+    rgba(255, 255, 255, 0.85) 100%
   );
-  background-size: 200% 100%;
+  background-size: 240% 240%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0, 82, 255, 0.35);
-  animation: footerGlowSweep 5s ease-in-out infinite;
-  opacity: 1;
+  animation: footerGlowSweep 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 45px rgba(0, 82, 255, 0.3));
+  opacity: 0.92;
 }

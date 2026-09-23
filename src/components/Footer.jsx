@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Linkedin, Facebook, Youtube, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import GenfrexLogo from './GenfrexLogo';
 
@@ -13,7 +14,7 @@ export default function Footer({ onOpenQuote }) {
             <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-1">
               READY TO SCALE?
             </span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
+            <h3 className="text-2xl sm:text-4xl font-light text-white tracking-tight">
               Have a project in mind?
             </h3>
           </div>
@@ -44,10 +45,22 @@ export default function Footer({ onOpenQuote }) {
             </h5>
             <ul className="space-y-2.5 text-sm font-light text-[#9A9A9A]">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">About us</a>
+                <Link 
+                  to="/about" 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                  className="hover:text-white transition-colors"
+                >
+                  About us
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Services</a>
+                <Link 
+                  to="/services" 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                  className="hover:text-white transition-colors"
+                >
+                  Services
+                </Link>
               </li>
               <li>
                 <a href="#works" className="hover:text-white transition-colors">Portfolio</a>
@@ -129,14 +142,17 @@ export default function Footer({ onOpenQuote }) {
           </div>
         </div>
 
-        {/* ── 05: GIANT ANIMATED WATERMARK: GENFREX (ONLY LETTERS CHANGE COLOR IN BLUE & BLACK) ── */}
+        {/* ── 05: GIANT AGENCY SIGNATURE WATERMARK: GENFREX ── */}
         <div
-          className="relative py-10 sm:py-16 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+          className="relative py-12 sm:py-20 flex flex-col items-center justify-center pointer-events-none select-none overflow-hidden"
           aria-hidden="true"
         >
-          {/* Giant Genfrex Typography with Black & Blue Letter Color Sweep */}
-          <div className="footer-watermark-wrapper">
-            <span className="footer-watermark-text">Genfrex</span>
+          {/* Ambient Radial Blue Backlight */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[900px] h-[180px] bg-gradient-to-r from-blue-600/15 via-[#0052FF]/30 to-cyan-400/20 blur-[100px] rounded-full pointer-events-none" />
+
+          {/* Master Typography */}
+          <div className="footer-watermark-wrapper relative z-10 text-center">
+            <span className="footer-watermark-text tracking-tighter">GENFREX</span>
           </div>
         </div>
 
