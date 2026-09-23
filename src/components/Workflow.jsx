@@ -177,10 +177,7 @@ export default function Workflow() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="eyebrow !mb-0">Client Workflow</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider bg-[#0052FF]/15 text-[#0052FF] border border-[#0052FF]/30">
-                <span className={`w-1.5 h-1.5 rounded-full bg-[#0052FF] ${isHovered ? '' : 'animate-ping'}`} />
-                {isHovered ? 'PAUSED ON HOVER' : 'AUTO-ADVANCING'}
-              </span>
+          
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight">
               From first conversation to <span className="font-normal text-white">measurable growth.</span>
