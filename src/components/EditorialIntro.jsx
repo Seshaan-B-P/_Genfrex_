@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 export default function EditorialIntro() {
-  const shouldReduceMotion = useReducedMotion();
-  const [hoveredIdx, setHoveredIdx] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   const principles = [
     {
@@ -11,96 +9,89 @@ export default function EditorialIntro() {
       title: 'CONNECT',
       description:
         'We make it easier for businesses to find the right digital expertise and skilled professionals for their requirements.',
-      impact: 'BUSINESS × TALENT SYNCHRONIZATION',
+      tag: 'SYNCHRONIZATION',
     },
     {
       number: '02',
       title: 'ENABLE',
       description:
         'We create better opportunities for freelancers, students, fresh graduates, and experienced professionals to showcase their skills and discover meaningful work.',
-      impact: 'MERIT-BASED ACCELERATION',
+      tag: 'ACCELERATION',
     },
     {
       number: '03',
       title: 'GROW',
       description:
         'We believe great results happen when the right people connect with the right opportunities.',
-      impact: 'SUSTAINABLE DIGITAL IMPACT',
+      tag: 'MOMENTUM',
     },
   ];
 
   return (
     <section
       id="philosophy"
-      className="py-28 md:py-36 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
     >
-      {/* Subtle Background Electric Blue Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052FF]/[0.035] rounded-full blur-[180px] pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Editorial Eyebrow */}
-        <div className="flex items-center gap-3 mb-12 md:mb-16">
-          <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold">
-            01 — PHILOSOPHY &amp; MANDATE
-          </span>
-          <div className="h-[1px] w-12 bg-[#0052FF]" />
+        {/* Eyebrow & Title */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/[0.08] pb-8">
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold font-mono">
+                01 — PHILOSOPHY &amp; MANDATE
+              </span>
+              <div className="h-[1px] w-12 bg-[#0052FF]" />
+            </div>
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
+              THE GOVERNING MANDATE.
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-[#888888] font-light max-w-xs leading-relaxed">
+            Three principles steering every digital project, talent match, and collaboration.
+          </p>
         </div>
 
-        {/* Section Headline */}
-        <div className="max-w-4xl mb-16 md:mb-24">
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-white">
-            THE GOVERNING PRINCIPLES <br />
-            BEHIND THE <span className="text-[#0052FF]">GENFREX ECOSYSTEM.</span>
-          </h2>
-        </div>
-
-        {/* Principles — Non-Card, Editorial Typography Stack */}
-        <div className="space-y-6 md:space-y-10">
-          {principles.map((item, idx) => {
-            const isActive = hoveredIdx === idx;
+        {/* Minimal 3-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {principles.map((p, idx) => {
+            const isActive = activeIdx === idx;
 
             return (
-              <motion.div
-                key={item.number}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{
-                  duration: shouldReduceMotion ? 0.01 : 0.6,
-                  delay: idx * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className={`transition-all duration-500 border-b border-white/[0.08] pb-10 md:pb-14 cursor-default ${
-                  isActive ? 'opacity-100' : 'opacity-40 hover:opacity-80'
+              <div
+                key={p.number}
+                onMouseEnter={() => setActiveIdx(idx)}
+                className={`p-6 sm:p-8 bg-[#0A0A0A] border transition-all duration-300 flex flex-col justify-between ${
+                  isActive
+                    ? 'border-[#0052FF] shadow-[0_0_20px_rgba(0,82,255,0.15)]'
+                    : 'border-white/10 hover:border-white/25'
                 }`}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-baseline">
-                  {/* Step Number */}
-                  <div className="lg:col-span-2">
-                    <span className="text-sm sm:text-base font-mono tracking-widest text-[#0052FF]">
-                      0{idx + 1} &mdash;
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-[#0052FF]">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[10px] font-mono text-[#666666] uppercase">
+                      {p.tag}
                     </span>
                   </div>
 
-                  {/* Principle Title in Massive Editorial Typography */}
-                  <div className="lg:col-span-4">
-                    <h3 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight">
-                      {item.title}
-                    </h3>
-                    <span className="text-[11px] font-mono tracking-[0.2em] text-[#666666] uppercase mt-2 block">
-                      {item.impact}
-                    </span>
-                  </div>
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">
+                    {p.title}
+                  </h3>
 
-                  {/* Editorial Description */}
-                  <div className="lg:col-span-6">
-                    <p className="text-base sm:text-lg md:text-xl text-[#A0A0A0] font-light leading-relaxed max-w-xl">
-                      {item.description}
-                    </p>
-                  </div>
+                  <p className="text-xs sm:text-sm text-[#A0A0A0] font-light leading-relaxed">
+                    {p.description}
+                  </p>
                 </div>
-              </motion.div>
+
+                <div className="mt-8 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-[#666666]">
+                  <span>PRINCIPLE</span>
+                  <span className={isActive ? 'text-[#0052FF]' : 'text-[#555555]'}>
+                    {isActive ? 'ACTIVE FOCUS' : 'CORE'}
+                  </span>
+                </div>
+              </div>
             );
           })}
         </div>

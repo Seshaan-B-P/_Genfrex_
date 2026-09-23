@@ -1,208 +1,262 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Play, ArrowLeft, ArrowRight } from 'lucide-react';
 
-export default function Testimonials() {
-  const shouldReduceMotion = useReducedMotion();
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+const talksData = [
+  {
+    name: 'Pugazh',
+    role: 'Actor & Comedian',
+    videoId: '1fa64Pzjrcs',
+    thumb: 'https://img.youtube.com/vi/1fa64Pzjrcs/maxresdefault.jpg'
+  },
+  {
+    name: 'VTV Ganesh',
+    role: 'Actor & Producer',
+    videoId: 'STrAkUfE2S0',
+    thumb: 'https://img.youtube.com/vi/STrAkUfE2S0/maxresdefault.jpg'
+  },
+  {
+    name: 'K. S. Suchitra',
+    role: 'Actor',
+    videoId: '5FjE2gcsHbU',
+    thumb: 'https://img.youtube.com/vi/5FjE2gcsHbU/maxresdefault.jpg'
+  },
+  {
+    name: 'Vivek',
+    role: 'Actor & Model',
+    videoId: 'dGvd8OddLSA',
+    thumb: 'https://img.youtube.com/vi/dGvd8OddLSA/maxresdefault.jpg'
+  },
+  {
+    name: 'Mohan Ram',
+    role: 'Actor',
+    videoId: '0Wbp8GPJkCw',
+    thumb: 'https://img.youtube.com/vi/0Wbp8GPJkCw/maxresdefault.jpg'
+  },
+  {
+    name: 'Delhi Ganesh',
+    role: 'Actor',
+    videoId: '6fHCK-fcYIg',
+    thumb: 'https://img.youtube.com/vi/6fHCK-fcYIg/maxresdefault.jpg'
+  },
+  {
+    name: 'Sumaya',
+    role: 'Actor & Model',
+    videoId: 'C9r7jfIHx6k',
+    thumb: 'https://img.youtube.com/vi/C9r7jfIHx6k/maxresdefault.jpg'
+  },
+  {
+    name: 'Chitra Kumar',
+    role: 'Actor',
+    videoId: '4k3mKAMRb2M',
+    thumb: 'https://img.youtube.com/vi/4k3mKAMRb2M/maxresdefault.jpg'
+  }
+];
 
-  // Ecosystem perspectives / community conversations clearly documented
-  const talks = [
-    {
-      id: 1,
-      name: 'Pugazh',
-      role: 'Actor & Collaborator',
-      quote:
-        'The energetic digital execution and visual craft GENFREX brings to modern audiences is truly impactful. A dynamic team that understands connection.',
-      image:
-        'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop',
-      domain: 'MEDIA & COLLABORATION',
-      hasVideo: true,
-    },
-    {
-      id: 2,
-      name: 'Marcus Vance',
-      role: 'Technology Lead, BPS Global',
-      quote:
-        'They didn’t just build a web platform; they established an agile digital workflow that connected our engineering requirements directly to skilled talent.',
-      image:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
-      domain: 'PLATFORM ENGINEERING',
-      hasVideo: true,
-    },
-    {
-      id: 3,
-      name: 'Dr. Elena Rostova',
-      role: 'Operations Director, EEGA Foundation',
-      quote:
-        'From high-load CRM portals to dependable developer talent, GENFREX delivers transparent outcomes and seamless collaboration.',
-      image:
-        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop',
-      domain: 'ENTERPRISE CRM & TALENT',
-      hasVideo: false,
-    },
-  ];
+export default function Testimonials({ onOpenVideo }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = talksData.length;
+  const [isHovered, setIsHovered] = useState(false);
+  const isInteractingRef = useRef(false);
+  const interactionTimerRef = useRef(null);
+  const touchStartX = useRef(null);
+  const mouseStartX = useRef(null);
 
-  const handlePrev = () => {
-    setActiveIdx((prev) => (prev === 0 ? talks.length - 1 : prev - 1));
+  // Pause auto-scroll temporarily during manual interactions
+  const pauseTemporarily = useCallback((duration = 4000) => {
+    isInteractingRef.current = true;
+    if (interactionTimerRef.current) clearTimeout(interactionTimerRef.current);
+    interactionTimerRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, duration);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    pauseTemporarily();
+    setActiveIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total, pauseTemporarily]);
+
+  const nextSlide = useCallback(() => {
+    pauseTemporarily();
+    setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  }, [total, pauseTemporarily]);
+
+  // Automatic horizontal scrolling
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      if (!isInteractingRef.current) {
+        setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+      }
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isHovered, total]);
+
+  // Touch navigation
+  const handleTouchStart = (e) => {
+    pauseTemporarily();
+    touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleNext = () => {
-    setActiveIdx((prev) => (prev === talks.length - 1 ? 0 : prev + 1));
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 45) nextSlide();
+    else if (diff < -45) prevSlide();
+    touchStartX.current = null;
   };
 
+  // Mouse drag navigation for desktop
+  const handleMouseDown = (e) => {
+    mouseStartX.current = e.clientX;
+    pauseTemporarily();
+  };
+
+  const handleMouseUp = (e) => {
+    if (mouseStartX.current === null) return;
+    const diff = mouseStartX.current - e.clientX;
+    if (diff > 50) nextSlide();
+    else if (diff < -50) prevSlide();
+    mouseStartX.current = null;
+  };
+
+  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
-      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [prevSlide, nextSlide]);
 
-  const activeTalk = talks[activeIdx];
+  const activeItem = talksData[activeIndex];
 
   return (
-    <section
-      id="talks"
-      className="py-28 md:py-36 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
-    >
-      {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#0052FF]/[0.035] rounded-full blur-[180px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/[0.08] pb-10 mb-16 md:mb-20">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold">
-                10 — TALKS
-              </span>
-              <div className="h-[1px] w-12 bg-[#0052FF]" />
-            </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
-              TALKS
-            </h2>
-            <p className="text-sm font-mono tracking-widest text-[#A0A0A0] uppercase mt-2">
-              PEOPLE. EXPERIENCES. PERSPECTIVES.
-            </p>
-          </div>
-
-          {/* Stepper Controls: ← 01 / 03 → */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={handlePrev}
-              data-cursor="hover"
-              aria-label="Previous Talk"
-              className="w-11 h-11 border border-white/15 hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white flex items-center justify-center transition-all duration-300 rounded-none"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <span className="font-mono text-sm tracking-widest text-white px-2">
-              0{activeIdx + 1} / 0{talks.length}
-            </span>
-
-            <button
-              onClick={handleNext}
-              data-cursor="hover"
-              aria-label="Next Talk"
-              className="w-11 h-11 border border-white/15 hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white flex items-center justify-center transition-all duration-300 rounded-none"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0A0A0A] overflow-hidden" id="talks">
+      <div className="max-w-[1320px] mx-auto">
+        {/* Header */}
+        <div className="section-head center mb-14 text-center">
+          <span className="eyebrow block mb-2">Testimonials</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white">
+            Hear it straight from the Hearts
+          </h2>
         </div>
 
-        {/* 3D Coverflow Container */}
-        <div className="relative flex justify-center items-center py-6 min-h-[460px] perspective-[1200px]">
-          <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#0A0A0A] border border-white/10 p-8 md:p-12 transition-all duration-500 hover:border-[#0052FF]">
-            {/* Visual Column / Media */}
-            <div className="md:col-span-5 relative aspect-[4/3] sm:aspect-square overflow-hidden bg-[#111111] group">
-              <img
-                src={activeTalk.image}
-                alt={activeTalk.name}
-                loading="lazy"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+        {/* 3D Coverflow Container with Auto-scroll */}
+        <div
+          className="vtesti select-none"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            mouseStartX.current = null;
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="vtesti-stage">
+            {talksData.map((talk, idx) => {
+              // Calculate circular distance relative to activeIndex
+              let d = idx - activeIndex;
+              while (d > total / 2) d -= total;
+              while (d < -total / 2) d += total;
 
-              {activeTalk.hasVideo && (
-                <button
-                  onClick={() => setLightboxOpen(true)}
-                  data-cursor="play"
-                  aria-label="Play Talk Video"
-                  className="absolute inset-0 m-auto w-14 h-14 bg-black/70 hover:bg-[#0052FF] text-white flex items-center justify-center transition-all duration-300 border border-white/20 hover:scale-105"
+              let positionClass = '';
+              if (d === 0) positionClass = 'is-active';
+              else if (d === -1) positionClass = 'is-prev';
+              else if (d === 1) positionClass = 'is-next';
+              else if (d === -2) positionClass = 'is-prev-2';
+              else if (d === 2) positionClass = 'is-next-2';
+
+              return (
+                <article
+                  key={idx}
+                  className={`vtesti-slide ${positionClass}`}
+                  data-cursor={d === 0 ? "play" : "hover"}
+                  onClick={() => {
+                    if (d !== 0) {
+                      setActiveIndex(idx);
+                    }
+                  }}
+                  aria-label={`${talk.name} — ${talk.role}`}
                 >
-                  <Play className="w-5 h-5 fill-current ml-0.5" />
-                </button>
-              )}
+                  <div className="vtesti-media">
+                    <img
+                      src={talk.thumb}
+                      alt={talk.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
 
-              <div className="absolute bottom-3 left-3 bg-black/80 px-2.5 py-1 text-[10px] font-mono tracking-wider text-white border border-white/10">
-                {activeTalk.domain}
-              </div>
-            </div>
+                    {/* Central Play Button on Active Card */}
+                    <button
+                      className="vtesti-play"
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenVideo(
+                          `https://www.youtube.com/embed/${talk.videoId}?autoplay=1`,
+                          `${talk.name} — ${talk.role}`
+                        );
+                      }}
+                      aria-label={`Play testimonial video of ${talk.name}`}
+                    >
+                      <Play size={28} className="ml-1 fill-white" />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
 
-            {/* Quote and Metadata Column */}
-            <div className="md:col-span-7 space-y-6">
-              <span className="text-4xl text-[#0052FF] font-serif leading-none block">
-                &ldquo;
-              </span>
+          {/* Active Card Caption in the Center */}
+          <div className="vtesti-cap mt-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-light text-white mb-1">
+              {activeItem.name}
+            </h3>
+            <span className="text-sm text-[#9A9A9A] font-light">
+              {activeItem.role}
+            </span>
+          </div>
 
-              <p className="font-display font-medium text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
-                {activeTalk.quote}
-              </p>
+          {/* Dots Pagination */}
+          <div className="vtesti-dots" role="tablist" aria-label="Choose a testimonial video">
+            {talksData.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setActiveIndex(idx)}
+                className={`vtesti-dot ${activeIndex === idx ? 'is-on' : ''}`}
+                aria-label={`Go to slide ${idx + 1}`}
+                aria-selected={activeIndex === idx}
+              />
+            ))}
+          </div>
 
-              <div className="pt-4 border-t border-white/[0.08]">
-                <h4 className="font-display font-bold text-base text-white tracking-wide">
-                  {activeTalk.name}
-                </h4>
-                <p className="text-xs sm:text-sm text-[#0052FF] font-mono mt-0.5">
-                  {activeTalk.role}
-                </p>
-              </div>
-            </div>
+          {/* Prev / Next Navigation Arrows */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="carousel-btn"
+              aria-label="Previous video"
+            >
+              <ArrowLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="carousel-btn"
+              aria-label="Next video"
+            >
+              <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Video Modal Lightbox */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-6"
-            onClick={() => setLightboxOpen(false)}
-          >
-            <div
-              className="relative max-w-3xl w-full bg-[#0A0A0A] border border-white/20 p-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setLightboxOpen(false)}
-                className="absolute -top-12 right-0 text-white hover:text-[#0052FF] transition-colors p-2"
-                aria-label="Close Modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <div className="aspect-video w-full bg-black flex items-center justify-center text-white">
-                <div className="text-center p-6 space-y-3">
-                  <Play className="w-12 h-12 text-[#0052FF] mx-auto animate-pulse" />
-                  <p className="font-display font-bold text-lg text-white">
-                    {activeTalk.name} &mdash; {activeTalk.domain}
-                  </p>
-                  <p className="text-xs text-[#A0A0A0] font-mono">
-                    Video Stream &bull; GENFREX Talks Archive
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

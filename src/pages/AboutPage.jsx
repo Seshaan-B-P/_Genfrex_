@@ -1,117 +1,663 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Target, Shield, Zap, Sparkles } from 'lucide-react';
+import {
+  Sparkles,
+  Target,
+  Compass,
+  ArrowRight,
+  ArrowDown,
+  Zap,
+  Users,
+  Globe,
+  Layers,
+  CheckCircle2,
+  Infinity as InfinityIcon,
+  TrendingUp,
+  Cpu,
+  Linkedin,
+  Shield,
+  ShieldCheck,
+  Lock
+} from 'lucide-react';
 
 export default function AboutPage() {
-  const values = [
+  const whyGenfrex = [
     {
       num: "01",
-      title: "Anti-Commodity Craft",
-      desc: "In an internet inundated with duplicated templates and lazy AI boilerplate, we champion intentional design, mathematical typography, and code written with purpose."
+      title: "One Digital Ecosystem",
+      desc: "Digital services and talent solutions under one unified ecosystem, breaking down traditional silos between strategy and execution."
     },
     {
       num: "02",
-      title: "Zero-Latency Architecture",
-      desc: "Performance is not an afterthought; it is fundamental to the user's emotional experience. We engineer every system for instant responsiveness and horizontal elasticity."
+      title: "AI-Ready",
+      desc: "Our approach considers the growing role of AI, LLMs and AI-powered search engines, ensuring your brand stays visible."
     },
     {
       num: "03",
-      title: "Talent as Leverage",
-      desc: "A great engineer or product strategist does not perform at 1.5x—they perform at 10x. We connect organizations exclusively with autonomous senior operators who execute with velocity."
+      title: "Flexible Engagement",
+      desc: "Choose project-based, monthly or customized engagement models tailored strictly to your current business objectives."
     },
     {
       num: "04",
-      title: "Radical Transparency",
-      desc: "No corporate posturing or vanity roadmaps. We operate with open runbooks, empirical telemetry, and honest peer collaboration."
+      title: "Customized Solutions",
+      desc: "Solutions designed according to the unique requirements, scope, budget, and technology stack of each individual business."
+    },
+    {
+      num: "05",
+      title: "Talent + Technology",
+      desc: "Connect verified digital talent with modern technology-driven business requirements for rapid, high-quality execution."
+    },
+    {
+      num: "06",
+      title: "Growth-Focused",
+      desc: "Our unwavering objective is to create digital platforms and campaigns that actively support sustainable, measurable growth."
+    }
+  ];
+
+  const operationalStandards = [
+    "Clear project requirements",
+    "Defined deliverables & scopes",
+    "Professional communication",
+    "Structured workflows",
+    "Quality checks & timely execution",
+    "Performance monitoring",
+    "Continuous improvement"
+  ];
+
+  const techAiFocus = [
+    "Artificial Intelligence & LLMs",
+    "AI Search & Automation",
+    "Digital Analytics & Tracking",
+    "Modern Web & SEO Technologies",
+    "Cloud-Based Platforms",
+    "Digital Productivity Tools"
+  ];
+
+  const pillars = [
+    {
+      icon: Globe,
+      title: "Digital Presence & Visibility",
+      desc: "Comprehensive multi-channel strategies, high-ranking SEO, and organic authority to ensure your brand gets discovered by the right audience."
+    },
+    {
+      icon: Cpu,
+      title: "Technology Solutions",
+      desc: "Modern, high-performance web applications, mobile platforms, and automated digital systems engineered for reliability and scalability."
+    },
+    {
+      icon: Users,
+      title: "Skilled Digital Talent",
+      desc: "On-demand access to verified, specialized freelancers, designers, marketers, and developers ready to execute with precision."
+    },
+    {
+      icon: TrendingUp,
+      title: "Sustainable Digital Growth",
+      desc: "Data-driven performance campaigns and conversion frameworks designed to deliver compounding returns over time."
+    }
+  ];
+
+  const directors = [
+    {
+      name: "Dharshan",
+      role: "Director",
+      image: "",
+      linkedin: "https://www.linkedin.com/in/dharshanselvaraj/"
+    }
+  ];
+
+  const managers = [
+    {
+      name: "Deepak",
+      role: "HR Head",
+      image: "",
+      linkedin: "https://linkedin.com"
+    },
+    {
+      name: "Arun Kumar",
+      role: "SEO Specialist",
+      image: "",
+      linkedin: "https://www.linkedin.com/in/arun-kumar-seo-/"
+    },
+    {
+      name: "Anisha",
+      role: "People Operations Head",
+      image: "",
+      linkedin: "https://www.linkedin.com/in/anisha-palanisamy05/"
+    },
+    {
+      name: "Seshaan",
+      role: "Technical Head",
+      image: "",
+      linkedin: "https://www.linkedin.com/in/seshaanbp/"
     }
   ];
 
   return (
-    <div className="pt-32 md:pt-44 pb-28 px-6 md:px-12 bg-[#050505] text-[#F5F5F5]">
-      <div className="max-w-7xl mx-auto">
-        {/* Page Header */}
-        <div className="border-b border-white/[0.08] pb-12 mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-medium">
-              01 — STUDIO MANIFESTO
-            </span>
-            <div className="h-[1px] w-12 bg-[#0052FF]" />
+    <div className="bg-[#070709] text-[#FFFFFF] min-h-screen pt-28 md:pt-36 pb-24 px-4 sm:px-6 relative overflow-hidden">
+      {/* Background Multi-Color Ambient Glows */}
+      <div
+        className="absolute top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] h-[350px] bg-gradient-to-r from-blue-600/15 via-[#0052FF]/20 to-cyan-500/10 blur-[120px] pointer-events-none rounded-full"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/2 right-[-10%] w-[450px] h-[450px] bg-[#0052FF]/15 blur-[130px] pointer-events-none rounded-full"
+        aria-hidden="true"
+      />
+
+      <div className="max-w-[1200px] mx-auto relative z-10 space-y-24 md:space-y-32">
+
+        {/* ── 01: HERO / WHO WE ARE HEADER ── */}
+        <section className="text-center max-w-4xl mx-auto pt-4 md:pt-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-white/80 mb-6 backdrop-blur-md">
+            <Sparkles size={13} className="text-[#0052FF]" />
+            <span>ABOUT GENFREX</span>
           </div>
 
-          <h1 className="font-display font-extrabold text-hero text-white tracking-tight leading-none mb-8">
-            ENGINEERING & ARTISTRY.
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-8">
+            Digital Solutions, Technology & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] to-[#0052FF]">Skilled Talent</span>
           </h1>
 
-          <p className="text-neutral-300 font-light text-xl md:text-3xl max-w-4xl leading-relaxed">
-            GENFREX was created on a single uncompromising thesis: that high-growth businesses achieve greatness only when elite software engineering, cinematic aesthetics, and specialized human talent operate as one connected organism.
-          </p>
-        </div>
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0E1015]/80 border border-white/10 shadow-2xl backdrop-blur-md text-left relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#00D4FF] to-[#0052FF]" />
 
-        {/* Narrative Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-28 border-b border-white/[0.08] pb-20">
-          <div className="lg:col-span-5">
-            <span className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase block mb-4">
-              ORIGIN & PURPOSE
+            <span className="text-xs font-semibold tracking-widest text-[#00D4FF] uppercase block mb-3">
+              WHO WE ARE
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight">
-              Moving ambitious enterprises beyond template mediocrity.
+            <p className="text-lg sm:text-2xl text-white/90 font-light leading-relaxed mb-6">
+              <strong className="font-semibold text-white">GENFREX</strong> is a digital growth and talent ecosystem designed to connect businesses with the right digital solutions, technology, and talent.
+            </p>
+            <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+              We help businesses build their digital presence, improve their online visibility, develop technology solutions, and access skilled digital professionals for their evolving needs.
+            </p>
+
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-3">
+              {['Digital Presence', 'Online Visibility', 'Technology Solutions', 'Skilled Freelancers', 'Sustainable Growth'].map((tag) => (
+                <span key={tag} className="text-xs px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80">
+                  ✓ {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 02: DUAL VISION & MISSION (RADICALSTART STYLE CARDS) ── */}
+        <section>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
+              OUR GUIDING NORTH STAR
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+              Vision & Mission
             </h2>
           </div>
 
-          <div className="lg:col-span-7 space-y-6 text-neutral-400 font-light text-base md:text-lg leading-relaxed">
-            <p>
-              Most digital agencies build ephemeral websites that decay within eighteen months. Most staffing platforms distribute untested resumes. We recognized the profound deficit in modern software: the gap between cinematic storytelling and rigorous distributed cloud architecture.
-            </p>
-            <p>
-              GENFREX connects all three dimensions: the strategic roadmap that defines what to build, the multidisciplinary execution team that delivers it, and the specialized talent ecosystem that scales it indefinitely.
-            </p>
-          </div>
-        </div>
-
-        {/* Core Principles Grid */}
-        <div className="mb-28">
-          <div className="flex items-center gap-3 mb-12">
-            <span className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase">
-              // OPERATIONAL PRINCIPLES
-            </span>
-            <div className="h-[1px] w-12 bg-brand-blue/30" />
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((v) => (
-              <div key={v.num} className="p-8 md:p-10 border border-white/10 bg-[#08080c] space-y-4">
-                <span className="font-mono text-xs text-brand-blue font-bold tracking-widest">
-                  {v.num}
-                </span>
-                <h3 className="font-display font-bold text-2xl text-white">
-                  {v.title}
+            {/* Vision Card */}
+            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#12141A] to-[#0B0C10] border border-white/10 relative overflow-hidden group hover:border-[#0052FF]/50 transition-all duration-300 shadow-xl">
+              <div className="w-14 h-14 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/20 flex items-center justify-center text-[#00D4FF] mb-6 group-hover:scale-110 transition-transform">
+                <Compass size={28} />
+              </div>
+              <span className="text-xs font-bold tracking-widest text-[#00D4FF] uppercase block mb-3">
+                01 • OUR VISION
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                Creating Limitless Opportunities
+              </h3>
+              <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed">
+                "To build a connected digital ecosystem where businesses, technology, freelancers, and digital talent can create limitless opportunities together."
+              </p>
+            </div>
+
+            {/* Mission Card */}
+            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#12141A] to-[#0B0C10] border border-white/10 relative overflow-hidden group hover:border-[#00D4FF]/50 transition-all duration-300 shadow-xl">
+              <div className="w-14 h-14 rounded-2xl bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center text-[#00D4FF] mb-6 group-hover:scale-110 transition-transform">
+                <Target size={28} />
+              </div>
+              <span className="text-xs font-bold tracking-widest text-[#0052FF] uppercase block mb-3">
+                02 • OUR MISSION
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                Empowering Businesses Everywhere
+              </h3>
+              <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed">
+                "To empower businesses with accessible digital solutions and connect them with the right talent to achieve sustainable digital growth."
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 03: OUR BRAND PHILOSOPHY (GEN + FRE + X) ── */}
+        <section className="relative">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
+              THE FORMULA FOR GROWTH
+            </span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+              Our Brand Philosophy
+            </h2>
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/[0.04] border border-white/10 text-sm md:text-base font-bold text-white">
+              <span className="text-[#FFFFFF]">GEN</span>
+              <span className="text-white/40">+</span>
+              <span className="text-[#0052FF]">FRE</span>
+              <span className="text-white/40">+</span>
+              <span className="text-[#00D4FF]">X</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+            {/* Card 1: GEN (White / Silver from Logo) */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-white/15 hover:border-white/40 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-4xl sm:text-5xl font-black text-[#FFFFFF] tracking-tighter">
+                    GEN
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-semibold">
+                    PILLAR 01
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                  Next Generation
                 </h3>
-                <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
-                  {v.desc}
+                <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+                  Pioneering futuristic digital strategies, AI workflows, and modern web architectures designed to keep brands ahead of market evolutions.
                 </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-white/80 font-medium">
+                <Sparkles size={14} className="text-white" />
+                <span>Next-Gen Innovation</span>
+              </div>
+            </div>
+
+            {/* Card 2: FRE (Electric Royal Blue from Logo) */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-[#0052FF]/25 hover:border-[#0052FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-4xl sm:text-5xl font-black text-[#0052FF] tracking-tighter">
+                    FRE
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-[#0052FF]/10 border border-[#0052FF]/30 text-[#0052FF] font-semibold">
+                    PILLAR 02
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                  Freelancers & Digital Talent
+                </h3>
+                <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+                  Connecting organizations directly with specialized, pre-vetted digital professionals, creatives, and technical builders to scale capabilities dynamically.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-[#0052FF] font-medium">
+                <Users size={14} className="text-[#0052FF]" />
+                <span>High-Caliber Talent Network</span>
+              </div>
+            </div>
+
+            {/* Card 3: X (Luminous Cyan from Logo) */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-[#00D4FF]/25 hover:border-[#00D4FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-4xl sm:text-5xl font-black text-[#00D4FF] tracking-tighter">
+                    X
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/30 text-[#00D4FF] font-semibold">
+                    MULTIPLIER
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                  Limitless Possibilities
+                </h3>
+                <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+                  Connection, Transformation & Execution. The catalyst that turns bold ideas into measurable reality and exponential business outcomes.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-[#00D4FF] font-medium">
+                <InfinityIcon size={14} className="text-[#00D4FF]" />
+                <span>Limitless Execution</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 04: WHAT WE DELIVER (CORE ECOSYSTEM PILLARS) ── */}
+        <section>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
+              COMPREHENSIVE CAPABILITIES
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+              How GENFREX Drives Impact
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {pillars.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-8 rounded-2xl bg-[#0B0C10] border border-white/[0.08] hover:border-white/20 transition-all flex items-start gap-5"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#0052FF]/10 border border-[#0052FF]/20 flex items-center justify-center text-[#00D4FF] flex-shrink-0">
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/70 font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── 09 — OUR UNIQUE VALUE PROPOSITION ── */}
+        <section className="relative">
+          <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#0C0D12] border border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
+                09 — OUR UNIQUE VALUE PROPOSITION
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Connecting Potential. Creating Opportunities.
+              </h2>
+              <p className="text-sm sm:text-base text-white/80 font-light leading-relaxed">
+                Instead of treating digital services and talent as separate requirements, GENFREX creates a connected ecosystem where businesses access both digital solutions and the talent required to execute them.
+              </p>
+            </div>
+
+            {/* Step Flow Diagram */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 relative">
+              {[
+                { step: "01", label: "BUSINESSES", desc: "Vision & Goals" },
+                { step: "02", label: "DIGITAL REQUIREMENTS", desc: "Scope & Objectives" },
+                { step: "03", label: "TECHNOLOGY + TALENT", desc: "Connected Squads" },
+                { step: "04", label: "EXECUTION", desc: "Quality & Milestones" },
+                { step: "05", label: "DIGITAL GROWTH", desc: "Sustainable Scale" }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex flex-col justify-between hover:border-[#0052FF]/50 transition-all text-center relative group"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-mono font-bold text-[#0052FF] px-2 py-0.5 rounded bg-[#0052FF]/10 border border-[#0052FF]/20">
+                      PHASE {item.step}
+                    </span>
+                    {idx < 4 && (
+                      <span className="hidden lg:block text-white/30 text-xs font-mono">→</span>
+                    )}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white tracking-wide mb-1 group-hover:text-[#00D4FF] transition-colors">
+                      {item.label}
+                    </h4>
+                    <p className="text-[11px] text-white/60 font-light">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 08 — WHY GENFREX? ── */}
+        <section>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
+              08 — COMPETITIVE ADVANTAGE
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+              Why GENFREX?
+            </h2>
+            <p className="text-sm sm:text-base text-white/60 font-light">
+              Engineered from the ground up to solve the real bottlenecks of digital expansion.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyGenfrex.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-8 rounded-2xl bg-[#0B0C10] border border-white/[0.08] hover:border-[#0052FF]/40 transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <span className="text-xs font-mono font-semibold text-[#00D4FF] block mb-3">
+                    // {item.num}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#0052FF] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-white/70 font-light leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Call to Connect */}
-        <div className="border border-white/10 bg-[#0c0c10] p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-2 text-center md:text-left">
-            <h3 className="font-display font-bold text-2xl md:text-3xl text-white">
-              Ready to collaborate with the GENFREX ecosystem?
-            </h3>
-            <p className="text-sm font-mono text-neutral-400">
-              We take on a limited number of client engagements each quarter to preserve uncompromising craft.
+        {/* ── 11 & 12 — QUALITY STANDARDS & TECHNOLOGY / AI ── */}
+        <section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 11 — Quality Standards */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0B0C10] border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <ShieldCheck size={20} className="text-[#0052FF]" />
+                  <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase">
+                    11 — QUALITY STANDARDS
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Strict Operational Excellence
+                </h3>
+                <p className="text-sm text-white/70 font-light leading-relaxed mb-6">
+                  Every project at GENFREX is executed under structured operating procedures to guarantee predictability, security, and elite results:
+                </p>
+
+                <div className="space-y-2.5 mb-8">
+                  {operationalStandards.map((std, i) => (
+                    <div key={i} className="flex items-center gap-2.5 text-xs text-white/80 font-light">
+                      <CheckCircle2 size={14} className="text-[#0052FF] flex-shrink-0" />
+                      <span>{std}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Confidentiality Callout */}
+              <div className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex items-start gap-3">
+                <Lock size={18} className="text-[#00D4FF] flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-xs font-bold text-white mb-1 uppercase tracking-wider">
+                    Enterprise Confidentiality
+                  </h4>
+                  <p className="text-xs text-white/60 font-light leading-relaxed">
+                    Client information, business data, project details, and system credentials are handled with strict NDA requirements and bank-grade security protocols.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 12 — Technology & AI */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0B0C10] border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Cpu size={20} className="text-[#00D4FF]" />
+                  <span className="text-xs font-semibold tracking-widest text-[#00D4FF] uppercase">
+                    12 — TECHNOLOGY & AI
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  AI-Powered Digital Workflows
+                </h3>
+                <p className="text-sm text-white/70 font-light leading-relaxed mb-6">
+                  GENFREX focuses on modern digital technologies and AI-enabled workflows to multiply execution velocity while maintaining human discretion:
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                  {techAiFocus.map((focus, i) => (
+                    <div
+                      key={i}
+                      className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono text-white/90 flex items-center gap-2"
+                    >
+                      <span className="text-[#00D4FF]">•</span>
+                      <span>{focus}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* AI Oversight Principle */}
+              <div className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex items-start gap-3">
+                <Sparkles size={18} className="text-[#0052FF] flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-xs font-bold text-white mb-1 uppercase tracking-wider">
+                    AI-Powered Approach with Human Oversight
+                  </h4>
+                  <p className="text-xs text-white/60 font-light leading-relaxed">
+                    AI is deeply integrated into research, analysis, content workflows, and development—always governed by expert human engineers for impeccable quality control.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 05: PEOPLE AT GENFREX (MATCHING RADICALSTART REFERENCE) ── */}
+        <section className="pt-4">
+          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+              People at GENFREX, shaping the future
+            </h2>
+            <p className="text-sm sm:text-base text-white/60 font-light">
+              Happy employees make better products.
             </p>
           </div>
 
-          <Link
-            to="/contact"
-            className="px-8 py-4 bg-white text-black font-mono text-xs tracking-widest uppercase font-semibold hover:bg-neutral-200 transition-colors shrink-0"
-          >
-            START A CONVERSATION &rarr;
-          </Link>
-        </div>
+          <div className="space-y-12 sm:space-y-16">
+            {/* Row 1: Directors */}
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 max-w-4xl mx-auto">
+              {directors.map((member, i) => (
+                <div key={i} className="flex flex-col items-center text-center group w-28 sm:w-32">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-2xl select-none">
+                          {member.name.charAt(0)}
+                        </div>
+                      )}
+                    </div>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-115"
+                        aria-label={`${member.name} LinkedIn`}
+                      >
+                        <Linkedin size={11} className="fill-current" />
+                      </a>
+                    )}
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-white tracking-tight mt-3.5 group-hover:text-[#00D4FF] transition-colors">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs text-white/60 font-light mt-0.5">
+                    {member.role}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: Team Members */}
+            {managers && managers.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 max-w-5xl mx-auto">
+                {managers.map((member, i) => (
+                  <div key={i} className="flex flex-col items-center text-center group w-28 sm:w-32">
+                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
+                        {member.image ? (
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-2xl select-none">
+                            {member.name.charAt(0)}
+                          </div>
+                        )}
+                      </div>
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-115"
+                          aria-label={`${member.name} LinkedIn`}
+                        >
+                          <Linkedin size={11} className="fill-current" />
+                        </a>
+                      )}
+                    </div>
+                    <h4 className="text-sm sm:text-base font-bold text-white tracking-tight mt-3.5 group-hover:text-[#00D4FF] transition-colors">
+                      {member.name}
+                    </h4>
+                    <p className="text-xs text-white/60 font-light mt-0.5">
+                      {member.role}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ── 06: RADICALSTART STYLE CALL TO ACTION ── */}
+        <section className="p-8 sm:p-14 md:p-16 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 text-center relative overflow-hidden shadow-2xl">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#0052FF]/15 blur-[100px] pointer-events-none rounded-full" />
+
+          <span className="text-xs font-semibold tracking-widest text-[#00D4FF] uppercase block mb-3">
+            START YOUR JOURNEY
+          </span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight max-w-3xl mx-auto mb-6">
+            Ready to Connect with the GENFREX Ecosystem?
+          </h2>
+          <p className="text-base sm:text-lg text-white/70 font-light max-w-2xl mx-auto mb-8">
+            Whether you need comprehensive digital transformation, high-impact marketing, or specialized talent, we are here to make it happen.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="btn btn-primary px-8 py-3.5 text-sm font-medium flex items-center gap-2 shadow-lg shadow-[#0052FF]/30"
+            >
+              <span>Get in Touch</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/services"
+              className="btn btn-ghost px-6 py-3.5 text-sm font-medium border-white/15 hover:border-white/40 text-white/90"
+            >
+              Explore Our Services
+            </Link>
+          </div>
+        </section>
+
       </div>
     </div>
   );

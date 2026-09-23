@@ -1,63 +1,122 @@
-import React, { useState } from 'react';
-import Preloader from '../components/Preloader';
+import React, { useState, useEffect } from 'react';
+import { ArrowUp, MessageCircle } from 'lucide-react';
 import Hero from '../components/Hero';
 import AboutStudio from '../components/AboutStudio';
-import Metrics from '../components/Metrics';
-import EditorialIntro from '../components/EditorialIntro';
-import ServicesList from '../components/ServicesList';
+import FounderMessage from '../components/FounderMessage';
 import SelectedWork from '../components/SelectedWork';
-import Marquee from '../components/Marquee';
-import Capabilities from '../components/Capabilities';
-import Process from '../components/Process';
+import AiBanner from '../components/AiBanner';
+import ServicesList from '../components/ServicesList';
 import Clients from '../components/Clients';
 import Testimonials from '../components/Testimonials';
-import FinalCTA from '../components/FinalCTA';
+import Workflow from '../components/Workflow';
+import VideoModal from '../components/VideoModal';
+import QuoteModal from '../components/QuoteModal';
 
-export default function HomePage() {
-  const [preloaderDone, setPreloaderDone] = useState(false);
+export default function HomePage({ isQuoteOpen, setIsQuoteOpen }) {
+  const [videoState, setVideoState] = useState({ isOpen: false, url: '', title: '' });
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleOpenVideo = (url, title = "Cinematic Experience") => {
+    setVideoState({ isOpen: true, url, title });
+  };
+
+  const handleCloseVideo = () => {
+    setVideoState({ isOpen: false, url: '', title: '' });
+  };
+
+  const scrollToWorkflow = () => {
+    const el = document.getElementById('workflow');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <>
-      {/* 00 ─ PRELOADER */}
-      <Preloader onComplete={() => setPreloaderDone(true)} />
+    <main className="bg-[#0A0A0A] text-white min-h-screen relative overflow-hidden">
+      {/* 01 ─ 5N2 MEDIA HERO WITH DUAL AMBIENT BLUE GLOW & SHOWCASE STAGE */}
+      <Hero
+        onOpenVideo={handleOpenVideo}
+        onOpenQuote={() => setIsQuoteOpen(true)}
+      />
 
-      <main className="bg-[#050505]">
-        {/* 01 ─ HERO (DIGITAL EXPERTISE. CONNECTED TALENT. MEANINGFUL GROWTH.) */}
-        <Hero />
+      {/* 02 ─ ABOUT GENFREX (SPLIT TWO-COLUMN WITH OVERLAY TAG) */}
+      <AboutStudio />
 
-        {/* 02 ─ ABOUT GENFREX (WHERE DIGITAL EXPERTISE MEETS THE RIGHT TALENT.) */}
-        <AboutStudio />
+      {/* 03 ─ FOUNDER'S MESSAGE (VIDEO SIDE + LEADERSHIP STATEMENT) */}
+      <FounderMessage
+        onOpenVideo={handleOpenVideo}
+      />
 
-        {/* 03 ─ QUANTITATIVE IMPACT (BUILDING CONNECTIONS. CREATING OPPORTUNITIES.) */}
-        <Metrics />
+      {/* 04 ─ OUR WORKS (HORIZONTAL 16:9 CAROUSEL WITH PREV/NEXT) */}
+      <SelectedWork
+        onOpenVideo={handleOpenVideo}
+      />
 
-        {/* 04 ─ PHILOSOPHY & MANDATE (01 CONNECT, 02 ENABLE, 03 GROW) */}
-        <EditorialIntro />
+      {/* 05 ─ HIGH-IMPACT AGENCY STATEMENT BANNER */}
+      <AiBanner
+        onScrollToWorkflow={scrollToWorkflow}
+      />
 
-        {/* 05 ─ CORE CAPABILITIES (01 → 06 Interactive Services & Deliverables) */}
-        <ServicesList />
+      {/* 06 ─ OUR SERVICES (3-GRID CARDS WITH ICON BADGES) */}
+      <ServicesList
+        onOpenQuote={() => setIsQuoteOpen(true)}
+      />
 
-        {/* 06 ─ ARCHIVE & SELECTED WORK (IDEAS INTO DIGITAL EXPERIENCES.) */}
-        <SelectedWork />
+      {/* 07 ─ OUR CLIENTS (4-COLUMN STATS COUNTERS & LOGO MARQUEE) */}
+      <Clients />
 
-        {/* EDITORIAL MARQUEE TRANSITION */}
-        <Marquee />
+      {/* 09 ─ TALKS (HEAR IT STRAIGHT FROM THE HEARTS - VIDEO STAGE) */}
+      <Testimonials
+        onOpenVideo={handleOpenVideo}
+      />
 
-        {/* 07 ─ CRAFT DOMAINS & WORKFLOW (WHAT WE MASTER: 01 → 09) */}
-        <Capabilities />
+      {/* 10 ─ CLIENT WORKFLOW (9-STEP INTERACTIVE COLLABORATIVE TABS) */}
+      <Workflow />
 
-        {/* 08 ─ METHODOLOGY (HOW WE WORK: 01 → 06 Connected Pipeline) */}
-        <Process />
+      {/* REUSABLE VIDEO MODAL FOR FULL-SCREEN HIGH-DEF PLAYBACK */}
+      <VideoModal
+        isOpen={videoState.isOpen}
+        onClose={handleCloseVideo}
+        videoUrl={videoState.url}
+        title={videoState.title}
+      />
 
-        {/* 09 ─ OUR CLIENTS (BUILDING AN ECOSYSTEM OF OPPORTUNITY) */}
-        <Clients />
+      {/* REUSABLE REQUEST A QUOTE MODAL */}
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+      />
 
-        {/* 10 ─ TALKS (PEOPLE. EXPERIENCES. PERSPECTIVES. 3D Coverflow) */}
-        <Testimonials />
+      {/* FLOATING WHATSAPP CHAT BUTTON */}
+      <a
+        href="https://api.whatsapp.com/send/?phone=9047295361&text=Welcome%20to%20GENFREX%20-%20Where%20ideas%20meet%20impact."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle size={26} className="text-white fill-white" />
+      </a>
 
-        {/* 11 ─ FINAL CTA (THE RIGHT CONNECTION CAN CHANGE WHAT'S POSSIBLE.) */}
-        <FinalCTA />
-      </main>
-    </>
+      {/* BACK TO TOP BUTTON */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className={`back-to-top ${showBackToTop ? 'show' : ''}`}
+        aria-label="Back to top"
+      >
+        <ArrowUp size={20} />
+      </button>
+    </main>
   );
 }

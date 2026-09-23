@@ -1,182 +1,305 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
-import { projects } from '../data/projects';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { ArrowLeft, ArrowRight, Play } from 'lucide-react';
 
-export default function SelectedWork() {
-  const scrollRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
+const worksData = [
+  {
+    id: 1,
+    title: 'AD Films & Commercials',
+    tag: 'Broadcast & OTT',
+    desc: 'Stories that capture attention, spark emotion, and inspire immediate audience action.',
+    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+  },
+  {
+    id: 2,
+    title: 'Digital & Growth Films',
+    tag: 'Digital First',
+    desc: 'Purpose-built video experiences engineered for modern fast-scrolling digital audiences.',
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/1fa64Pzjrcs'
+  },
+  {
+    id: 3,
+    title: 'Corporate Storytelling',
+    tag: 'Brand Vision',
+    desc: 'Authentic narratives that showcase company ethos, technological prowess, and leadership excellence.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/STrAkUfE2S0'
+  },
+  {
+    id: 4,
+    title: 'High-Impact Documentaries',
+    tag: 'Cinematic In-Depth',
+    desc: 'Powerful visual journalism and documentaries uncovering human truth, culture, and transformation.',
+    image: 'https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/5FjE2gcsHbU'
+  },
+  {
+    id: 5,
+    title: 'Social Media Movements',
+    tag: 'Community Engagement',
+    desc: 'Bespoke creative assets crafted to influence algorithms, ignite conversations, and foster brand loyalty.',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dGvd8OddLSA'
+  },
+  {
+    id: 6,
+    title: 'Branding & Visual Identity',
+    tag: 'Strategic Systems',
+    desc: 'Strategic design, motion identity, and multi-channel design systems that command authority.',
+    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1000&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/0Wbp8GPJkCw'
+  }
+];
 
-  // Filter or map projects into verified categories
-  const displayProjects = projects.map((p, idx) => ({
-    ...p,
-    number: `0${idx + 1}`,
-    displayCategory: p.category.toUpperCase().includes('WEB')
-      ? 'WEB'
-      : p.category.toUpperCase().includes('TECH') || p.category.toUpperCase().includes('IOT')
-      ? 'TECHNOLOGY'
-      : p.category.toUpperCase().includes('BRAND')
-      ? 'BRANDING'
-      : p.category.toUpperCase().includes('HEALTH') || p.category.toUpperCase().includes('AI')
-      ? 'DIGITAL EXPERIENCE'
-      : 'WEB',
-  }));
+// Triplicate the data to provide an endless, seamless looping track in both directions
+const carouselItems = [...worksData, ...worksData, ...worksData];
 
-  const handleScroll = (direction) => {
-    if (!scrollRef.current) return;
-    const scrollAmount = direction === 'left' ? -480 : 480;
-    scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+export default function SelectedWork({ onOpenVideo }) {
+  const trackRef = useRef(null);
+  const isHoveredRef = useRef(false);
+  const isInteractingRef = useRef(false);
+  const resumeTimerRef = useRef(null);
+
+  // Drag-to-scroll interaction refs
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftStartRef = useRef(0);
+  const dragDistanceRef = useRef(0);
+
+  // Pause auto-scroll temporarily during manual interactions
+  const pauseTemporarily = useCallback((duration = 3000) => {
+    isInteractingRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, duration);
+  }, []);
+
+  // Initialize scroll position to the center set for seamless bi-directional loop
+  useEffect(() => {
+    const track = trackRef.current;
+    if (track) {
+      const oneThird = track.scrollWidth / 3;
+      track.scrollLeft = oneThird;
+    }
+  }, []);
+
+  // Continuous auto-scroll loop
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let animId;
+    const speed = 0.85; // Smooth cinematic horizontal speed
+
+    const step = () => {
+      if (!isHoveredRef.current && !isInteractingRef.current && !isDraggingRef.current && track) {
+        track.scrollLeft += speed;
+
+        const oneThird = track.scrollWidth / 3;
+        // If scrolled past the second set, wrap back smoothly to the first set
+        if (track.scrollLeft >= oneThird * 2) {
+          track.scrollLeft -= oneThird;
+        } else if (track.scrollLeft <= 5) {
+          // If scrolled backwards to start, wrap forward to middle set
+          track.scrollLeft += oneThird;
+        }
+      }
+      animId = requestAnimationFrame(step);
+    };
+
+    animId = requestAnimationFrame(step);
+
+    const onMouseEnter = () => {
+      isHoveredRef.current = true;
+    };
+    const onMouseLeave = () => {
+      isHoveredRef.current = false;
+    };
+
+    track.addEventListener('mouseenter', onMouseEnter);
+    track.addEventListener('mouseleave', onMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      track.removeEventListener('mouseenter', onMouseEnter);
+      track.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, []);
+
+  // Arrow button navigation
+  const scroll = (direction) => {
+    pauseTemporarily(3500);
+    if (trackRef.current) {
+      const cardWidth = 340 + 24; // medium card width + gap
+      const oneThird = trackRef.current.scrollWidth / 3;
+
+      if (direction === 'left' && trackRef.current.scrollLeft <= oneThird * 0.5) {
+        trackRef.current.scrollLeft += oneThird;
+      } else if (direction === 'right' && trackRef.current.scrollLeft >= oneThird * 2) {
+        trackRef.current.scrollLeft -= oneThird;
+      }
+
+      trackRef.current.scrollBy({
+        left: direction === 'left' ? -cardWidth : cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Drag handling
+  const handleMouseDown = (e) => {
+    isDraggingRef.current = true;
+    dragDistanceRef.current = 0;
+    startXRef.current = e.pageX - trackRef.current.offsetLeft;
+    scrollLeftStartRef.current = trackRef.current.scrollLeft;
+    pauseTemporarily(3000);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current || !trackRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    dragDistanceRef.current = Math.abs(walk);
+    trackRef.current.scrollLeft = scrollLeftStartRef.current - walk;
+
+    const oneThird = trackRef.current.scrollWidth / 3;
+    if (trackRef.current.scrollLeft >= oneThird * 2) {
+      trackRef.current.scrollLeft -= oneThird;
+      scrollLeftStartRef.current -= oneThird;
+    } else if (trackRef.current.scrollLeft <= 10) {
+      trackRef.current.scrollLeft += oneThird;
+      scrollLeftStartRef.current += oneThird;
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+    pauseTemporarily(2000);
+  };
+
+  const handleCardClick = (item) => {
+    // Only open video if user didn't drag
+    if (dragDistanceRef.current < 6) {
+      onOpenVideo(item.videoUrl, item.title);
+    }
   };
 
   return (
-    <section
-      id="work"
-      className="py-28 md:py-36 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mb-12 md:mb-16">
-        {/* Section Heading & Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/[0.08] pb-10">
+    <section className="py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden" id="works">
+      <div className="max-w-[1320px] mx-auto">
+        {/* Section Header with Navigation Arrows */}
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold">
-                03 — ARCHIVE &amp; SELECTED WORK
-              </span>
-              <div className="h-[1px] w-12 bg-[#0052FF]" />
-            </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
-              IDEAS INTO <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-[#0052FF]">
-                DIGITAL EXPERIENCES.
-              </span>
+            <span className="eyebrow">Portfolio</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white">
+              Our Works
             </h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between md:justify-end gap-6">
-            <p className="text-xs sm:text-sm text-[#A0A0A0] font-light max-w-sm leading-relaxed hidden lg:block">
-              A curated archive of high-throughput web applications, brand platforms, and connected digital ecosystems.
-            </p>
-
-            {/* Desktop Navigation Controls */}
-            <div className="hidden md:flex items-center gap-2">
-              <button
-                onClick={() => handleScroll('left')}
-                data-cursor="hover"
-                className="w-11 h-11 border border-white/15 hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white flex items-center justify-center transition-all duration-300 rounded-none"
-                aria-label="Scroll Left"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => handleScroll('right')}
-                data-cursor="hover"
-                className="w-11 h-11 border border-white/15 hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white flex items-center justify-center transition-all duration-300 rounded-none"
-                aria-label="Scroll Right"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <Link
-                to="/work"
-                data-cursor="explore"
-                className="px-5 py-3 border border-white/15 hover:border-[#0052FF] hover:bg-white text-xs font-bold uppercase tracking-wider text-white hover:text-black transition-all duration-300 ml-2 rounded-none"
-              >
-                ALL WORK
-              </Link>
-            </div>
+          <div className="flex items-center gap-3">
+            {/* Manual navigation buttons */}
+            <button
+              type="button"
+              onClick={() => scroll('left')}
+              className="carousel-btn"
+              aria-label="Previous works"
+              title="Previous works"
+            >
+              <ArrowLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll('right')}
+              className="carousel-btn"
+              aria-label="Next works"
+              title="Next works"
+            >
+              <ArrowRight size={18} />
+            </button>
           </div>
         </div>
-      </div>
 
-      {/* Desktop: Horizontal Carousel Track / Mobile: Vertical Stack */}
-      <div className="relative w-full">
-        {/* Subtle Side Fades on Desktop */}
-        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-10" />
-        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-10" />
+        {/* Carousel Container with Sleek Fade Shadows on edges */}
+        <div className="relative">
+          {/* Left & Right Gradient Shadows */}
+          <div className="absolute left-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
 
-        {/* The Track */}
-        <div
-          ref={scrollRef}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="flex flex-col md:flex-row gap-8 md:gap-10 md:overflow-x-auto scrollbar-none px-6 md:px-12 py-2 select-none"
-        >
-          {displayProjects.map((project, idx) => (
-            <div
-              key={project.id || idx}
-              className="w-full md:w-[500px] lg:w-[560px] shrink-0 group flex flex-col justify-between bg-[#0A0A0A] border border-white/10 hover:border-[#0052FF] transition-all duration-500 rounded-none overflow-hidden"
-            >
-              {/* Card Media Container */}
-              <Link
-                to={`/work/${project.slug}`}
-                data-cursor="view"
-                className="relative block aspect-[16/10] overflow-hidden bg-black"
+          {/* Medium Sized Horizontal Auto-scroll Track */}
+          <div
+            ref={trackRef}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={() => pauseTemporarily(4000)}
+            onTouchEnd={() => pauseTemporarily(2000)}
+            className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none pb-4 cursor-grab active:cursor-grabbing select-none"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            {carouselItems.map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="w-[280px] sm:w-[320px] md:w-[340px] flex-shrink-0 flex flex-col bg-[#141416] border border-white/10 rounded-2xl overflow-hidden group hover:border-[#0052FF]/60 hover:shadow-xl hover:shadow-[#0052FF]/10 transition-all duration-300"
               >
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out opacity-85 group-hover:opacity-100"
-                />
-
-                {/* Subtle Overlay Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/20 pointer-events-none" />
-
-                {/* Top Left Number & Category Tag */}
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="px-2.5 py-1 bg-black/80 backdrop-blur-sm text-white font-mono text-[10px] tracking-wider border border-white/15">
-                    {project.number}
-                  </span>
-                  <span className="px-2.5 py-1 bg-[#0052FF] text-white font-mono text-[10px] tracking-wider font-bold">
-                    {project.displayCategory}
-                  </span>
-                </div>
-              </Link>
-
-              {/* Card Meta Content */}
-              <div className="p-6 md:p-8 space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <span className="text-[11px] font-mono tracking-widest text-[#666666] uppercase block">
-                      {project.client}
-                    </span>
-                    <h3 className="font-display font-extrabold text-2xl md:text-3xl text-white tracking-tight group-hover:text-[#0052FF] transition-colors mt-1">
-                      {project.title}
-                    </h3>
+                {/* 16:9 Medium Video Thumbnail */}
+                <div 
+                  className="relative aspect-video overflow-hidden cursor-pointer"
+                  data-cursor="play"
+                  onClick={() => handleCardClick(item)}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-full bg-[#0052FF] text-white flex items-center justify-center shadow-lg shadow-[#0052FF]/40 transform group-hover:scale-110 transition-transform">
+                      <Play size={18} className="ml-0.5 fill-white" />
+                    </div>
                   </div>
-
-                  <Link
-                    to={`/work/${project.slug}`}
-                    data-cursor="view"
-                    className="w-10 h-10 border border-white/15 group-hover:border-[#0052FF] group-hover:bg-[#0052FF] flex items-center justify-center text-white/70 group-hover:text-white transition-all duration-300 shrink-0"
-                  >
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white/90 border border-white/10">
+                      {item.tag}
+                    </span>
+                  </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#A0A0A0] font-light leading-relaxed line-clamp-2">
-                  {project.tagline || project.overview}
-                </p>
-
-                <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-[#666666]">
-                  <span>DELIVERED &bull; {project.year}</span>
-                  <span className="text-white/80 group-hover:text-[#0052FF] transition-colors">
-                    EXPLORE CASE STUDY &rarr;
-                  </span>
+                {/* Medium Card Content */}
+                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-medium text-white mb-1.5 group-hover:text-[#0052FF] transition-colors line-clamp-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-[#9A9A9A] text-xs sm:text-sm font-light leading-relaxed mb-3 line-clamp-2">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCardClick(item)}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#0052FF] hover:text-[#2B73FF] transition-colors mt-auto pt-1"
+                  >
+                    <span>Watch Film</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Mobile CTA */}
-      <div className="md:hidden px-6 mt-8">
-        <Link
-          to="/work"
-          className="w-full py-4 text-center border border-white/20 text-white font-bold text-xs uppercase tracking-widest block"
-        >
-          VIEW ALL CASE STUDIES &rarr;
-        </Link>
       </div>
     </section>
   );
 }
+

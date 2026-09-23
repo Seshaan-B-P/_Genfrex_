@@ -7,7 +7,7 @@ export default function Preloader({ onComplete }) {
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // Check session storage so it doesn't replay on every internal click
+    // Fast minimal preloader (under 0.8s)
     const hasLoaded = sessionStorage.getItem('genfrex_preloader_seen');
     if (hasLoaded) {
       setIsDone(true);
@@ -23,13 +23,12 @@ export default function Preloader({ onComplete }) {
             sessionStorage.setItem('genfrex_preloader_seen', 'true');
             setIsDone(true);
             if (onComplete) onComplete();
-          }, 250);
+          }, 150);
           return 100;
         }
-        const increment = Math.floor(Math.random() * 8) + 4;
-        return Math.min(prev + increment, 100);
+        return prev + 15;
       });
-    }, 45);
+    }, 28);
 
     return () => clearInterval(interval);
   }, [onComplete]);
@@ -40,48 +39,31 @@ export default function Preloader({ onComplete }) {
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 1 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-0 z-50 bg-[#050505] flex flex-col justify-between p-8 md:p-14 select-none pointer-events-auto"
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed inset-0 z-50 bg-[#050505] flex flex-col justify-between p-6 sm:p-10 select-none pointer-events-auto"
       >
-        {/* Top Header */}
-        <div className="flex justify-between items-center text-xs text-[#666666] tracking-[0.25em] uppercase font-medium">
-          <span>GENFREX — STUDIO</span>
-          <span>EST. 2026</span>
+        <div className="flex justify-between items-center text-[10px] text-[#666666] tracking-[0.25em] uppercase font-mono">
+          <span>GENFREX</span>
+          <span>2026</span>
         </div>
 
-        {/* Center Brand Identity */}
-        <div className="space-y-4 max-w-xl">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <GenfrexLogo className="h-16 sm:h-20 md:h-24 w-auto mb-2" />
-          </motion.div>
-          <div className="overflow-hidden">
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xs md:text-sm text-white/90 tracking-[0.25em] uppercase font-semibold"
-            >
-              DIGITAL SERVICES <span className="text-[#0052FF]">×</span> DIGITAL TALENT
-            </motion.p>
-          </div>
+        <div className="space-y-3 max-w-md">
+          <GenfrexLogo className="h-12 sm:h-16 w-auto" />
+          <p className="text-[11px] text-neutral-400 tracking-[0.2em] uppercase font-mono">
+            DIGITAL SERVICES <span className="text-[#0052FF]">×</span> TALENT ECOSYSTEM
+          </p>
         </div>
 
-        {/* Bottom Loading Progress Indicator */}
-        <div className="space-y-3">
-          <div className="flex justify-between items-center text-xs text-[#A0A0A0] tracking-[0.2em] font-medium">
-            <span>INITIALIZING SYSTEM</span>
+        <div className="space-y-2">
+          <div className="flex justify-between items-center text-[10px] font-mono text-[#666666] tracking-wider">
+            <span>INITIALIZING</span>
             <span className="text-[#0052FF] font-semibold">{progress}%</span>
           </div>
-          {/* Thin Progress Line */}
           <div className="w-full h-[1px] bg-white/10 overflow-hidden">
-            <motion.div
+            <div
               style={{ width: `${progress}%` }}
-              className="h-full bg-[#0052FF] transition-all duration-75 shadow-[0_0_10px_rgba(0,82,255,0.8)]"
+              className="h-full bg-[#0052FF] transition-all duration-75"
             />
           </div>
         </div>

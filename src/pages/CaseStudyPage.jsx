@@ -50,7 +50,7 @@ export default function CaseStudyPage() {
         </p>
 
         {/* Project Metadata Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-white/[0.1] font-mono text-xs">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 py-6 border-y border-white/[0.1] font-mono text-xs">
           <div>
             <span className="text-neutral-500 block mb-1 uppercase tracking-wider">CLIENT</span>
             <span className="text-white font-medium">{project.client}</span>
@@ -65,7 +65,11 @@ export default function CaseStudyPage() {
           </div>
           <div>
             <span className="text-neutral-500 block mb-1 uppercase tracking-wider">ROLE</span>
-            <span className="text-brand-blue font-medium">{project.role}</span>
+            <span className="text-[#0052FF] font-medium">{project.role}</span>
+          </div>
+          <div>
+            <span className="text-neutral-500 block mb-1 uppercase tracking-wider">SERVICES USED</span>
+            <span className="text-[#00D4FF] font-medium">{project.servicesUsed || "SEO | Web Development | Digital Marketing | Content | Talent"}</span>
           </div>
         </div>
       </div>
@@ -99,7 +103,7 @@ export default function CaseStudyPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 border-t border-white/[0.08] pt-12">
           {/* Challenge */}
           <div className="space-y-6">
-            <div className="font-mono text-xs tracking-[0.25em] text-red-400 uppercase">
+            <div className="font-mono text-xs tracking-[0.25em] text-[#00D4FF] uppercase">
               02 // THE CHALLENGE
             </div>
             <h3 className="font-display font-bold text-2xl md:text-4xl text-white">

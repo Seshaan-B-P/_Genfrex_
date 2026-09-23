@@ -1,98 +1,98 @@
 export const services = [
   {
     number: "01",
-    id: "digital-strategy",
-    title: "DIGITAL STRATEGY",
-    subtitle: "Architecting sustainable competitive advantage in digital arenas.",
-    summary: "We deconstruct business models, map technological leverage, and engineer digital roadmaps that turn ambiguous objectives into execution engines.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    id: "digital-growth",
+    title: "DIGITAL GROWTH SERVICES",
+    subtitle: "Empowering businesses to improve visibility, optimize search presence, and engage target audiences effectively.",
+    summary: "Helping businesses build visibility, reach their audience and grow online through search engine authority, AI-ready indexing, multi-channel performance, and social discoverability.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Digital Transformation Roadmaps",
-      "Technology Stack Auditing & Selection",
-      "Product-Market Fit Validation",
-      "Ecosystem Modernization Architecture",
-      "Data Governance & AI Readiness"
+      "On-Page, Technical & Off-Page SEO",
+      "AI Search & LLM-Focused Optimization",
+      "Full-Funnel Digital Marketing Strategy",
+      "Social Media SEO & Discoverability",
+      "Keyword Research, Audits & Local SEO"
     ],
-    deliverables: "Strategic Masterplan, Architecture Blueprints, 24-Month Roadmap, Tech Feasibility Matrix"
+    deliverables: "Search Authority Audit, AI-Ready Content Architecture, Multi-Platform Campaign Blueprints, Monthly Growth Telemetry"
   },
   {
     number: "02",
-    id: "web-software",
-    title: "WEB & SOFTWARE",
-    subtitle: "Bespoke digital platforms, high-concurrency systems & cloud engineering.",
-    summary: "From responsive flagships to distributed microservice architectures, we build resilient, high-speed software engineered for zero downtime and exponential scale.",
+    id: "web-technology",
+    title: "WEB & TECHNOLOGY SOLUTIONS",
+    subtitle: "Building robust, scalable, and modern digital infrastructures aligned with business objectives.",
+    summary: "Creating websites, applications and digital experiences that support business goals—from corporate flagships and custom web applications to automated API workflows and ongoing technical support.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Custom Enterprise Web Applications",
-      "High-Throughput API & Microservices",
-      "Distributed Cloud Infrastructure (AWS / GCP)",
-      "Real-Time Data Streaming & WebSockets",
-      "Headless E-commerce & WebGL Flagships"
+      "Corporate & Custom Website Development",
+      "Custom Web Applications & Features",
+      "API Integrations & Automation Workflows",
+      "Website Maintenance & Security Updates",
+      "Hosting, Domain Setup & Live Deployment"
     ],
-    deliverables: "Production Codebase, CI/CD Automated Pipelines, Cloud Infrastructure IaC, API Documentation"
+    deliverables: "Production Codebase, Cloud Hosting Infrastructure, Database Architecture, Performance & Security Audit"
   },
   {
     number: "03",
-    id: "ui-ux-design",
-    title: "UI / UX DESIGN",
-    subtitle: "Intuitive digital products rooted in human ergonomics & visual discipline.",
-    summary: "We design interfaces that eliminate cognitive friction. Every layout, transition, and micro-interaction is composed with mathematical precision and emotional resonance.",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1200&auto=format&fit=crop",
+    id: "talent-solutions",
+    title: "TALENT SOLUTIONS",
+    subtitle: "Connect with verified digital professionals for short-term or project-based requirements.",
+    summary: "Connecting businesses with digital professionals and project-based squads. Need a developer + designer + marketer? GENFREX connects you directly with the skilled talent required to execute.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Design Systems & Tokenized Libraries",
-      "Complex Workflow & Dashboard UX",
-      "Interactive Prototyping & Motion Design",
-      "User Research & Usability Benchmarking",
-      "Multi-Platform Design (Web, iOS, Android, Kiosk)"
+      "Developer Talent (Frontend, Backend, Full-Stack, WP)",
+      "Marketing Talent (SEO, Social, Digital Strategists)",
+      "Creative Talent (Designers, Video Editors, Creators)",
+      "Project-Based Cross-Functional Teams",
+      "Flexible Project or Monthly Allocation"
     ],
-    deliverables: "Comprehensive Figma Design System, Interactive Prototypes, Token Spec Sheet, Usability Audit"
+    deliverables: "Pre-Vetted Talent Dossiers, Rapid Onboarding Framework, Squad SLA Agreements, Deliverable Trackers"
   },
   {
     number: "04",
-    id: "brand-creative",
-    title: "BRAND & CREATIVE",
-    subtitle: "Distinctive brand identities engineered to command attention.",
-    summary: "In a world of commoditized aesthetics, we forge uncompromising brand voices, typographic systems, and visual narratives that stand apart with authority.",
+    id: "content-creative",
+    title: "CONTENT & CREATIVE SERVICES",
+    subtitle: "Creating engaging content and visual assets that strengthen digital communication.",
+    summary: "Creating high-impact content and creative assets that command attention, build brand trust, and drive meaningful engagement across websites, search engines, and social media channels.",
     image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Brand Positioning & Narrative Architecture",
-      "Visual Identity & Typographic Systems",
-      "Creative Direction & Art Direction",
-      "Motion Identity & Sonic Branding",
-      "Packaging, Editorial & Spatial Design"
+      "SEO Blogs, Long-Form Articles & Topic Clusters",
+      "Website & High-Converting Landing Page Content",
+      "Social Media Captions, Strategy & Content Calendars",
+      "Short-Form Video Production (Reels, TikToks)",
+      "Promotional Business Videos & Brand Graphics"
     ],
-    deliverables: "Brand Identity Guidelines, Vector Asset Suite, Motion Brand Kit, Tone-of-Voice Manual"
+    deliverables: "Editorial Content Calendars, Long-Form SEO Copy, Motion & Video Creative Suites, Vector Brand Asset Kits"
   },
   {
     number: "05",
-    id: "digital-marketing",
-    title: "DIGITAL MARKETING",
-    subtitle: "Precision demand generation, growth loops & conversion optimization.",
-    summary: "We eliminate wasteful ad spend by combining qualitative consumer psychology with quantitative tracking and algorithmic conversion rate optimization.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    id: "ai-search-optimization",
+    title: "AI SEARCH & AUTOMATION",
+    subtitle: "Preparing websites and content for the changing AI-driven search ecosystem and LLMs.",
+    summary: "Modern digital technologies and AI-enabled workflows. AI is strategically integrated into research, analysis, content workflows, and development while maintaining human oversight and strict quality control.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Full-Funnel Growth Engineering",
-      "Algorithmic Performance Media & Paid Search",
-      "Technical SEO & Content Authority",
-      "Conversion Rate Optimization (CRO)",
-      "Customer Lifecycle & Retention Automation"
+      "AI Overview & LLM-Focused Optimization",
+      "Entity & Topical Search Architecture",
+      "Structured Content & AI-Friendly Schemas",
+      "Automated Business & Workflow Integrations",
+      "Digital Productivity & AI Tool Deployment"
     ],
-    deliverables: "Growth Engine Dashboard, Campaign Creative Suites, Attribution Models, Automated Email Sequences"
+    deliverables: "AI Overview Visibility Audit, Semantic Schema Architectures, Workflow Automation Blueprints, Entity Knowledge Graph"
   },
   {
     number: "06",
-    id: "talent-staffing",
-    title: "TALENT & STAFFING",
-    subtitle: "Vetted elite digital talent and embedded cross-functional squads.",
-    summary: "We connect high-growth enterprises with top 3% digital talent—from principal cloud architects and design leads to autonomous dedicated product pods.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+    id: "custom-solutions",
+    title: "CUSTOM SOLUTIONS & QUALITY STANDARDS",
+    subtitle: "Tailored engagements backed by operational excellence and strict confidentiality.",
+    summary: "Every business has different requirements. GENFREX creates customized solutions based on objectives, scope, budget, timeline, and tech needs with strict confidentiality for all client data.",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1200&auto=format&fit=crop",
     capabilities: [
-      "Embedded Product Engineering Squads",
-      "Fractional Technology & Design Leadership",
-      "Staff Augmentation (Frontend, Backend, Cloud)",
-      "Rigorous Technical & Cultural Vetting",
-      "Global Compliance & Managed Payroll"
+      "Project-Based Defined Scope Deliverables",
+      "Monthly Continuous Growth & Maintenance",
+      "Structured Workflows & Quality Verification",
+      "Professional Communication & Milestones",
+      "Enterprise Data Confidentiality & Protection"
     ],
-    deliverables: "Pre-Vetted Candidate Dossiers, Structured Trial Periods, Scalable Pod Agreements, SLAs"
+    deliverables: "Transparent Project Scope Document, Service Level Agreements (SLAs), Milestone Sign-Offs, Confidentiality NDA"
   }
 ];

@@ -27,7 +27,8 @@ export const projects = [
       { label: "System Uptime", value: "99.99%" }
     ],
     techStack: ["React 18", "Node.js Microservices", "PostgreSQL", "Tailwind CSS", "Redis Streams", "AWS GovCloud"],
-    deliverables: ["Product Architecture", "Design System & Component Library", "Multi-Tenant CRM Portal", "Automated Compliance Engine"]
+    deliverables: ["Product Architecture", "Design System & Component Library", "Multi-Tenant CRM Portal", "Automated Compliance Engine"],
+    servicesUsed: "Web Development | Talent Solutions | Cloud Architecture"
   },
   {
     id: "bps-events",
@@ -56,7 +57,8 @@ export const projects = [
       { label: "Annual Ticket Gross", value: "$18.5M" }
     ],
     techStack: ["Next.js / React", "WebGL Interactive Canvas", "Go High-Speed Services", "Stripe Connect", "Cloudflare Workers"],
-    deliverables: ["Cinematic Digital Flagship", "WebGL Seat Selector Engine", "Mobile Web Companion PWA", "Backstage Staff Scanner App"]
+    deliverables: ["Cinematic Digital Flagship", "WebGL Seat Selector Engine", "Mobile Web Companion PWA", "Backstage Staff Scanner App"],
+    servicesUsed: "Web Development | Content | Brand Identity"
   },
   {
     id: "agri-nexus",
@@ -85,7 +87,8 @@ export const projects = [
       { label: "Offline Sync Reliability", value: "100%" }
     ],
     techStack: ["React", "Mapbox GL", "Python Data Pipelines", "TimescaleDB", "Tailwind CSS", "IndexedDB Offline Sync"],
-    deliverables: ["Geospatial Field UI", "IoT Ingestion Pipeline", "Predictive Yield Engine", "Field Agronomist Tablet App"]
+    deliverables: ["Geospatial Field UI", "IoT Ingestion Pipeline", "Predictive Yield Engine", "Field Agronomist Tablet App"],
+    servicesUsed: "Web & Software | AI Analytics | Talent Solutions"
   },
   {
     id: "smilecare",
@@ -114,7 +117,8 @@ export const projects = [
       { label: "Digital Records Migrated", value: "120,000+" }
     ],
     techStack: ["React", "TypeScript", "Node.js", "Docker", "HIPAA Compliant AWS", "Tailwind CSS"],
-    deliverables: ["Patient Portal Web App", "Doctor Clinical Console", "Automated SMS/Email Notification Engine", "DICOM Imaging Viewer Integration"]
+    deliverables: ["Patient Portal Web App", "Doctor Clinical Console", "Automated SMS/Email Notification Engine", "DICOM Imaging Viewer Integration"],
+    servicesUsed: "SEO | Web Development | Digital Marketing | Content"
   },
   {
     id: "public-eye",
@@ -143,6 +147,7 @@ export const projects = [
       { label: "Municipal SLA Adherence", value: "96.1%" }
     ],
     techStack: ["React", "FastAPI", "PostGIS / PostgreSQL", "Tailwind CSS", "TensorFlow Lite", "WebSockets"],
-    deliverables: ["Citizen Mobile-First Portal", "Field Crew Dispatch Suite", "Public Transparency Board", "Automated SLA Escalation Engine"]
+    deliverables: ["Citizen Mobile-First Portal", "Field Crew Dispatch Suite", "Public Transparency Board", "Automated SLA Escalation Engine"],
+    servicesUsed: "Web Applications | AI Automation | Talent Solutions"
   }
 ];

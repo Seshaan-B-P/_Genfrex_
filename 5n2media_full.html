@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="5N2 Media — India's AV-first, digital-first advertising agency. Branding, video production, digital marketing &amp; more.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0A0A0A">
+  <title> Turn Attention Into Growth </title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Turn Attention Into Growth">
+  <meta property="og:description"
+    content="5N2 Media is an AV-first, digital-first creative and advertising agency delivering branding, advertising, video production and digital marketing solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://5n2media.com/">
+  <meta property="og:image" content="https://5n2media.com/assets/images/og-image.jpg">
+  <meta property="og:site_name" content="5N2 Media">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="5N2 Media Turn Attention Into Growth | Advertising Agency">
+  <meta name="twitter:description" content="5N2 Media is an AV-first, digital-first creative and advertising agency.">
+  <meta name="twitter:image" content="https://5n2media.com/assets/images/og-image.jpg">
+
+  <!-- YouTube still-image host, used by the portfolio/industries work cards -->
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+
+  <!-- Script CDNs. Content stays hidden until GSAP arrives (see .js [data-reveal]
+       in mainstyle.css), so these handshakes are on the critical render path. -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://unpkg.com">
+
+  <!-- Animation libs load from <head> so the fetch starts before the body is
+       parsed; defer keeps them non-blocking and in order. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+
+  <link rel="stylesheet" href="/assets/css/mainstyle.css">
+  <link rel="stylesheet" href="/assets/css/mainpages.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-852DJDSKZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-852DJDSKZ8');
+  </script>
+
+</head>
+
+<body>
+  <script>
+    // Enable JS-only reveal hiding, with a failsafe: if the animation script
+    // never runs (CDN blocked, error), force-show everything after 2.5s.
+    document.body.classList.add('js');
+    window.__revealFailsafe = setTimeout(function () {
+      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(function (el) {
+        el.style.opacity = '1'; el.style.transform = 'none';
+      });
+    }, 2500);
+  </script>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide container">
+      <nav class="nav">
+        <a href="/" class="brand" aria-label="5N2 Media home">
+          <img src="/assets/images/5n2media-logo.svg" alt="5N2 Media" class="brand-logo" width="47" height="58">
+        </a>
+
+        <div class="nav-links">
+          <a href="/about">About us</a>
+          <a href="/services">Services</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/bts">BTS</a>
+          <a href="/industries">Industries</a>
+          <a href="/index#workflow">Workflow</a>
+          <a href="/contact">Contact us</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="tel:+9047295361" class="btn btn-ghost btn-call"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg> Let's Talk</a>
+          <a href="tel:+9047295361" class="nav-call" aria-label="Call 5N2 Media"><svg viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg> <span>Let's Talk</span></a>
+          <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="/" class="drawer-brand" aria-label="5N2 Media home">
+      <img src="/assets/images/5n2media-logo.svg" alt="5N2 Media" width="47" height="58">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+    <a href="/about">About us</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/bts">BTS</a>
+    <a href="/industries">Industries</a>
+    <a href="/index#workflow">Workflow</a>
+    <a href="/contact">Contact us</a>
+    <a href="/contact" class="btn btn-primary">Let's Talk</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="container">
+      <div class="home-hero">
+        <div class="hero-content">
+          <h1 class="hero-title" data-split>Stories that <span class="accent">move people</span></h1>
+          <p class="hero-sub" data-reveal="up">We craft cinematic experiences that captivate audiences and elevate
+            brands through the power of visual storytelling.</p>
+        </div>
+
+        <div class="hero-stage" data-reveal="up">
+          <span class="hero-glow" aria-hidden="true"></span>
+          <!-- Swap data-embed for your showreel (YouTube/Vimeo) URL -->
+          <div class="hero-video" data-hero-video
+            data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0">
+            <img src="assets/images/home/home-banner-video-52n.webp" alt="5N2 Media cinematic showreel"
+              class="hero-shot" fetchpriority="high">
+            <!-- <button class="hero-play" type="button" aria-label="Play showreel"><i data-lucide="play"></i></button> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="split">
+          <div>
+            <span class="about-sub" data-reveal="up">About 5N2 Media</span>
+            <h2 class="about-title" data-reveal="up">Taking Your Brand Beyond Attention to Action.</h2>
+            <p class="about-text" data-reveal="up">5N2 Media is an AV-First, Digital-First creative agency built on
+              Magically Thoughtful ideas. With over 15 years of experience, we help brands grow through strategy,
+              storytelling and innovation. We specialize in Marketing Strategy, Branding &amp; Advertising and Digital
+              Marketing. Our team creates powerful Video Productions, Brand Films, Commercials and AI-powered content.
+              We plan, execute, and optimize media campaigns across platforms. Every project combines creativity,
+              technology and business thinking. We transform brands into stories and stories into results. Because
+              attention is earned, trust is built and growth is created.</p>
+          </div>
+          <div class="about-figure" data-reveal="right">
+            <img src="assets/images/home/home-5n2-about.webp" alt="Professional cinema camera and lighting equipment"
+              class="about-img" loading="lazy">
+            <span class="about-figure-tag">15+ years of storytelling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FOUNDER'S MESSAGE ======================= -->
+    <section class="section" id="founder">
+      <div class="container">
+        <div class="founder" data-reveal="up">
+          <div class="video-side" data-hero-video
+            data-embed="https://www.youtube.com/embed/kz-5mY62I5w?autoplay=1&amp;rel=0">
+            <button class="play-btn" type="button" aria-label="Play founder's message"><i
+                data-lucide="play"></i></button>
+          </div>
+          <div class="text-side">
+            <h2>Founder’s message</h2>
+            <p class="founder-lead">Technology changes.<br>Platforms evolve.<br>But one question never changes:</p>
+            <blockquote class="founder-quote">“How can we make people feel something?”</blockquote>
+            <p class="founder-body">Because when creativity creates emotion, brands become unforgettable. That belief
+              drives every campaign, every film and every brand experience we create at 5N2 Media.</p>
+            <div class="founder-attribution">
+              <span class="founder-name">Martin James</span>
+              <span class="founder-role">Founder · Agency Head · Director</span>
+            </div>
+            <!-- <span class="signature">Martin</span> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ OUR WORKS ============================ -->
+    <section class="section" id="works">
+      <div class="container">
+        <div class="flex justify-between items-center mb-3" style="flex-wrap:wrap;gap:1rem;">
+          <h2 data-reveal="up">Our Works</h2>
+          <div class="works-nav" data-reveal="up">
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous works"><i
+                data-lucide="arrow-left"></i></button>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Next works"><i
+                data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+        <div class="works-carousel" data-carousel>
+          <div class="works-track" data-carousel-track>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"><a href="portfolio.php?filter=ad-films" class="read-more"><img
+                    src="assets/images/home/our-works/ad-film.webp" alt="AD Film" loading="lazy"></a></div>
+              <div class="work-meta">
+                <h3>AD Films</h3>
+                <p>Stories that capture attention, spark emotion, and inspire action.</p>
+                <a href="portfolio.php?filter=ad-films" class="read-more">Watch <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"><a href="portfolio.php?filter=digital-films" class="read-more"><img
+                    src="assets/images/home/our-works/digital-films.webp" alt="Digital Flims" loading="lazy"></a></div>
+              <div class="work-meta">
+                <h3>Digital Flims</h3>
+                <p>Purpose-built video experiences designed for today’s digital audience.</p>
+                <a href="portfolio.php?filter=digital-films" class="read-more">Watch <i
+                    data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"><a href="portfolio.php?filter=corporate-films" class="read-more"><img
+                    src="assets/images/home/our-works/corporate-films.webp" alt="Corporate Films" loading="lazy"></a>
+              </div>
+              <div class="work-meta">
+                <h3>Corporate Films</h3>
+                <p>Authentic stories that showcase your vision, values, and business excellence.</p>
+                <a href="portfolio.php?filter=corporate-films" class="read-more">Watch <i
+                    data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"><a href="portfolio.php?filter=documentaries"><img
+                    src="assets/images/home/our-works/documentaries.webp" alt="Documentaries" loading="lazy"></a></div>
+              <div class="work-meta">
+                <h3>Documentaries</h3>
+                <p>Powerful visual narratives that uncover truth, culture, and human experiences.</p>
+                <a href="portfolio.php?filter=documentaries" class="read-more">Watch <i
+                    data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"> <a href="portfolio.php" class="read-more"><img
+                    src="assets/images/home/our-works/social-media-content.webp" alt="Social Media Content"
+                    loading="lazy"></a></div>
+              <div class="work-meta">
+                <h3>Social Media Content</h3>
+                <p>Creative content crafted to engage, influence, and grow communities.</p>
+                <a href="portfolio.php" class="read-more">Watch <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="work-card" data-reveal="up">
+              <div class="media" data-ratio="16-9"> <a href="portfolio.php" class="read-more"><img
+                    src="assets/images/home/our-works/branding.webp" alt="Branding" loading="lazy"></a></div>
+              <div class="work-meta">
+                <h3>Branding</h3>
+                <p>Strategic ideas transformed into impactful brand movements across platforms.</p>
+                <a href="portfolio.php" class="read-more">Watch <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= AI-FIRST BANNER ========================= -->
+    <section class="section">
+      <div class="container">
+        <div class="ai-banner" data-reveal="scale">
+          <h2>India’s AV - First , Digital - First Advertising Agency.</h2>
+          <a href="portfolio.php" class="btn btn-ghost mt-4">See how we work <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SERVICES ============================ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal="up">Our Services</span>
+          <h2 data-reveal="up">What we do best.</h2>
+          <p class="lead mt-3" data-reveal="up">We blend strategy, story and technology to grow brands across every
+            channel.</p>
+        </div>
+        <div class="grid grid-3" data-reveal-stagger>
+          <div class="card service-card">
+            <span class="icon-badge"><i data-lucide="megaphone"></i></span>
+            <h3>Brand Marketing</h3>
+            <p>Positioning, identity and campaigns that make your brand impossible to ignore.</p>
+          </div>
+          <div class="card service-card">
+            <span class="icon-badge"><i data-lucide="clapperboard"></i></span>
+            <h3>Video Production</h3>
+            <p>Cinematic ad films, corporate films and social content shot end-to-end in-house.</p>
+          </div>
+          <div class="card service-card">
+            <span class="icon-badge"><i data-lucide="trending-up"></i></span>
+            <h3>Digital Marketing</h3>
+            <p>Performance marketing, SEO and AI-driven campaigns that deliver measurable ROI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= BEHIND THE SCENES ======================= -->
+    <section class="section" id="bts">
+      <div class="container">
+        <div class="section-head bts-head">
+          <div>
+            <span class="eyebrow" data-reveal="up">Behind the scenes</span>
+            <h2 data-reveal="up">Lights, camera… a lot more than just action.</h2>
+          </div>
+          <div class="works-nav" data-reveal="up">
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous slide"><i
+                data-lucide="arrow-left"></i></button>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Next slide"><i
+                data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+        <div class="bts-carousel" data-carousel>
+          <div class="bts-track" data-carousel-track data-reveal-stagger>
+            <a class="bts-slide bts-slide-link" href="bts.php#aa-garden-joker/aa-lift">
+              <img src="assets/images/bts/aa-garden-joker/aa-lift/AAG-Thumbnail.png"
+                alt="AA Garden — Joker — Lift — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">AA Garden — Joker — Lift <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#aa-garden-joker/aa-restroom">
+              <img src="assets/images/bts/aa-garden-joker/aa-restroom/AAG-Thumbnail.png"
+                alt="AA Garden — Joker — Restroom — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">AA Garden — Joker — Restroom <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#aa-garden-life-time-warranty">
+              <img src="assets/images/bts/aa-garden-life-time-warranty/AAG-Thumbnail.webp"
+                alt="AA Garden — Lifetime Warranty — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">AA Garden — Lifetime Warranty <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#ananta-living">
+              <img src="assets/images/bts/ananta-living/Anantas_Living_Thumb.webp"
+                alt="Ananta Living — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Ananta Living <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#casagrand-cheers">
+              <img src="assets/images/bts/casagrand-cheers/Casagrand_Thumbnail.webp"
+                alt="Casagrand Cheers — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Casagrand Cheers <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#ithu-engaloda-paradise">
+              <img src="assets/images/bts/ithu-engaloda-paradise/Paradise_Thumbnail.webp"
+                alt="Ithu Engaloda Paradise — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Ithu Engaloda Paradise <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#life-at-its-best">
+              <img src="assets/images/bts/life-at-its-best/it_s%20best_thumbnail.webp"
+                alt="Life At Its Best — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Life At Its Best <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#sri-baby-properties">
+              <img src="assets/images/bts/sri-baby-properties/Sri-baby-properties_Thumbnail.png"
+                alt="Sri Baby Properties — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Sri Baby Properties <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#ss-brand-rise">
+              <img src="assets/images/bts/ss-brand-rise/SS-Thumbnail.webp" alt="SS Brand Rise — behind the scenes"
+                loading="lazy">
+              <span class="bts-slide-cap">SS Brand Rise <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#sukraa">
+              <img src="assets/images/bts/sukraa/Sukraa_Thumbnail.webp" alt="Sukraa — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Sukraa <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#tour-the-paradise/bangalore">
+              <img src="assets/images/bts/tour-the-paradise/bangalore/TTP-Bangalore.webp"
+                alt="Tour The Paradise — Bangalore — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Tour The Paradise — Bangalore <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#tour-the-paradise/chennai">
+              <img src="assets/images/bts/tour-the-paradise/chennai/TTP-Chennai.webp"
+                alt="Tour The Paradise — Chennai — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Tour The Paradise — Chennai <i data-lucide="arrow-up-right"></i></span>
+            </a>
+            <a class="bts-slide bts-slide-link" href="bts.php#tour-the-paradise/mumbai">
+              <img src="assets/images/bts/tour-the-paradise/mumbai/TTP-Mumbai.webp"
+                alt="Tour The Paradise — Mumbai — behind the scenes" loading="lazy">
+              <span class="bts-slide-cap">Tour The Paradise — Mumbai <i data-lucide="arrow-up-right"></i></span>
+            </a>
+          </div>
+        </div>
+        <div class="bts-foot">
+          <div class="bts-foot-lead">
+            <p>Go behind our sets</p>
+            <a href="bts.php" class="btn btn-light">View full gallery <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CLIENTS ============================ -->
+    <section class="section clients-section">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-reveal="up">Our Clients</span>
+          <h2 class="clients-title" data-reveal="up">Trusted by brands that demand more.</h2>
+          <p class="lead mt-3" style="margin-inline:auto;" data-reveal="up">Our clients are our top priority, and we are
+            committed to providing them with the highest level of service.</p>
+        </div>
+
+        <!-- Animated counters -->
+        <div class="stats-row" data-reveal-stagger>
+          <div class="stat-item">
+            <span class="stat-num"><span data-count="75" data-suffix="+">0</span></span>
+            <span class="stat-label">Clients</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span data-count="200" data-suffix="+">0</span></span>
+            <span class="stat-label">Ad Films</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span data-count="50" data-suffix="+">0</span></span>
+            <span class="stat-label">Corporate Films</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span data-count="100" data-suffix="+">0</span></span>
+            <span class="stat-label">Successful Campaigns</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-width client logo marquee -->
+      <div class="logo-marquee" data-reveal="up">
+        <div class="logo-marquee-track">
+          <div class="logo-cell"><img src="assets/images/home/clients/aa-garden.png" alt="Aa Garden" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ananta-logo.png" alt="Ananta" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/cbr-logo.png" alt="Cbr" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/chettinad-builders.png" alt="Chettinad Builders"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/emami-logo.png" alt="Emami" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/flio-logo.png" alt="Flio" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/flyer-eats.png" alt="Flyer Eats" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/fogger-logo.png" alt="Fogger" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/garam-logo.png" alt="Garam" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/gugan-logo.png" alt="Gugan" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ideal-logo.png" alt="Ideal" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kaalaiyan-logo.png" alt="Kaalaiyan"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kash-kopuram-logo.png" alt="Kash Kopuram"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kukoo-logo.png" alt="Kukoo" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/lakshmi-logo.png" alt="Lakshmi" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/malar-rice-logo.png" alt="Malar Rice"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/mayil-logo.png" alt="Mayil" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/nana-nani-logo.png" alt="Nana Nani"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/nandhi-logo.png" alt="Nandhi" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/sri-baby.png" alt="Sri Baby" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ss-brand-rice.png" alt="Ss Brand Rice"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/sukraa-logo.png" alt="Sukraa" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/tee_na-tea.png" alt="Tee Na Tea" loading="lazy">
+          </div>
+          <div class="logo-cell"><img src="assets/images/home/clients/vigneshwara-logo.png" alt="Vigneshwara"
+              loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ylo-logo.png" alt="Ylo" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/zha-logo.png" alt="Zha" loading="lazy"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/aa-garden.png" alt="Aa Garden" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ananta-logo.png" alt="Ananta" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/cbr-logo.png" alt="Cbr" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/chettinad-builders.png" alt="Chettinad Builders"
+              loading="lazy" aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/emami-logo.png" alt="Emami" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/flio-logo.png" alt="Flio" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/flyer-eats.png" alt="Flyer Eats" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/fogger-logo.png" alt="Fogger" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/garam-logo.png" alt="Garam" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/gugan-logo.png" alt="Gugan" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ideal-logo.png" alt="Ideal" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kaalaiyan-logo.png" alt="Kaalaiyan" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kash-kopuram-logo.png" alt="Kash Kopuram"
+              loading="lazy" aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/kukoo-logo.png" alt="Kukoo" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/lakshmi-logo.png" alt="Lakshmi" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/malar-rice-logo.png" alt="Malar Rice"
+              loading="lazy" aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/mayil-logo.png" alt="Mayil" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/nana-nani-logo.png" alt="Nana Nani" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/nandhi-logo.png" alt="Nandhi" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/sri-baby.png" alt="Sri Baby" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ss-brand-rice.png" alt="Ss Brand Rice"
+              loading="lazy" aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/sukraa-logo.png" alt="Sukraa" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/tee_na-tea.png" alt="Tee Na Tea" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/vigneshwara-logo.png" alt="Vigneshwara"
+              loading="lazy" aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/ylo-logo.png" alt="Ylo" loading="lazy"
+              aria-hidden="true"></div>
+          <div class="logo-cell"><img src="assets/images/home/clients/zha-logo.png" alt="Zha" loading="lazy"
+              aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TESTIMONIAL ============================ -->
+    <!-- <section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-head bts-head">
+      <h2 data-reveal="up">What our customers are saying</h2>
+      <div class="works-nav" data-reveal="up">
+        <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous testimonial"><i data-lucide="arrow-left"></i></button>
+        <button class="carousel-btn" type="button" data-carousel-next aria-label="Next testimonial"><i data-lucide="arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="testi-carousel" data-carousel>
+      <div class="testi-track" data-carousel-track>
+                <div class="testimonial">
+          <div class="testi-media">
+            <img src="assets/images/home/our-customer.png" alt="Vijayakumar Krishnan" loading="lazy">
+            <span class="quote-mark">&#8221;</span>
+          </div>
+          <div class="testi-body">
+            <h3>Help us improving our productivity</h3>
+            <p>5N2 Media understood our vision instantly and turned it into work that genuinely moved our audience. From concept to final delivery, their team brought clarity, creativity and a level of craft that lifted our entire brand.</p>
+            <cite><strong>Vijayakumar Krishnan</strong> Nandhi Mark Foods</cite>
+          </div>
+        </div>
+              <div class="testimonial">
+          <div class="testi-media">
+            <img src="assets/images/home/our-customer.png" alt="Vijayakumar Krishnan" loading="lazy">
+            <span class="quote-mark">&#8221;</span>
+          </div>
+          <div class="testi-body">
+            <h3>A team that truly gets your brand</h3>
+            <p>Working with 5N2 Media felt like an extension of our own team. They listened, they iterated, and they delivered films that our customers still talk about. Genuinely a partnership built on trust and results.</p>
+            <cite><strong>Vijayakumar Krishnan</strong> Nandhi Mark Foods</cite>
+          </div>
+        </div>
+              <div class="testimonial">
+          <div class="testi-media">
+            <img src="assets/images/home/our-customer.png" alt="Vijayakumar Krishnan" loading="lazy">
+            <span class="quote-mark">&#8221;</span>
+          </div>
+          <div class="testi-body">
+            <h3>Storytelling that performs</h3>
+            <p>The campaigns 5N2 Media produced did more than look great — they moved the numbers. Strategy, story and execution all came together to grow our reach far beyond what we expected.</p>
+            <cite><strong>Vijayakumar Krishnan</strong> Nandhi Mark Foods</cite>
+          </div>
+        </div>
+            </div>
+    </div>
+  </div>
+</section> -->
+
+    <!-- ===================== TESTIMONIAL VIDEOS ===================== -->
+    <section class="section" id="video-testimonials">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-reveal="up">Talks</span>
+          <h2 data-reveal="up">Hear it straight from the Hearts</h2>
+        </div>
+
+
+        <div class="vtesti" data-vtesti data-reveal="up">
+          <div class="vtesti-stage" data-vtesti-stage>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/1fa64Pzjrcs?autoplay=1&amp;rel=0">
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/1fa64Pzjrcs/maxresdefault.jpg" alt="Actor &amp; Comedian — Pugazh"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Pugazh</h3>
+                <span>Actor &amp; Comedian</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/STrAkUfE2S0?autoplay=1&amp;rel=0">
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/STrAkUfE2S0/maxresdefault.jpg"
+                  alt="Actor &amp; Producer — VTV Ganesh" loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>VTV Ganesh</h3>
+                <span>Actor &amp; Producer</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/5FjE2gcsHbU?autoplay=1&amp;rel=0">
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/5FjE2gcsHbU/maxresdefault.jpg" alt="Actor — K. S. Suchitra"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>K. S. Suchitra</h3>
+                <span>Actor</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/dGvd8OddLSA?autoplay=1&amp;rel=0">
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/dGvd8OddLSA/maxresdefault.jpg" alt="Actor &amp; Model — Vivek"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Vivek</h3>
+                <span>Actor &amp; Model</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/0Wbp8GPJkCw?autoplay=1&amp;rel=0">
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/0Wbp8GPJkCw/maxresdefault.jpg" alt="Actor — Mohan Ram"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Mohan Ram</h3>
+                <span>Actor</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/6fHCK-fcYIg?autoplay=1&amp;rel=0" data-crop>
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/6fHCK-fcYIg/maxresdefault.jpg" alt="Actor — Delhi Ganesh"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Delhi Ganesh</h3>
+                <span>Actor</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/C9r7jfIHx6k?autoplay=1&amp;rel=0" data-crop>
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/C9r7jfIHx6k/maxresdefault.jpg" alt="Actor &amp; Model — Sumaya"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Sumaya</h3>
+                <span>Actor &amp; Model</span>
+              </div>
+            </article>
+            <article class="vtesti-slide" data-vtesti-slide
+              data-embed="https://www.youtube.com/embed/4k3mKAMRb2M?autoplay=1&amp;rel=0" data-crop>
+              <div class="vtesti-media">
+                <img src="https://img.youtube.com/vi/4k3mKAMRb2M/maxresdefault.jpg" alt="Actor — Chitra Kumar"
+                  loading="lazy">
+                <button class="vtesti-play" type="button" aria-label="Play video"><i data-lucide="play"></i></button>
+              </div>
+              <div class="vtesti-cap">
+                <h3>Chitra Kumar</h3>
+                <span>Actor</span>
+              </div>
+            </article>
+          </div>
+          <div class="vtesti-dots" data-vtesti-dots role="tablist" aria-label="Choose a testimonial video"></div>
+          <div class="works-nav vtesti-nav">
+            <button class="carousel-btn" type="button" data-vtesti-prev aria-label="Previous video"><i
+                data-lucide="arrow-left"></i></button>
+            <button class="carousel-btn" type="button" data-vtesti-next aria-label="Next video"><i
+                data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ WORKFLOW ============================ -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-reveal="up">Client Workflow</span>
+          <h2 data-reveal="up">From first conversation to measurable growth.</h2>
+        </div>
+        <div class="workflow" data-tabs-scope>
+          <div class="steps" data-tabs>
+            <button class="step active" data-tab="insight"><span class="num">01</span>
+              <h4>Insight</h4>
+            </button>
+            <button class="step" data-tab="spark"><span class="num">02</span>
+              <h4>Spark</h4>
+            </button>
+            <button class="step" data-tab="story"><span class="num">03</span>
+              <h4>Story</h4>
+            </button>
+            <button class="step" data-tab="vision"><span class="num">04</span>
+              <h4>Vision</h4>
+            </button>
+            <button class="step" data-tab="action"><span class="num">05</span>
+              <h4>Action</h4>
+            </button>
+            <button class="step" data-tab="craft"><span class="num">06</span>
+              <h4>Craft</h4>
+            </button>
+            <button class="step" data-tab="launch"><span class="num">07</span>
+              <h4>Launch</h4>
+            </button>
+            <button class="step" data-tab="amplify"><span class="num">08</span>
+              <h4>Amplify</h4>
+            </button>
+            <button class="step" data-tab="impact"><span class="num">09</span>
+              <h4>Impact</h4>
+            </button>
+          </div>
+
+          <div class="step-detail" data-tab-panel="insight">
+            <img class="step-detail-img" src="assets/images/home/insight.jpg" alt="Insight gathering" loading="lazy">
+            <h3>Insight</h3>
+            <p class="step-desc">We dive deep into your brand, audience, and market. Understanding the challenge before
+              creating the solution.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="spark" hidden>
+            <img class="step-detail-img" src="assets/images/home/spark.jpg" alt="Spark" loading="lazy">
+            <h3>Spark</h3>
+            <p class="step-desc">We uncover the idea that makes your brand stand out. Finding the spark that ignites
+              attention and interest.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="story" hidden>
+            <img class="step-detail-img" src="assets/images/home/story.jpg" alt="Story development" loading="lazy">
+            <h3>Story</h3>
+            <p class="step-desc">We transform insights into compelling narratives. Creating stories people remember and
+              relate to.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="vision" hidden>
+            <img class="step-detail-img" src="assets/images/home/vision.jpg" alt="Vision planning" loading="lazy">
+            <h3>Vision</h3>
+            <p class="step-desc">We define the visual language and creative direction. Shaping how your story will look
+              and feel.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="action" hidden>
+            <img class="step-detail-img" src="assets/images/home/action.jpg" alt="Action phase" loading="lazy">
+            <h3>Action</h3>
+            <p class="step-desc">We bring ideas to life through production. Turning concepts into powerful visual
+              experiences.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="craft" hidden>
+            <img class="step-detail-img" src="assets/images/home/craft.jpg" alt="Craft execution" loading="lazy">
+            <h3>Craft</h3>
+            <p class="step-desc">We refine every frame, sound, and detail. Ensuring quality, consistency, and impact.
+            </p>
+          </div>
+          <div class="step-detail" data-tab-panel="launch" hidden>
+            <img class="step-detail-img" src="assets/images/home/launch.jpg" alt="Launch" loading="lazy">
+            <h3>Launch</h3>
+            <p class="step-desc">We release your content across the right channels. Making sure your story reaches the
+              right audience.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="amplify" hidden>
+            <img class="step-detail-img" src="assets/images/home/amplify.jpg" alt="Amplify reach" loading="lazy">
+            <h3>Amplify</h3>
+            <p class="step-desc">We boost visibility through media and digital marketing. Expanding reach, engagement,
+              and influence.</p>
+          </div>
+          <div class="step-detail" data-tab-panel="impact" hidden>
+            <img class="step-detail-img" src="assets/images/home/impact.webp" alt="Impact analysis" loading="lazy">
+            <h3>Impact</h3>
+            <p class="step-desc">We measure results and optimize performance. Turning creativity into meaningful
+              business growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cta">
+        <div class="footer-cta-text">
+          <h3>Have a project in mind?</h3>
+        </div>
+        <button class="btn btn-primary" type="button" data-quote-open>Request a Quote <i
+            data-lucide="arrow-right"></i></button>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="/" class="brand" aria-label="5N2 Media home">
+            <img src="assets/images/5n2media-logo.svg" alt="5N2 Media" class="brand-logo" width="47" height="58">
+          </a>
+          <p>5N2 Media has been conceived and created with this in mind. With more than 12 years of experience in
+            advertising, corporate communication, video making, branding, designing, campaigning, analysis, media
+            management and sales.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="/about">About us</a>
+          <a href="/services">Services</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/bts">Behind the shoot</a>
+          <a href="/contact">Contact us</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <p><a href="mailto:genfrexofficial@gmail.com" style="display:inline">genfrexofficial@gmail.com</a></p>
+          <p><a href="tel:+9047295361" style="display:inline">+91 9047295361</a></p>
+          <!-- <p>89, Issac Street, Rathinapuri,<br>Coimbatore – 641027</p> -->
+        </div>
+
+        <div class="footer-col">
+          <h5>Socials</h5>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/5n2media/" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/5n2media" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@5n2Media/videos" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/5n2media" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13A5.92 5.92 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 5N2 Media. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp quick inquiry -->
+  <a class="whatsapp-float"
+    href="https://api.whatsapp.com/send/?phone=9047295361&text=Welcome%20to%205N2%20Media%20-%20Where%20ideas%20meet%20impact.%0A%0AThank%20you%20for%20reaching%20out!%20We%27ll%20get%20back%20to%20you%20soon.%0A%0AFor%20immediate%20assistance%2C%20call%3A%2095850%2088803&type=phone_number&app_absent=0"
+    aria-label="Chat on WhatsApp">
+    <svg width="80px" height="80px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"
+      stroke="#ffffff" transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)" stroke-width="0.00024000000000000003">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+        stroke-width="0.528"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M17.6 6.31999C16.8669 5.58141 15.9943 4.99596 15.033 4.59767C14.0716 4.19938 13.0406 3.99622 12 3.99999C10.6089 4.00135 9.24248 4.36819 8.03771 5.06377C6.83294 5.75935 5.83208 6.75926 5.13534 7.96335C4.4386 9.16745 4.07046 10.5335 4.06776 11.9246C4.06507 13.3158 4.42793 14.6832 5.12 15.89L4 20L8.2 18.9C9.35975 19.5452 10.6629 19.8891 11.99 19.9C14.0997 19.9001 16.124 19.0668 17.6222 17.5816C19.1205 16.0965 19.9715 14.0796 19.99 11.97C19.983 10.9173 19.7682 9.87634 19.3581 8.9068C18.948 7.93725 18.3505 7.05819 17.6 6.31999ZM12 18.53C10.8177 18.5308 9.65701 18.213 8.64 17.61L8.4 17.46L5.91 18.12L6.57 15.69L6.41 15.44C5.55925 14.0667 5.24174 12.429 5.51762 10.8372C5.7935 9.24545 6.64361 7.81015 7.9069 6.80322C9.1702 5.79628 10.7589 5.28765 12.3721 5.37368C13.9853 5.4597 15.511 6.13441 16.66 7.26999C17.916 8.49818 18.635 10.1735 18.66 11.93C18.6442 13.6859 17.9355 15.3645 16.6882 16.6006C15.441 17.8366 13.756 18.5301 12 18.53ZM15.61 13.59C15.41 13.49 14.44 13.01 14.26 12.95C14.08 12.89 13.94 12.85 13.81 13.05C13.6144 13.3181 13.404 13.5751 13.18 13.82C13.07 13.96 12.95 13.97 12.75 13.82C11.6097 13.3694 10.6597 12.5394 10.06 11.47C9.85 11.12 10.26 11.14 10.64 10.39C10.6681 10.3359 10.6827 10.2759 10.6827 10.215C10.6827 10.1541 10.6681 10.0941 10.64 10.04C10.64 9.93999 10.19 8.95999 10.03 8.56999C9.87 8.17999 9.71 8.23999 9.58 8.22999H9.19C9.08895 8.23154 8.9894 8.25465 8.898 8.29776C8.8066 8.34087 8.72546 8.403 8.66 8.47999C8.43562 8.69817 8.26061 8.96191 8.14676 9.25343C8.03291 9.54495 7.98287 9.85749 8 10.17C8.0627 10.9181 8.34443 11.6311 8.81 12.22C9.6622 13.4958 10.8301 14.5293 12.2 15.22C12.9185 15.6394 13.7535 15.8148 14.58 15.72C14.8552 15.6654 15.1159 15.5535 15.345 15.3915C15.5742 15.2296 15.7667 15.0212 15.91 14.78C16.0428 14.4856 16.0846 14.1583 16.03 13.84C15.94 13.74 15.81 13.69 15.61 13.59Z"
+          fill="#ffffff"></path>
+      </g>
+    </svg>
+  </a>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- Request a Quote popup -->
+  <div class="modal-overlay" id="quoteModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+      <button class="modal-close" type="button" data-quote-close aria-label="Close"><i data-lucide="x"></i></button>
+
+      <div class="modal-body" data-quote-body>
+        <h3 id="quoteTitle">Request a Quote</h3>
+        <br>
+
+
+        <form action="api/submit-quote" method="post">
+          <div class="honeypot" aria-hidden="true"><label>Leave this empty<input type="text" name="website"
+                tabindex="-1" autocomplete="off"></label></div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="q-name">Name <span class="req">*</span></label>
+              <input class="form-control" id="q-name" name="name" required>
+            </div>
+            <div class="form-field">
+              <label for="q-company">Company Name</label>
+              <input class="form-control" id="q-company" name="company">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="q-email">Email <span class="req">*</span></label>
+              <input class="form-control" id="q-email" name="email" type="email" required>
+            </div>
+            <div class="form-field">
+              <label for="q-phone">Phone Number <span class="req">*</span></label>
+              <input class="form-control" id="q-phone" name="phone" type="tel" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="q-service">Service Required <span class="req">*</span></label>
+            <select class="form-control" id="q-service" name="service" required>
+              <option value="" disabled selected>Select a service…</option>
+              <option value="Video Ad Production">Video Ad Production</option>
+              <option value="Social Media Marketing">Social Media Marketing</option>
+              <option value="Graphic Design">Graphic Design</option>
+              <option value="Branding &amp; Logo Design">Branding &amp; Logo Design</option>
+              <option value="Photography">Photography</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Motion Graphics">Motion Graphics</option>
+              <option value="Website Design &amp; Development">Website Design &amp; Development</option>
+              <option value="SEO Services">SEO Services</option>
+              <option value="Google Ads Management">Google Ads Management</option>
+              <option value="Meta Ads Management">Meta Ads Management</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="q-message">Project Requirements <span class="req">*</span></label>
+            <textarea class="form-control" id="q-message" name="message"
+              placeholder="Tell us about your project, timeline and budget…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Request a Quote <i data-lucide="arrow-right"></i></button>
+        </form>
+      </div>
+
+      <div class="modal-success" data-quote-success hidden>
+        <span class="modal-success-icon"><i data-lucide="check"></i></span>
+        <h3>Thank you!</h3>
+        <p class="modal-sub">Your quote request has been received. Our team will get back to you shortly.</p>
+        <button type="button" class="btn btn-light" data-quote-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('quoteModal');
+      if (!modal) return;
+      var body = modal.querySelector('[data-quote-body]');
+      var success = modal.querySelector('[data-quote-success]');
+      var lastFocus = null;
+
+      function showSuccess() {
+        if (body) body.hidden = true;
+        if (success) success.hidden = false;
+      }
+      function open(showThanks) {
+        lastFocus = document.activeElement;
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+        if (showThanks) showSuccess();
+        var focusEl = showThanks ? modal.querySelector('[data-quote-close]') : modal.querySelector('input, select, textarea');
+        if (focusEl) focusEl.focus();
+      }
+      function close() {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      document.querySelectorAll('[data-quote-open]').forEach(function (btn) {
+        btn.addEventListener('click', function () { open(false); });
+      });
+      modal.querySelectorAll('[data-quote-close]').forEach(function (btn) {
+        btn.addEventListener('click', close);
+      });
+      modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) close();
+      });
+
+      // Re-open with the right state after a redirect from the API.
+      var params = new URLSearchParams(location.search);
+      var flag = params.get('quote');
+      if (flag === 'sent') { open(true); }
+      else if (flag === 'error') { open(false); }
+    })();
+  </script>
+
+  <!-- Lucide icons. Pinned: "@latest" costs an extra redirect round trip on every
+     page load and already resolves to this exact version. -->
+  <script src="https://unpkg.com/lucide@1.25.0/dist/umd/lucide.js" defer></script>
+  <!-- GSAP, ScrollTrigger and Lenis are loaded from <head> (see header.php) -->
+  <!-- Site scripts -->
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/animations.js" defer></script>
+</body>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }, { 'ap': 'cpsh-oh' }, { 'server': 'p3plzcpnl504913' }, { 'dcenter': 'p3' }, { 'cp_id': '10871054' }, { 'cp_cl': '8' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script>
+
+</html>

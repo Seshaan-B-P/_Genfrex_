@@ -6,22 +6,40 @@ import { services } from '../data/services';
 export default function ServicesPage() {
   const engagementModels = [
     {
-      title: "Autonomous Product Pods",
-      tag: "FLAGSHIP ENGAGEMENT",
-      desc: "A fully dedicated, cross-functional squad comprising a Principal Architect, Senior Frontend/Backend Engineers, and a Product Designer integrated into your sprint cycles.",
-      benefits: ["Immediate velocity within 5 business days", "Self-governing sprint cadence", "Zero internal management friction"]
-    },
-    {
-      title: "Project-Based Milestone Delivery",
-      tag: "FIXED SCOPE & ARCHITECTURE",
-      desc: "Ideal for end-to-end builds—from initial digital strategy and design systems to full deployment of custom web applications and IoT platforms.",
+      title: "Project-Based Solutions",
+      tag: "DEFINED SCOPE & DELIVERABLES",
+      desc: "For specific projects and deliverables with a defined scope, structured milestones, and dedicated delivery timelines.",
       benefits: ["Guaranteed milestone deliveries", "Fixed timeline and resource commitments", "Full intellectual property handover"]
     },
     {
-      title: "Strategic Talent Augmentation",
-      tag: "SPECIALIZED CAPACITY",
-      desc: "Embed pre-vetted top 3% senior engineers, cloud architects, or UX specialists directly into your existing in-house team to unblock mission-critical paths.",
-      benefits: ["Tested against rigorous 4-stage gates", "Flexible contract durations", "Seamless cultural and technical alignment"]
+      title: "Monthly Growth Retainers",
+      tag: "CONTINUOUS GROWTH & SUPPORT",
+      desc: "For continuous digital growth, ongoing SEO visibility, software maintenance, content cadence, and active marketing support.",
+      benefits: ["Continuous performance optimization", "Structured monthly workflows & reviews", "Priority technical and creative support"]
+    },
+    {
+      title: "Customized Ecosystems",
+      tag: "TAILORED TECH & TALENT",
+      desc: "Every business has different requirements. GENFREX creates bespoke solutions based on your objectives, scope, budget, and tech needs.",
+      benefits: ["Flexible developer + designer + marketer squads", "Custom engagement & SLA structures", "Strict enterprise confidentiality"]
+    }
+  ];
+
+  const commercialDetails = [
+    {
+      title: "Requirement-Based Pricing",
+      tag: "13.1 — PRICING STRUCTURE",
+      desc: "Clear, transparent requirement-based pricing depending on scope, complexity, technology, timeline, and required digital talent."
+    },
+    {
+      title: "Structured Payment & Delivery",
+      tag: "13.2 — COMMENCEMENT & DELIVERY",
+      desc: "Terms are agreed upon before project commencement. Delivery timelines align strictly with approved scopes and verified milestones."
+    },
+    {
+      title: "Support & Revisions",
+      tag: "13.3 — QUALITY ASSURANCE",
+      desc: "Revision limits, quality checks, and post-delivery maintenance are clearly established per the individual service agreement."
     }
   ];
 
@@ -42,7 +60,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="text-neutral-400 font-light text-base md:text-xl max-w-2xl leading-relaxed">
-            Full-spectrum digital capabilities designed for high-growth enterprises that demand engineering rigor, aesthetic distinction, and vetted human talent.
+            Full-spectrum digital capabilities designed to empower businesses with accessible digital solutions, modern technology, and vetted talent.
           </p>
         </div>
 
@@ -67,7 +85,7 @@ export default function ServicesPage() {
                 <div className="pt-4">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 text-xs font-mono text-white tracking-widest uppercase border-b border-brand-blue pb-1 hover:text-brand-blue transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-mono text-white tracking-widest uppercase border-b border-[#0052FF] pb-1 hover:text-[#0052FF] transition-colors"
                   >
                     <span>ENGAGE THIS SERVICE</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -89,7 +107,7 @@ export default function ServicesPage() {
                     <ul className="space-y-2 text-xs font-mono text-neutral-300">
                       {service.capabilities.map((cap, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="text-brand-blue">&bull;</span>
+                          <span className="text-[#0052FF]">&bull;</span>
                           <span>{cap}</span>
                         </li>
                       ))}
@@ -110,24 +128,27 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Engagement Models Section */}
-        <div className="border-t border-white/[0.08] pt-20">
+        {/* Engagement Models Section (Section 10 — Custom Solutions) */}
+        <div className="border-t border-white/[0.08] pt-20 mb-24">
           <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase">
-              // HOW WE COLLABORATE
+            <span className="font-mono text-xs tracking-[0.25em] text-[#0052FF] uppercase">
+              10 — CUSTOM SOLUTIONS & ENGAGEMENT
             </span>
-            <div className="h-[1px] w-12 bg-brand-blue/30" />
+            <div className="h-[1px] w-12 bg-[#0052FF]/30" />
           </div>
 
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-white tracking-tight mb-12">
-            ENGAGEMENT MODELS
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-white tracking-tight mb-4">
+            HOW WE COLLABORATE
           </h2>
+          <p className="text-neutral-400 font-light text-base md:text-lg max-w-2xl mb-12">
+            Every business has different requirements. GENFREX creates customized solutions based on objectives, scope, budget, timeline, and tech requirements.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {engagementModels.map((model, idx) => (
-              <div key={idx} className="p-8 border border-white/10 bg-[#09090d] flex flex-col justify-between">
+              <div key={idx} className="p-8 border border-white/10 bg-[#09090d] flex flex-col justify-between hover:border-[#0052FF]/40 transition-colors">
                 <div>
-                  <span className="font-mono text-[10px] text-brand-blue tracking-widest uppercase block mb-3">
+                  <span className="font-mono text-[10px] text-[#0052FF] tracking-widest uppercase block mb-3">
                     {model.tag}
                   </span>
                   <h3 className="font-display font-bold text-xl text-white mb-4">
@@ -139,7 +160,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2 mb-8 font-mono text-[11px] text-neutral-300">
                     {model.benefits.map((b, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0052FF] shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -148,10 +169,50 @@ export default function ServicesPage() {
 
                 <Link
                   to="/contact"
-                  className="w-full py-3 text-center border border-white/20 text-xs font-mono tracking-widest uppercase text-white hover:border-brand-blue hover:bg-brand-blue/10 transition-colors"
+                  className="w-full py-3 text-center border border-white/20 text-xs font-mono tracking-widest uppercase text-white hover:border-[#0052FF] hover:bg-[#0052FF]/10 transition-colors"
                 >
                   SELECT MODEL
                 </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Commercial Details Section (Section 13 — Commercial Details) */}
+        <div className="border-t border-white/[0.08] pt-20">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="font-mono text-xs tracking-[0.25em] text-[#00D4FF] uppercase">
+              13 — COMMERCIAL DETAILS & STANDARDS
+            </span>
+            <div className="h-[1px] w-12 bg-[#00D4FF]/30" />
+          </div>
+
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-white tracking-tight mb-4">
+            TRANSPARENCY & DELIVERY TERMS
+          </h2>
+          <p className="text-neutral-400 font-light text-base md:text-lg max-w-2xl mb-12">
+            Clear terms, predictable delivery timelines, and strict operational standards from day one.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {commercialDetails.map((item, idx) => (
+              <div key={idx} className="p-8 border border-white/10 bg-[#09090d] flex flex-col justify-between">
+                <div>
+                  <span className="font-mono text-[10px] text-[#00D4FF] tracking-widest uppercase block mb-3">
+                    {item.tag}
+                  </span>
+                  <h3 className="font-display font-bold text-xl text-white mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-neutral-400 font-light leading-relaxed mb-6">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/[0.08] flex items-center gap-2 text-xs font-mono text-neutral-400">
+                  <Shield className="w-3.5 h-3.5 text-[#00D4FF]" />
+                  <span>Verified Standard</span>
+                </div>
               </div>
             ))}
           </div>

@@ -51,13 +51,6 @@ export default function CinematicShowcase() {
               WE MAKE THEM MEAN SOMETHING.
             </span>
           </h2>
-
-          {/* Circular Play Trigger Button */}
-          <div className="inline-flex items-center gap-4 px-7 py-4 bg-white/10 hover:bg-[#0052FF] text-white backdrop-blur-md border border-white/20 hover:border-[#0052FF] text-xs tracking-[0.2em] uppercase transition-all duration-300 group-hover:scale-105 font-bold hover:shadow-[0_0_25px_rgba(0,82,255,0.4)]">
-            <Play className="w-4 h-4 fill-current" />
-            <span>WATCH SHOWREEL</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </div>
         </div>
 
         {/* Corner Studio Coordinates */}

@@ -1,203 +1,155 @@
 import React from 'react';
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Linkedin, Facebook, Youtube, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import GenfrexLogo from './GenfrexLogo';
 
-export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer({ onOpenQuote }) {
   return (
-    <footer className="bg-[#050505] text-[#FFFFFF] pt-24 pb-12 px-6 md:px-12 border-t border-white/[0.08] relative">
-      <div className="max-w-7xl mx-auto w-full">
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-20 border-b border-white/[0.08]">
-          
-          {/* Brand & Editorial Column (4 cols) */}
-          <div className="md:col-span-4 space-y-6">
-            <Link to="/" className="inline-block">
-              <GenfrexLogo className="h-12 sm:h-14 md:h-16 w-auto" />
-            </Link>
+    <footer className="relative bg-[#070709] border-t border-white/[0.08] pt-16 pb-12 px-4 sm:px-6 overflow-hidden" id="footer">
+      <div className="max-w-[1200px] mx-auto relative z-10">
 
-            <div className="space-y-1 font-display font-extrabold text-xl sm:text-2xl text-white tracking-tight uppercase leading-tight">
-              <p>DIGITAL SERVICES.</p>
-              <p>DIGITAL TALENT.</p>
-              <p className="text-[#0052FF]">CONNECTED GROWTH.</p>
-            </div>
+        {/* Top CTA Banner */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 sm:p-12 rounded-3xl bg-[#141416]/90 backdrop-blur-sm border border-white/10 mb-16 shadow-2xl">
+          <div>
+            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-1">
+              READY TO SCALE?
+            </span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
+              Have a project in mind?
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={onOpenQuote}
+            className="btn btn-primary px-8 py-3.5 text-sm sm:text-base font-medium flex items-center gap-2 flex-shrink-0 shadow-lg shadow-[#0052FF]/30"
+          >
+            <span>Request a Quote</span>
+            <ArrowRight size={18} />
+          </button>
+        </div>
 
-            <p className="text-xs sm:text-sm text-[#A0A0A0] font-light max-w-sm leading-relaxed">
-              GENFREX is a modern digital services and talent ecosystem helping businesses grow through technology, digital marketing, and skilled professionals.
+        {/* 4-Column Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/[0.08]">
+          {/* Brand & Narrative */}
+          <div className="lg:col-span-4 space-y-4">
+            <GenfrexLogo className="h-9 w-auto" />
+            <p className="text-[#9A9A9A] text-sm font-light leading-relaxed max-w-sm">
+              GENFREX is an AV-First, Digital-First creative and growth agency delivering end-to-end commercial productions, high-conversion software platforms, digital marketing, and strategic brand ecosystems.
             </p>
-
-            <div className="pt-2 text-xs text-[#666666] tracking-wider font-mono">
-              FOUNDED BY P.S. DHARSHAN &bull; 2026
-            </div>
           </div>
 
-          {/* Navigation Columns (8 cols) */}
-          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            {/* Column 1: EXPLORE */}
-            <div className="space-y-4">
-              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase block font-bold font-mono">
-                EXPLORE
-              </span>
-              <ul className="space-y-3 text-xs tracking-wider font-medium text-[#A0A0A0]">
-                <li>
-                  <Link to="/work" className="hover:text-white transition-colors">
-                    Work
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="hover:text-white transition-colors">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="hover:text-white transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-white transition-colors">
-                    Talent
-                  </a>
-                </li>
-                <li>
-                  <Link to="/contact" className="hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Company Links */}
+          <div className="lg:col-span-3 space-y-3">
+            <h5 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+              Company
+            </h5>
+            <ul className="space-y-2.5 text-sm font-light text-[#9A9A9A]">
+              <li>
+                <a href="#about" className="hover:text-white transition-colors">About us</a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-white transition-colors">Services</a>
+              </li>
+              <li>
+                <a href="#works" className="hover:text-white transition-colors">Portfolio</a>
+              </li>
+              <li>
+                <a href="#workflow" className="hover:text-white transition-colors">Client Workflow</a>
+              </li>
+            </ul>
+          </div>
 
-            {/* Column 2: FOR BUSINESSES */}
-            <div className="space-y-4">
-              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase block font-bold font-mono">
-                FOR BUSINESSES
-              </span>
-              <ul className="space-y-3 text-xs tracking-wider font-medium text-[#A0A0A0]">
-                <li>
-                  <Link to="/services" className="hover:text-white transition-colors">
-                    Digital Services
-                  </Link>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-white transition-colors">
-                    Find Talent
-                  </a>
-                </li>
-                <li>
-                  <Link to="/contact" className="hover:text-white transition-colors">
-                    Start a Project
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Get in Touch */}
+          <div className="lg:col-span-3 space-y-3">
+            <h5 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+              Get in touch
+            </h5>
+            <ul className="space-y-3 text-sm font-light text-[#9A9A9A]">
+              <li className="flex items-center gap-2.5">
+                <Mail size={15} className="text-[#0052FF]" />
+                <a href="mailto:genfrexofficial@gmail.com" className="hover:text-white transition-colors">
+                  genfrexofficial@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone size={15} className="text-[#0052FF]" />
+                <a href="tel:+9047295361" className="hover:text-white transition-colors">
+                  +91 9047295361
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin size={16} className="text-[#0052FF] flex-shrink-0 mt-0.5" />
+                <span>India • Available for worldwide creative & digital briefs</span>
+              </li>
+            </ul>
+          </div>
 
-            {/* Column 3: FOR PROFESSIONALS */}
-            <div className="space-y-4">
-              <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase block font-bold font-mono">
-                FOR PROFESSIONALS
-              </span>
-              <ul className="space-y-3 text-xs tracking-wider font-medium text-[#A0A0A0]">
-                <li>
-                  <Link to="/contact" className="hover:text-white transition-colors">
-                    Join the Network
-                  </Link>
-                </li>
-                <li>
-                  <a href="#about" className="hover:text-white transition-colors">
-                    Find Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-white transition-colors">
-                    Freelancing
-                  </a>
-                </li>
-              </ul>
+          {/* Socials */}
+          <div className="lg:col-span-2 space-y-3">
+            <h5 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+              Socials
+            </h5>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/genfrex/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <Youtube size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <Instagram size={18} />
+              </a>
             </div>
+          </div>
+        </div>
 
-            {/* Column 4: CONNECT & CONTACT */}
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase block font-bold font-mono">
-                  CONNECT
-                </span>
-                <ul className="space-y-2 text-xs tracking-wider font-medium text-[#A0A0A0]">
-                  <li>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-white transition-colors inline-flex items-center gap-1 group"
-                    >
-                      <span>LinkedIn</span>
-                      <ArrowUpRight className="w-3 h-3 text-[#666666] group-hover:text-[#0052FF]" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-white transition-colors inline-flex items-center gap-1 group"
-                    >
-                      <span>Instagram</span>
-                      <ArrowUpRight className="w-3 h-3 text-[#666666] group-hover:text-[#0052FF]" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-white transition-colors inline-flex items-center gap-1 group"
-                    >
-                      <span>GitHub</span>
-                      <ArrowUpRight className="w-3 h-3 text-[#666666] group-hover:text-[#0052FF]" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-2 pt-2 border-t border-white/[0.08]">
-                <span className="text-[11px] font-mono tracking-widest text-[#666666] uppercase block">
-                  CONTACT
-                </span>
-                <p className="text-xs text-white font-mono">hello@genfrex.com</p>
-                <p className="text-xs text-[#A0A0A0] font-mono">+91 90472 95361</p>
-              </div>
-            </div>
+        {/* ── 05: GIANT ANIMATED WATERMARK: GENFREX (ONLY LETTERS CHANGE COLOR IN BLUE & BLACK) ── */}
+        <div
+          className="relative py-10 sm:py-16 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+          aria-hidden="true"
+        >
+          {/* Giant Genfrex Typography with Black & Blue Letter Color Sweep */}
+          <div className="footer-watermark-wrapper">
+            <span className="footer-watermark-text">Genfrex</span>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#666666] font-mono">
-          <div className="flex flex-wrap items-center gap-6">
-            <span>&copy; 2026 GENFREX. ALL RIGHTS RESERVED.</span>
-            <Link to="/contact" className="hover:text-white transition-colors">
-              PRIVACY
-            </Link>
-            <Link to="/contact" className="hover:text-white transition-colors">
-              TERMS
-            </Link>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-light text-[#666] border-t border-white/[0.08]">
+          <p>© 2026 GENFREX. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Privacy Policy</a>
+            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Terms of Service</a>
+            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Site Credits</a>
           </div>
-
-          <div className="text-white/80 font-bold tracking-widest">
-            CONNECT. COLLABORATE. GROW.
-          </div>
-
-          <button
-            onClick={scrollToTop}
-            data-cursor="hover"
-            className="flex items-center gap-2 hover:text-[#0052FF] transition-colors"
-          >
-            <span>BACK TO TOP</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
         </div>
+
       </div>
     </footer>
   );

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
-import GrainOverlay from './components/GrainOverlay';
+import QuoteModal from './components/QuoteModal';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -22,23 +22,25 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  return (
-    <div className="bg-[#050505] text-[#FFFFFF] min-h-screen selection:bg-[#0052FF] selection:text-white relative">
-      {/* Dynamic Custom Cursor */}
-      <CustomCursor />
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
-      {/* Subtle Grain Texture */}
-      <GrainOverlay />
+  return (
+    <div className="bg-[#0A0A0A] text-[#FFFFFF] min-h-screen selection:bg-[#0052FF] selection:text-white relative">
+      {/* Custom Cursor */}
+      <CustomCursor />
 
       {/* Scroll Restorer */}
       <ScrollToTop />
 
-      {/* Minimal Floating Navigation */}
-      <Navbar />
+      {/* 5N2 Media Inspired Navbar */}
+      <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
 
       {/* Application Routes */}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={<HomePage isQuoteOpen={isQuoteOpen} setIsQuoteOpen={setIsQuoteOpen} />}
+        />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/work/:slug" element={<CaseStudyPage />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -46,8 +48,14 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
 
-      {/* Editorial Large Footer */}
-      <Footer />
+      {/* Global Quote Modal */}
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+      />
+
+      {/* 5N2 Media Inspired Footer */}
+      <Footer onOpenQuote={() => setIsQuoteOpen(true)} />
     </div>
   );
 }
