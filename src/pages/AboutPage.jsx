@@ -21,58 +21,6 @@ import {
 } from 'lucide-react';
 
 export default function AboutPage() {
-  const whyGenfrex = [
-    {
-      num: "01",
-      title: "One Digital Ecosystem",
-      desc: "Digital services and talent solutions under one unified ecosystem, breaking down traditional silos between strategy and execution."
-    },
-    {
-      num: "02",
-      title: "AI-Ready",
-      desc: "Our approach considers the growing role of AI, LLMs and AI-powered search engines, ensuring your brand stays visible."
-    },
-    {
-      num: "03",
-      title: "Flexible Engagement",
-      desc: "Choose project-based, monthly or customized engagement models tailored strictly to your current business objectives."
-    },
-    {
-      num: "04",
-      title: "Customized Solutions",
-      desc: "Solutions designed according to the unique requirements, scope, budget, and technology stack of each individual business."
-    },
-    {
-      num: "05",
-      title: "Talent + Technology",
-      desc: "Connect verified digital talent with modern technology-driven business requirements for rapid, high-quality execution."
-    },
-    {
-      num: "06",
-      title: "Growth-Focused",
-      desc: "Our unwavering objective is to create digital platforms and campaigns that actively support sustainable, measurable growth."
-    }
-  ];
-
-  const operationalStandards = [
-    "Clear project requirements",
-    "Defined deliverables & scopes",
-    "Professional communication",
-    "Structured workflows",
-    "Quality checks & timely execution",
-    "Performance monitoring",
-    "Continuous improvement"
-  ];
-
-  const techAiFocus = [
-    "Artificial Intelligence & LLMs",
-    "AI Search & Automation",
-    "Digital Analytics & Tracking",
-    "Modern Web & SEO Technologies",
-    "Cloud-Based Platforms",
-    "Digital Productivity Tools"
-  ];
-
   const pillars = [
     {
       icon: Globe,
@@ -100,7 +48,7 @@ export default function AboutPage() {
     {
       name: "Dharshan",
       role: "Director",
-      image: "",
+      image: "/CEO.jpeg",
       linkedin: "https://www.linkedin.com/in/dharshanselvaraj/"
     }
   ];
@@ -110,7 +58,7 @@ export default function AboutPage() {
       name: "Deepak",
       role: "HR Head",
       image: "",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/deepakparamanantham/"
     },
     {
       name: "Arun Kumar",
@@ -257,15 +205,15 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                  Next Generation
+                  GenZ
                 </h3>
                 <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
-                  Pioneering futuristic digital strategies, AI workflows, and modern web architectures designed to keep brands ahead of market evolutions.
+                  Infusing digital-native creativity, modern cultural fluency, and rapid adoption of cutting-edge technologies to keep brands ahead of evolving trends.
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-white/80 font-medium">
                 <Sparkles size={14} className="text-white" />
-                <span>Next-Gen Innovation</span>
+                <span>GenZ Innovation & Mindset</span>
               </div>
             </div>
 
@@ -281,15 +229,15 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                  Freelancers & Digital Talent
+                  Freelancing
                 </h3>
                 <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
-                  Connecting organizations directly with specialized, pre-vetted digital professionals, creatives, and technical builders to scale capabilities dynamically.
+                  Connecting organizations directly with specialized, pre-vetted freelance talent, creatives, and technical builders to scale capabilities dynamically.
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-[#0052FF] font-medium">
                 <Users size={14} className="text-[#0052FF]" />
-                <span>High-Caliber Talent Network</span>
+                <span>Freelance Talent Network</span>
               </div>
             </div>
 
@@ -305,15 +253,15 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                  Limitless Possibilities
+                  Experience
                 </h3>
                 <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
-                  Connection, Transformation & Execution. The catalyst that turns bold ideas into measurable reality and exponential business outcomes.
+                  Crafting transformative digital experiences, end-to-end execution, and compounding growth that turns bold ideas into measurable reality.
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2 text-xs text-[#00D4FF] font-medium">
                 <InfinityIcon size={14} className="text-[#00D4FF]" />
-                <span>Limitless Execution</span>
+                <span>Transformative Experience</span>
               </div>
             </div>
           </div>
@@ -360,7 +308,7 @@ export default function AboutPage() {
           <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#0C0D12] border border-white/10 shadow-2xl relative overflow-hidden">
             <div className="text-center max-w-3xl mx-auto mb-10">
               <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
-                09 — OUR UNIQUE VALUE PROPOSITION
+                OUR UNIQUE VALUE PROPOSITION
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
                 Connecting Potential. Creating Opportunities.
@@ -405,129 +353,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 08 — WHY GENFREX? ── */}
-        <section>
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
-              08 — COMPETITIVE ADVANTAGE
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
-              Why GENFREX?
-            </h2>
-            <p className="text-sm sm:text-base text-white/60 font-light">
-              Engineered from the ground up to solve the real bottlenecks of digital expansion.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyGenfrex.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl bg-[#0B0C10] border border-white/[0.08] hover:border-[#0052FF]/40 transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  <span className="text-xs font-mono font-semibold text-[#00D4FF] block mb-3">
-                    // {item.num}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#0052FF] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-white/70 font-light leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── 11 & 12 — QUALITY STANDARDS & TECHNOLOGY / AI ── */}
-        <section>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* 11 — Quality Standards */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0B0C10] border border-white/10 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <ShieldCheck size={20} className="text-[#0052FF]" />
-                  <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase">
-                    11 — QUALITY STANDARDS
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Strict Operational Excellence
-                </h3>
-                <p className="text-sm text-white/70 font-light leading-relaxed mb-6">
-                  Every project at GENFREX is executed under structured operating procedures to guarantee predictability, security, and elite results:
-                </p>
-
-                <div className="space-y-2.5 mb-8">
-                  {operationalStandards.map((std, i) => (
-                    <div key={i} className="flex items-center gap-2.5 text-xs text-white/80 font-light">
-                      <CheckCircle2 size={14} className="text-[#0052FF] flex-shrink-0" />
-                      <span>{std}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Confidentiality Callout */}
-              <div className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex items-start gap-3">
-                <Lock size={18} className="text-[#00D4FF] flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-white mb-1 uppercase tracking-wider">
-                    Enterprise Confidentiality
-                  </h4>
-                  <p className="text-xs text-white/60 font-light leading-relaxed">
-                    Client information, business data, project details, and system credentials are handled with strict NDA requirements and bank-grade security protocols.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 12 — Technology & AI */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0B0C10] border border-white/10 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Cpu size={20} className="text-[#00D4FF]" />
-                  <span className="text-xs font-semibold tracking-widest text-[#00D4FF] uppercase">
-                    12 — TECHNOLOGY & AI
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  AI-Powered Digital Workflows
-                </h3>
-                <p className="text-sm text-white/70 font-light leading-relaxed mb-6">
-                  GENFREX focuses on modern digital technologies and AI-enabled workflows to multiply execution velocity while maintaining human discretion:
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                  {techAiFocus.map((focus, i) => (
-                    <div
-                      key={i}
-                      className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono text-white/90 flex items-center gap-2"
-                    >
-                      <span className="text-[#00D4FF]">•</span>
-                      <span>{focus}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* AI Oversight Principle */}
-              <div className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex items-start gap-3">
-                <Sparkles size={18} className="text-[#0052FF] flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-white mb-1 uppercase tracking-wider">
-                    AI-Powered Approach with Human Oversight
-                  </h4>
-                  <p className="text-xs text-white/60 font-light leading-relaxed">
-                    AI is deeply integrated into research, analysis, content workflows, and development—always governed by expert human engineers for impeccable quality control.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* ── 05: PEOPLE AT GENFREX (MATCHING RADICALSTART REFERENCE) ── */}
         <section className="pt-4">
@@ -627,7 +453,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 06: RADICALSTART STYLE CALL TO ACTION ── */}
+        {/* ──  CALL TO ACTION ── */}
         <section className="p-8 sm:p-14 md:p-16 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#0052FF]/15 blur-[100px] pointer-events-none rounded-full" />
 

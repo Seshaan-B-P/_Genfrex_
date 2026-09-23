@@ -50,14 +50,25 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
             <X size={20} />
           </button>
         </div>
-        <div className="relative w-full aspect-video bg-black">
-          <iframe
-            src={getEmbedUrl(videoUrl)}
-            title={title}
-            className="absolute inset-0 w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
+        <div className="relative w-full aspect-video bg-black flex items-center justify-center">
+          {videoUrl && (videoUrl.endsWith('.mp4') || videoUrl.endsWith('.webm') || videoUrl.endsWith('.mov') || videoUrl.includes('.mp4')) ? (
+            <video
+              src={videoUrl}
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
+            >
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <iframe
+              src={getEmbedUrl(videoUrl)}
+              title={title}
+              className="absolute inset-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          )}
         </div>
       </div>
     </div>

@@ -114,9 +114,9 @@ export default function AboutStudio() {
                 <span className="text-3xl font-black text-[#FFFFFF] tracking-tight">GEN</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/10 text-white">01</span>
               </div>
-              <h4 className="text-lg font-bold text-white mb-2">Next Generation</h4>
+              <h4 className="text-lg font-bold text-white mb-2">GenZ</h4>
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                Forward-thinking digital solutions and architectures built for tomorrow's business landscape.
+                Empowering digital-native creativity, modern cultural fluency, and rapid next-gen agility.
               </p>
             </div>
 
@@ -126,9 +126,9 @@ export default function AboutStudio() {
                 <span className="text-3xl font-black text-[#0052FF] tracking-tight">FRE</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#0052FF]/10 text-[#0052FF]">02</span>
               </div>
-              <h4 className="text-lg font-bold text-white mb-2">Freelancers & Digital Talent</h4>
+              <h4 className="text-lg font-bold text-white mb-2">Freelancing</h4>
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                Connecting businesses with pre-vetted, high-impact specialized digital professionals on demand.
+                Connecting businesses directly with pre-vetted, high-impact freelance digital specialists on demand.
               </p>
             </div>
 
@@ -138,9 +138,9 @@ export default function AboutStudio() {
                 <span className="text-3xl font-black text-[#00D4FF] tracking-tight">X</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#00D4FF]/10 text-[#00D4FF]">03</span>
               </div>
-              <h4 className="text-lg font-bold text-white mb-2">Limitless Possibilities</h4>
+              <h4 className="text-lg font-bold text-white mb-2">Experience</h4>
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                Connection, Transformation & Execution. The catalyst unlocking exponential growth.
+                Transformative digital experiences, seamless execution, and compounding business growth.
               </p>
             </div>
           </div>

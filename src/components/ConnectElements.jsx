@@ -66,18 +66,18 @@ export default function ConnectElements() {
   const philosophy = [
     {
       code: 'GEN',
-      title: 'Next Generation',
-      description: 'Architecting contemporary digital systems that replace legacy fragility with modern, high-speed agility.',
+      title: 'GenZ',
+      description: 'Harnessing digital-native creativity, modern cultural fluency, and rapid technological adoption.',
     },
     {
       code: 'FRE',
-      title: 'Freelancers & Digital Talent',
-      description: 'An elite global talent ecosystem connecting ambitious companies directly with vetted specialist engineering squads.',
+      title: 'Freelancing',
+      description: 'An agile on-demand talent ecosystem connecting ambitious companies directly with vetted freelance specialists.',
     },
     {
       code: 'X',
-      title: 'Limitless Possibilities',
-      description: 'The intersection where requirement, technology, and execution multiply to create unprecedented digital momentum.',
+      title: 'Experience',
+      description: 'The catalyst where digital strategy, execution, and transformative user experience multiply for compounding growth.',
     },
   ];
 

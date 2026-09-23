@@ -10,20 +10,21 @@ export default function FounderMessage({ onOpenVideo }) {
           <div className="lg:col-span-5 relative group">
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-[4/3] flex items-center justify-center">
               <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
+                src="/CEO.jpeg"
                 alt="Founder & Leadership"
-                className="w-full h-full object-cover brightness-85 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
               <button
                 type="button"
-                onClick={() => onOpenVideo('https://www.youtube.com/embed/kz-5mY62I5w?autoplay=1')}
-                className="absolute w-16 h-16 rounded-full bg-[#0052FF] hover:bg-[#2B73FF] flex items-center justify-center text-white shadow-lg shadow-[#0052FF]/40 group-hover:scale-110 transition-all"
+                onClick={() => onOpenVideo('/About Genfrex.mp4', 'Founder’s Message — Dharshan P S')}
+                data-cursor="play"
+                className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/40 hover:border-white text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-300"
                 aria-label="Play founder message"
               >
-                <Play size={24} className="ml-1 fill-white" />
+                <Play size={26} className="ml-1 fill-white text-white drop-shadow-md" />
               </button>
             </div>
           </div>
