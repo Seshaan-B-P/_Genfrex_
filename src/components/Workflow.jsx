@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Compass,
-  BrainCircuit,
-  Users,
-  Rocket,
-  BarChart3,
-  TrendingUp,
-  CheckCircle2,
-  ArrowRight,
-  ArrowLeft
+import { 
+  Compass, 
+  BrainCircuit, 
+  Users, 
+  Rocket, 
+  BarChart3, 
+  TrendingUp, 
+  CheckCircle2, 
+  ArrowRight, 
+  ArrowLeft,
+  Pause,
+  Play
 } from 'lucide-react';
 
 const workflowSteps = [
@@ -99,20 +101,72 @@ const workflowSteps = [
   }
 ];
 
+const STEP_DURATION = 5500; // 5.5 seconds per phase
+
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const isHoveredRef = useRef(false);
   const current = workflowSteps[activeStep];
 
-  const handlePrev = () => {
-    setActiveStep((prev) => (prev === 0 ? workflowSteps.length - 1 : prev - 1));
+  const handleStepChange = useCallback((newIdx) => {
+    setActiveStep(newIdx);
+    setProgress(0);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    handleStepChange(activeStep === 0 ? workflowSteps.length - 1 : activeStep - 1);
+  }, [activeStep, handleStepChange]);
+
+  const handleNext = useCallback(() => {
+    handleStepChange(activeStep === workflowSteps.length - 1 ? 0 : activeStep + 1);
+  }, [activeStep, handleStepChange]);
+
+  // Smooth Auto-Play Progress Timer using requestAnimationFrame
+  useEffect(() => {
+    let animId;
+    let lastTime = performance.now();
+
+    const tick = (now) => {
+      const delta = now - lastTime;
+      lastTime = now;
+
+      if (!isHoveredRef.current) {
+        setProgress((prev) => {
+          const next = prev + (delta / STEP_DURATION) * 100;
+          if (next >= 100) {
+            setActiveStep((curr) => (curr === workflowSteps.length - 1 ? 0 : curr + 1));
+            return 0;
+          }
+          return next;
+        });
+      }
+
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  const onMouseEnter = () => {
+    setIsHovered(true);
+    isHoveredRef.current = true;
   };
 
-  const handleNext = () => {
-    setActiveStep((prev) => (prev === workflowSteps.length - 1 ? 0 : prev + 1));
+  const onMouseLeave = () => {
+    setIsHovered(false);
+    isHoveredRef.current = false;
   };
 
   return (
-    <section className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#070709]" id="workflow">
+    <section 
+      className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#070709]" 
+      id="workflow"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {/* Subtle Electric Blue Ambient Background Glow */}
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#0052FF]/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#0052FF]/5 blur-[120px] rounded-full pointer-events-none" />
@@ -123,6 +177,10 @@ export default function Workflow() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="eyebrow !mb-0">Client Workflow</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider bg-[#0052FF]/15 text-[#0052FF] border border-[#0052FF]/30">
+                <span className={`w-1.5 h-1.5 rounded-full bg-[#0052FF] ${isHovered ? '' : 'animate-ping'}`} />
+                {isHovered ? 'PAUSED ON HOVER' : 'AUTO-ADVANCING'}
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight">
               From first conversation to <span className="font-normal text-white">measurable growth.</span>
@@ -139,6 +197,7 @@ export default function Workflow() {
               className="carousel-btn"
               aria-label="Previous step"
               data-cursor="hover"
+              title="Previous phase"
             >
               <ArrowLeft size={18} />
             </button>
@@ -148,6 +207,7 @@ export default function Workflow() {
               className="carousel-btn"
               aria-label="Next step"
               data-cursor="hover"
+              title="Next phase"
             >
               <ArrowRight size={18} />
             </button>
@@ -156,7 +216,7 @@ export default function Workflow() {
 
         {/* 2-Column Split Interactive Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Vertical Step List with Active Indicator */}
+          {/* Left Column: Vertical Step List with Active Fill Bar */}
           <div className="lg:col-span-5 flex flex-col gap-3">
             {workflowSteps.map((step, idx) => {
               const isActive = activeStep === idx;
@@ -166,28 +226,40 @@ export default function Workflow() {
                 <button
                   key={step.id}
                   type="button"
-                  onClick={() => setActiveStep(idx)}
+                  onClick={() => handleStepChange(idx)}
                   data-cursor="hover"
-                  className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 ${isActive
-                      ? 'bg-gradient-to-r from-[#14141A] to-[#0E0E12] border-[#0052FF]/70 shadow-lg shadow-[#0052FF]/10'
+                  className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 overflow-hidden ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#14141A] to-[#0E0E12] border-[#0052FF]/80 shadow-lg shadow-[#0052FF]/15'
                       : 'bg-[#0B0B0E]/60 border-white/[0.06] hover:border-white/20 hover:bg-[#121216]/50'
-                    }`}
+                  }`}
                 >
-                  {/* Active Indicator Left Accent Bar */}
+                  {/* Left Accent Bar */}
                   {isActive && (
                     <motion.div
                       layoutId="activeWorkflowBar"
-                      className="absolute left-0 inset-y-3 w-1 rounded-r-full bg-[#0052FF] shadow-[0_0_12px_#0052FF]"
+                      className="absolute left-0 inset-y-3 w-1.5 rounded-r-full bg-[#0052FF] shadow-[0_0_14px_#0052FF]"
                       transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                     />
                   )}
 
+                  {/* Active Step Progress Timer Bar */}
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.06] overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-[#0052FF] via-[#2B73FF] to-[#0052FF] shadow-[0_0_8px_#0052FF]"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                  )}
+
                   {/* Step Number & Icon Badge */}
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isActive
-                        ? 'bg-[#0052FF] text-white shadow-md shadow-[#0052FF]/40'
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      isActive
+                        ? 'bg-[#0052FF] text-white shadow-md shadow-[#0052FF]/40 scale-105'
                         : 'bg-white/[0.05] text-[#9A9A9A] group-hover:text-white group-hover:bg-white/[0.08] border border-white/10'
-                      }`}
+                    }`}
                   >
                     <IconComponent size={20} />
                   </div>
@@ -195,13 +267,15 @@ export default function Workflow() {
                   {/* Title & Tagline */}
                   <div className="flex-1 min-w-0 pr-2">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[11px] font-mono tracking-wider uppercase font-semibold ${isActive ? 'text-[#0052FF]' : 'text-neutral-500'
-                        }`}>
+                      <span className={`text-[11px] font-mono tracking-wider uppercase font-semibold ${
+                        isActive ? 'text-[#0052FF]' : 'text-neutral-500'
+                      }`}>
                         PHASE {step.num}
                       </span>
                     </div>
-                    <h3 className={`text-lg font-medium tracking-tight mb-1 transition-colors ${isActive ? 'text-white' : 'text-white/80 group-hover:text-white'
-                      }`}>
+                    <h3 className={`text-lg font-medium tracking-tight mb-1 transition-colors ${
+                      isActive ? 'text-white' : 'text-white/80 group-hover:text-white'
+                    }`}>
                       {step.title}
                     </h3>
                     <p className="text-xs text-[#9A9A9A] font-light line-clamp-1">
@@ -210,8 +284,9 @@ export default function Workflow() {
                   </div>
 
                   {/* Right Arrow indicator on active */}
-                  <div className={`mt-3 transition-transform duration-300 ${isActive ? 'text-[#0052FF] translate-x-0 opacity-100' : 'text-neutral-600 -translate-x-1 opacity-0 group-hover:opacity-60'
-                    }`}>
+                  <div className={`mt-3 transition-transform duration-300 ${
+                    isActive ? 'text-[#0052FF] translate-x-0 opacity-100' : 'text-neutral-600 -translate-x-1 opacity-0 group-hover:opacity-60'
+                  }`}>
                     <ArrowRight size={16} />
                   </div>
                 </button>
@@ -219,27 +294,32 @@ export default function Workflow() {
             })}
           </div>
 
-          {/* Right Column: Glassmorphic Active Showcase Card */}
+          {/* Right Column: Glassmorphic Active Showcase Card with Smooth Transitions */}
           <div className="lg:col-span-7">
             <div className="bg-[#111116]/80 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-xl relative overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  initial={{ opacity: 0, y: 14, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -14, scale: 0.98 }}
+                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   className="space-y-6"
                 >
                   {/* Diagram Showcase Container - Crisp White Frame for 100% Uncropped Visibility */}
-                  <div className="relative w-full rounded-2xl overflow-hidden bg-white p-2.5 sm:p-4 border border-white/20 shadow-2xl flex items-center justify-center">
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative w-full rounded-2xl overflow-hidden bg-white p-2.5 sm:p-4 border border-white/20 shadow-2xl flex items-center justify-center group/img"
+                  >
                     <img
                       src={current.img}
                       alt={`${current.num} ${current.title}`}
-                      className="w-full h-auto object-contain rounded-xl max-h-[350px] transition-transform duration-500 hover:scale-[1.01]"
+                      className="w-full h-auto object-contain rounded-xl max-h-[350px] transition-transform duration-500 group-hover/img:scale-[1.015]"
                       loading="lazy"
                     />
-                  </div>
+                  </motion.div>
 
                   {/* Content Details */}
                   <div className="space-y-4">
@@ -261,22 +341,35 @@ export default function Workflow() {
                       {current.desc}
                     </p>
 
-                    {/* Deliverables Bullet List */}
+                    {/* Staggered Deliverables Bullet List */}
                     <div className="pt-2">
                       <h4 className="text-xs font-mono tracking-widest text-neutral-400 uppercase mb-3">
                         Key Deliverables & Outcomes:
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {current.deliverables.map((item, dIdx) => (
-                          <div
-                            key={dIdx}
-                            className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]"
+                          <motion.div
+                            key={`${current.id}-${dIdx}`}
+                            initial={{ opacity: 0, x: -10, y: 6 }}
+                            animate={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ 
+                              delay: 0.12 + dIdx * 0.08, 
+                              duration: 0.35, 
+                              ease: [0.22, 1, 0.36, 1] 
+                            }}
+                            className="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-[#0052FF]/30 hover:bg-[#0052FF]/5 transition-all"
                           >
-                            <CheckCircle2 size={16} className="text-[#0052FF] flex-shrink-0 mt-0.5" />
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.18 + dIdx * 0.08, type: 'spring', stiffness: 400 }}
+                            >
+                              <CheckCircle2 size={16} className="text-[#0052FF] flex-shrink-0 mt-0.5" />
+                            </motion.div>
                             <span className="text-xs text-neutral-300 leading-snug">
                               {item}
                             </span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -284,25 +377,36 @@ export default function Workflow() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Step dots indicator at bottom */}
+              {/* Step Dots Progress Indicator at Bottom */}
               <div className="flex items-center justify-between pt-6 mt-6 border-t border-white/[0.08]">
                 <div className="flex items-center gap-2">
-                  {workflowSteps.map((_, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setActiveStep(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${activeStep === idx
-                          ? 'w-8 bg-[#0052FF]'
-                          : 'w-2 bg-white/20 hover:bg-white/40'
+                  {workflowSteps.map((_, idx) => {
+                    const isStepActive = activeStep === idx;
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => handleStepChange(idx)}
+                        className={`h-1.5 rounded-full transition-all duration-300 overflow-hidden ${
+                          isStepActive
+                            ? 'w-10 bg-white/20'
+                            : 'w-2 bg-white/20 hover:bg-white/40'
                         }`}
-                      aria-label={`Jump to phase ${idx + 1}`}
-                    />
-                  ))}
+                        aria-label={`Jump to phase ${idx + 1}`}
+                      >
+                        {isStepActive && (
+                          <div
+                            className="h-full bg-[#0052FF] rounded-full"
+                            style={{ width: `${progress}%` }}
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
-                  <span>STEP {current.num}</span>
+                  <span className="text-[#0052FF] font-semibold">PHASE {current.num}</span>
                   <span>/</span>
                   <span>06</span>
                 </div>
