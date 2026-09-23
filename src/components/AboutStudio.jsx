@@ -16,7 +16,7 @@ export default function AboutStudio() {
         {/* ── 01: WHO WE ARE (SPLIT TWO-COLUMN HERO WITH ACCENT) ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Text Column */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-white/80 mb-5">
               <Sparkles size={12} className="text-[#0052FF]" />
               <span>ABOUT GENFREX</span>
@@ -44,22 +44,13 @@ export default function AboutStudio() {
           </div>
 
           {/* Right Column: Figure Showcase */}
-          <div className="lg:col-span-5 relative group overflow-hidden rounded-3xl border border-white/10 shadow-2xl bg-[#12141A]">
+          <div className="lg:col-span-6 relative group overflow-hidden rounded-3xl border border-white/20 shadow-2xl bg-white p-3 sm:p-5 flex items-center justify-center">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+              src="/About.png"
               alt="GENFREX collaborative digital and talent ecosystem"
-              className="w-full aspect-[4/3] object-cover brightness-90 group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.01] transition-transform duration-500"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
-              <span className="text-xs font-semibold text-[#00D4FF] uppercase tracking-wider block">
-                CONNECTED ECOSYSTEM
-              </span>
-              <p className="text-xs text-white/80 font-light mt-1">
-                Where businesses, technology & talent create limitless opportunities.
-              </p>
-            </div>
           </div>
         </div>
 
