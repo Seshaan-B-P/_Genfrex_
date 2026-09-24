@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Marquee() {
   return (
-    <div className="relative w-full overflow-hidden border-y border-white/[0.08] py-4 md:py-6 bg-[#050505] select-none">
+    <div className="relative w-full overflow-hidden border-y border-[#0052FF]/15 py-4 md:py-6 bg-[#0E121F] select-none">
       <div className="flex animate-marquee whitespace-nowrap">
         {Array.from({ length: 6 }).map((_, i) => (
           <span

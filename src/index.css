@@ -12,17 +12,17 @@
 }
 
 :root {
-  /* Core Palette */
-  --bg: #0A0A0A;
-  --bg-elev: #121212;
-  --card: #141416;
-  --card-2: #1A1A1F;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  /* Core Palette: Premium Light Black & Electric Blue */
+  --bg: #0C0E17;
+  --bg-elev: #10131F;
+  --card: #131725;
+  --card-2: #181E30;
+  --border: rgba(0, 82, 255, 0.14);
+  --border-strong: rgba(0, 82, 255, 0.28);
 
   /* Electric Blue Accent Palette */
   --accent: #0052FF;
-  --accent-2: #2B73FF;
+  --accent-2: #00D4FF;
   --accent-soft: rgba(0, 82, 255, 0.16);
   --accent-glow: rgba(0, 82, 255, 0.45);
 

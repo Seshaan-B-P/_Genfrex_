@@ -84,7 +84,7 @@ export default function ConnectElements() {
   return (
     <section
       id="about"
-      className="relative min-h-[100svh] py-28 md:py-36 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] overflow-hidden"
+      className="relative min-h-[100svh] py-28 md:py-36 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 overflow-hidden"
     >
       {/* Background Ambience: Subtle Dark Depth */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1677FF]/[0.035] rounded-full blur-[150px] pointer-events-none -z-10" />

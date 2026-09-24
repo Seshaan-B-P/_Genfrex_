@@ -90,7 +90,7 @@ export default function DigitalGrowth() {
   return (
     <section
       id="growth"
-      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] overflow-hidden"
+      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 overflow-hidden"
     >
       {/* Subtle Atmospheric Lighting (Clean, no purple/pink) */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#1677FF]/[0.035] rounded-full blur-[160px] pointer-events-none -z-10" />

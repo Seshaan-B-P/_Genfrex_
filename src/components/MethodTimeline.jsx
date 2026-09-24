@@ -8,16 +8,16 @@ export default function MethodTimeline() {
   const activeStep = methodSteps[activeStepIndex];
 
   return (
-    <section className="py-28 md:py-40 px-6 md:px-12 bg-[#050505] border-b border-white/[0.08] relative">
+    <section className="py-28 md:py-40 px-6 md:px-12 bg-[#0C0E17] border-b border-[#0052FF]/15 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase">
+              <span className="font-mono text-xs tracking-[0.25em] text-[#0052FF] uppercase">
                 // SYSTEMIZED EXECUTION
               </span>
-              <div className="h-[1px] w-12 bg-brand-blue/30" />
+              <div className="h-[1px] w-12 bg-[#0052FF]/30" />
             </div>
             <h2 className="font-display font-extrabold text-section-title text-white tracking-tight">
               THE GENFREX METHOD
@@ -29,7 +29,7 @@ export default function MethodTimeline() {
         </div>
 
         {/* Step Progress Bar & Interactive Step Indicators */}
-        <div className="border-t border-b border-white/[0.1] py-4 mb-12 overflow-x-auto scrollbar-none">
+        <div className="border-t border-b border-[#0052FF]/15 py-4 mb-12 overflow-x-auto scrollbar-none">
           <div className="flex items-center justify-between min-w-[720px] gap-2">
             {methodSteps.map((step, idx) => {
               const isActive = activeStepIndex === idx;
@@ -41,11 +41,11 @@ export default function MethodTimeline() {
                   data-cursor="hover"
                   className={`group flex items-center gap-2 py-2 px-3 text-left transition-all duration-300 focus:outline-none ${
                     isActive
-                      ? 'border-b-2 border-brand-blue text-white'
+                      ? 'border-b-2 border-[#0052FF] text-white'
                       : 'text-neutral-500 hover:text-neutral-300'
                   }`}
                 >
-                  <span className={`font-mono text-xs font-semibold ${isActive ? 'text-brand-blue' : 'text-neutral-500'}`}>
+                  <span className={`font-mono text-xs font-semibold ${isActive ? 'text-[#0052FF]' : 'text-neutral-500'}`}>
                     {step.step}
                   </span>
                   <span className="font-display text-xs font-medium tracking-wider uppercase whitespace-nowrap">
@@ -58,7 +58,7 @@ export default function MethodTimeline() {
         </div>
 
         {/* Dynamic Step Spotlight Stage */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center min-h-[380px] bg-[#09090d] border border-white/[0.08] p-8 md:p-14 relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center min-h-[380px] bg-[#131725] border border-[#0052FF]/20 shadow-xl shadow-[#0052FF]/5 p-8 md:p-14 relative overflow-hidden">
           
           {/* Subtle oversized background step number */}
           <div className="absolute right-4 bottom-0 select-none pointer-events-none font-display font-black text-[14rem] md:text-[22rem] text-white/[0.03] leading-none -mb-12">

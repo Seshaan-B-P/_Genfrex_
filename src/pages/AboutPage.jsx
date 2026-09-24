@@ -81,7 +81,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-[#070709] text-[#FFFFFF] min-h-screen pt-28 md:pt-36 pb-24 px-4 sm:px-6 relative overflow-hidden">
+    <div className="bg-[#0C0E17] text-[#FFFFFF] min-h-screen pt-28 md:pt-36 pb-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Background Multi-Color Ambient Glows */}
       <div
         className="absolute top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] h-[350px] bg-gradient-to-r from-blue-600/15 via-[#0052FF]/20 to-cyan-500/10 blur-[120px] pointer-events-none rounded-full"
@@ -105,7 +105,7 @@ export default function AboutPage() {
             Digital Solutions, Technology & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] to-[#0052FF]">Skilled Talent</span>
           </h1>
 
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0E1015]/80 border border-white/10 shadow-2xl backdrop-blur-md text-left relative overflow-hidden group">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#131725]/80 border border-white/10 shadow-2xl backdrop-blur-md text-left relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#00D4FF] to-[#0052FF]" />
 
             <span className="text-xs font-semibold tracking-widest text-[#00D4FF] uppercase block mb-3">
@@ -194,7 +194,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             {/* Card 1: GEN (White / Silver from Logo) */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-white/15 hover:border-white/40 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/15 hover:border-white/40 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-4xl sm:text-5xl font-black text-[#FFFFFF] tracking-tighter">
@@ -218,7 +218,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2: FRE (Electric Royal Blue from Logo) */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-[#0052FF]/25 hover:border-[#0052FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-[#0052FF]/25 hover:border-[#0052FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-4xl sm:text-5xl font-black text-[#0052FF] tracking-tighter">
@@ -242,7 +242,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 3: X (Luminous Cyan from Logo) */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1015] border border-[#00D4FF]/25 hover:border-[#00D4FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-[#00D4FF]/25 hover:border-[#00D4FF]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-4xl sm:text-5xl font-black text-[#00D4FF] tracking-tighter">
@@ -284,7 +284,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-2xl bg-[#0B0C10] border border-white/[0.08] hover:border-white/20 transition-all flex items-start gap-5"
+                  className="p-8 rounded-2xl bg-[#131725] border border-[#0052FF]/20 hover:border-[#0052FF]/50 transition-all flex items-start gap-5 shadow-lg shadow-[#0052FF]/5"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[#0052FF]/10 border border-[#0052FF]/20 flex items-center justify-center text-[#00D4FF] flex-shrink-0">
                     <Icon size={22} />
@@ -305,7 +305,7 @@ export default function AboutPage() {
 
         {/* ── 09 — OUR UNIQUE VALUE PROPOSITION ── */}
         <section className="relative">
-          <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#0C0D12] border border-white/10 shadow-2xl relative overflow-hidden">
+          <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#101424] border border-[#0052FF]/25 shadow-2xl relative overflow-hidden">
             <div className="text-center max-w-3xl mx-auto mb-10">
               <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
                 OUR UNIQUE VALUE PROPOSITION
@@ -329,7 +329,7 @@ export default function AboutPage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-[#14151C] border border-white/10 flex flex-col justify-between hover:border-[#0052FF]/50 transition-all text-center relative group"
+                  className="p-5 rounded-2xl bg-[#181E30] border border-[#0052FF]/20 flex flex-col justify-between hover:border-[#0052FF]/50 transition-all text-center relative group"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-mono font-bold text-[#0052FF] px-2 py-0.5 rounded bg-[#0052FF]/10 border border-[#0052FF]/20">
@@ -372,7 +372,7 @@ export default function AboutPage() {
               {directors.map((member, i) => (
                 <div key={i} className="flex flex-col items-center text-center group w-28 sm:w-32">
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
-                    <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#131725] flex items-center justify-center">
                       {member.image ? (
                         <img
                           src={member.image}
@@ -414,7 +414,7 @@ export default function AboutPage() {
                 {managers.map((member, i) => (
                   <div key={i} className="flex flex-col items-center text-center group w-28 sm:w-32">
                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-[#131725] flex items-center justify-center">
                         {member.image ? (
                           <img
                             src={member.image}

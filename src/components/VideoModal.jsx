@@ -39,12 +39,12 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
         onClick={onClose}
         aria-label="Close modal overlay"
       />
-      <div className="relative w-full max-w-5xl bg-[#141416] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0A0A0A]">
+      <div className="relative w-full max-w-5xl bg-[#131725] border border-[#0052FF]/30 rounded-2xl overflow-hidden shadow-2xl shadow-[#0052FF]/10 z-10">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#0052FF]/20 bg-[#101424]">
           <h3 className="text-white font-medium text-lg">{title}</h3>
           <button 
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+            className="w-9 h-9 rounded-full bg-[#181E30] hover:bg-[#0052FF]/20 flex items-center justify-center text-white/70 hover:text-white transition-colors border border-[#0052FF]/20"
             aria-label="Close video"
           >
             <X size={20} />

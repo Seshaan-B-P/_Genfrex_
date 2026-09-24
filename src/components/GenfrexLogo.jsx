@@ -6,18 +6,18 @@ export default function GenfrexLogo({
   variant = 'dark', // 'dark' (optimized for black background) or 'original'
   alt = 'GENFREX — Empowering Your Digital Growth & Talent Connections',
 }) {
-  const logoSrc = variant === 'dark' ? '/logo-dark.png' : '/logo-transparent.png';
+  const logoSrc = variant === 'dark' ? '/logo-navbar.png' : '/logo-transparent.png';
 
   return (
-    <div className="inline-flex flex-col items-start select-none">
+    <div className="inline-flex items-center select-none flex-shrink-0">
       <img
         src={logoSrc}
         alt={alt}
         className={`object-contain transition-all duration-300 ${className}`}
         loading="eager"
         onError={(e) => {
-          // Fallback to original image if transparent png fails
-          e.currentTarget.src = '/logo.jpg';
+          // Fallback to logo-dark.png
+          e.currentTarget.src = '/logo-dark.png';
         }}
       />
     </div>

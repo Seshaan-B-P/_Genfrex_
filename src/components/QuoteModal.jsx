@@ -47,10 +47,10 @@ export default function QuoteModal({ isOpen, onClose }) {
         onClick={onClose}
         aria-label="Close modal background"
       />
-      <div className="relative w-full max-w-xl bg-[#141416] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-[#131725] border border-[#0052FF]/30 rounded-2xl p-6 md:p-8 shadow-2xl shadow-[#0052FF]/10 z-10 max-h-[90vh] overflow-y-auto">
         <button 
           onClick={onClose}
-          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#181E30] hover:bg-[#0052FF]/20 flex items-center justify-center text-white/70 hover:text-white transition-colors border border-[#0052FF]/20"
           aria-label="Close quote modal"
         >
           <X size={18} />
@@ -73,7 +73,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
-                    className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
                   />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Company or Brand"
-                    className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
                   />
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@company.com"
-                    className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
                   />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 90000 00000"
-                    className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
                   />
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                   required
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
+                  className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-[#0052FF] transition-colors"
                 >
                   <option value="" disabled>Select a domain…</option>
                   <option value="Video Ad Production & Commercials">Video Ad Production & Commercials</option>
@@ -146,7 +146,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project, timeline, and goals…"
-                  className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors resize-none"
+                  className="w-full bg-[#0C0E17] border border-[#0052FF]/20 rounded-lg px-3.5 py-2.5 text-white placeholder:text-[#555] text-sm focus:outline-none focus:border-[#0052FF] transition-colors resize-none"
                 />
               </div>
 

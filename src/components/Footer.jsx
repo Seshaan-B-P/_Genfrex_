@@ -5,11 +5,11 @@ import GenfrexLogo from './GenfrexLogo';
 
 export default function Footer({ onOpenQuote }) {
   return (
-    <footer className="relative bg-[#070709] border-t border-white/[0.08] pt-16 pb-12 px-4 sm:px-6 overflow-hidden" id="footer">
+    <footer className="relative bg-[#090C16] border-t border-[#0052FF]/20 pt-16 pb-12 px-4 sm:px-6 overflow-hidden" id="footer">
       <div className="max-w-[1200px] mx-auto relative z-10">
 
         {/* Top CTA Banner */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 sm:p-12 rounded-3xl bg-[#141416]/90 backdrop-blur-sm border border-white/10 mb-16 shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 sm:p-12 rounded-3xl bg-[#131725] backdrop-blur-sm border border-[#0052FF]/25 mb-16 shadow-2xl shadow-[#0052FF]/10">
           <div>
             <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-1">
               READY TO SCALE?
@@ -50,7 +50,7 @@ export default function Footer({ onOpenQuote }) {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
                   className="hover:text-white transition-colors"
                 >
-                  About us
+                  About
                 </Link>
               </li>
               <li>
@@ -63,10 +63,34 @@ export default function Footer({ onOpenQuote }) {
                 </Link>
               </li>
               <li>
-                <a href="#works" className="hover:text-white transition-colors">Portfolio</a>
+                <Link 
+                  to="/approach" 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                  className="hover:text-white transition-colors"
+                >
+                  Approach
+                </Link>
               </li>
               <li>
-                <a href="#workflow" className="hover:text-white transition-colors">Client Workflow</a>
+                <Link 
+                  to="/work" 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                  className="hover:text-white transition-colors"
+                >
+                  Work
+                </Link>
+              </li>
+              <li>
+                <a href="/#why-genfrex" className="hover:text-white transition-colors">Why GENFREX</a>
+              </li>
+              <li>
+                <Link 
+                  to="/contact" 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                  className="hover:text-white transition-colors"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -107,7 +131,7 @@ export default function Footer({ onOpenQuote }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-[#131725] hover:bg-[#0052FF] border border-[#0052FF]/20 flex items-center justify-center text-white transition-all shadow-sm"
               >
                 <Linkedin size={18} />
               </a>
@@ -116,7 +140,7 @@ export default function Footer({ onOpenQuote }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-[#131725] hover:bg-[#0052FF] border border-[#0052FF]/20 flex items-center justify-center text-white transition-all shadow-sm"
               >
                 <Facebook size={18} />
               </a>
@@ -125,7 +149,7 @@ export default function Footer({ onOpenQuote }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-[#131725] hover:bg-[#0052FF] border border-[#0052FF]/20 flex items-center justify-center text-white transition-all shadow-sm"
               >
                 <Youtube size={18} />
               </a>
@@ -134,7 +158,7 @@ export default function Footer({ onOpenQuote }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#0052FF] border border-white/10 flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-[#131725] hover:bg-[#0052FF] border border-[#0052FF]/20 flex items-center justify-center text-white transition-all shadow-sm"
               >
                 <Instagram size={18} />
               </a>

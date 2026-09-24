@@ -18,12 +18,12 @@ export default function Navbar({ onOpenQuote }) {
   }, []);
 
   const navLinks = [
-    { label: 'About us', to: '/about', isRoute: true },
+    { label: 'About', to: '/about', isRoute: true },
     { label: 'Services', to: '/services', isRoute: true },
-    { label: 'Portfolio', href: '#works' },
-    { label: 'Clients', href: '#clients' },
-    { label: 'Workflow', href: '#workflow' },
-    { label: 'Contact us', href: '#footer' },
+    { label: 'Approach', to: '/approach', isRoute: true },
+    { label: 'Work', to: '/work', isRoute: true },
+    { label: 'Why GENFREX', href: '#why-genfrex' },
+    { label: 'Contact', to: '/contact', isRoute: true },
   ];
 
   const handleLinkClick = (e, link) => {
@@ -31,21 +31,26 @@ export default function Navbar({ onOpenQuote }) {
     if (link.isRoute) return;
 
     e.preventDefault();
-    if (location.pathname === '/') {
-      const target = document.querySelector(link.href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+    const target = document.querySelector(link.href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     } else {
       navigate(`/${link.href}`);
     }
+  };
+
+  const isActiveLink = (link) => {
+    if (link.isRoute) {
+      return location.pathname === link.to;
+    }
+    return location.pathname === '/' && location.hash === link.href;
   };
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-lg shadow-black/40'
+          ? 'bg-[#0C0E17]/95 backdrop-blur-md border-b border-[#0052FF]/20 py-3.5 shadow-lg shadow-[#0052FF]/5'
           : 'bg-transparent py-5 md:py-6'
           }`}
       >
@@ -61,14 +66,18 @@ export default function Navbar({ onOpenQuote }) {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-[15px] font-normal text-white/80">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[15px] font-normal">
             {navLinks.map((link) => (
               link.isRoute ? (
                 <Link
                   key={link.label}
                   to={link.to}
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="hover:text-white transition-colors duration-200"
+                  className={`transition-colors duration-200 ${
+                    isActiveLink(link)
+                      ? 'text-white font-medium'
+                      : 'text-white/75 hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -77,7 +86,11 @@ export default function Navbar({ onOpenQuote }) {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link)}
-                  className="hover:text-white transition-colors duration-200"
+                  className={`transition-colors duration-200 ${
+                    isActiveLink(link)
+                      ? 'text-white font-medium'
+                      : 'text-white/75 hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -86,10 +99,11 @@ export default function Navbar({ onOpenQuote }) {
           </nav>
 
           {/* Nav Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <a
               href="tel:+9047295361"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03] hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-sm font-medium transition-all"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-[#0052FF]/30 bg-[#131725] hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white text-xs sm:text-sm font-medium transition-all shadow-sm"
+              aria-label="Call GENFREX: Let's Talk"
             >
               <Phone size={14} className="text-[#0052FF]" />
               <span>Let's Talk</span>
@@ -98,9 +112,10 @@ export default function Navbar({ onOpenQuote }) {
             <button
               type="button"
               onClick={onOpenQuote}
-              className="btn btn-primary text-xs md:text-sm py-2 px-4 md:px-5"
+              className="btn btn-primary text-xs md:text-sm py-2 px-3.5 md:px-5"
+              aria-label="Review Quote"
             >
-              Request a Quote
+              Review Quote
             </button>
 
             {/* Mobile Toggle */}
@@ -117,7 +132,7 @@ export default function Navbar({ onOpenQuote }) {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-[99] bg-[#0A0A0A] flex flex-col justify-between p-8 transition-transform duration-400 ease-out lg:hidden ${drawerOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed inset-0 z-[99] bg-[#0C0E17] flex flex-col justify-between p-8 transition-transform duration-400 ease-out lg:hidden border-l border-[#0052FF]/20 ${drawerOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="flex items-center justify-between border-b border-white/10 pb-6">
@@ -131,7 +146,7 @@ export default function Navbar({ onOpenQuote }) {
           </button>
         </div>
 
-        <nav className="flex flex-col gap-6 py-8">
+        <nav className="flex flex-col gap-5 py-8">
           {navLinks.map((link) => (
             link.isRoute ? (
               <Link
@@ -141,7 +156,9 @@ export default function Navbar({ onOpenQuote }) {
                   setDrawerOpen(false);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-2xl font-light text-white/90 hover:text-[#0052FF] transition-colors"
+                className={`text-2xl font-light transition-colors ${
+                  isActiveLink(link) ? 'text-[#0052FF]' : 'text-white/90 hover:text-[#0052FF]'
+                }`}
               >
                 {link.label}
               </Link>
@@ -150,7 +167,9 @@ export default function Navbar({ onOpenQuote }) {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link)}
-                className="text-2xl font-light text-white/90 hover:text-[#0052FF] transition-colors"
+                className={`text-2xl font-light transition-colors ${
+                  isActiveLink(link) ? 'text-[#0052FF]' : 'text-white/90 hover:text-[#0052FF]'
+                }`}
               >
                 {link.label}
               </a>
@@ -166,14 +185,14 @@ export default function Navbar({ onOpenQuote }) {
             }}
             className="w-full btn btn-primary py-3 text-center"
           >
-            Request a Quote
+            Review Quote
           </button>
           <a
             href="tel:+9047295361"
             className="w-full btn btn-ghost py-3 flex items-center justify-center gap-2"
           >
             <Phone size={15} className="text-[#0052FF]" />
-            <span>+91 9047295361</span>
+            <span>Let's Talk (+91 9047295361)</span>
           </a>
         </div>
       </div>

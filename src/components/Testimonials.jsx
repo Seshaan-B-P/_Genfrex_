@@ -134,7 +134,7 @@ export default function Testimonials({ onOpenVideo }) {
   const activeItem = talksData[activeIndex];
 
   return (
-    <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0A0A0A] overflow-hidden" id="talks">
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0C0E17] overflow-hidden border-t border-[#0052FF]/15" id="talks">
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
         <div className="section-head center mb-14 text-center">

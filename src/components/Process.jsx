@@ -39,11 +39,11 @@ export default function Process() {
   return (
     <section
       id="methodology"
-      className="py-16 md:py-20 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-white/[0.08] pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-[#0052FF]/15 pb-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold font-mono">
@@ -72,8 +72,8 @@ export default function Process() {
                 onClick={() => setActiveStep(idx)}
                 className={`p-5 sm:p-6 border transition-all cursor-pointer flex flex-col justify-between ${
                   isCurrent
-                    ? 'bg-[#0A0A0A] border-[#0052FF] shadow-[0_0_20px_rgba(0,82,255,0.18)]'
-                    : 'bg-[#08080A] border-white/10 hover:border-white/20'
+                    ? 'bg-[#181E30] border-[#0052FF] shadow-[0_0_20px_rgba(0,82,255,0.25)]'
+                    : 'bg-[#131725] border-[#0052FF]/20 hover:border-[#0052FF]/60'
                 }`}
               >
                 <div>

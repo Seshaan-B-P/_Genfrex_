@@ -11,13 +11,24 @@ import WorkPage from './pages/WorkPage';
 import CaseStudyPage from './pages/CaseStudyPage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
+import ApproachPage from './pages/ApproachPage';
 import ContactPage from './pages/ContactPage';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
   return null;
 }
 
@@ -25,7 +36,7 @@ export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
-    <div className="bg-[#0A0A0A] text-[#FFFFFF] min-h-screen selection:bg-[#0052FF] selection:text-white relative">
+    <div className="bg-[#0C0E17] text-[#FFFFFF] min-h-screen selection:bg-[#0052FF] selection:text-white relative">
       {/* Custom Cursor */}
       <CustomCursor />
 
@@ -43,7 +54,8 @@ export default function App() {
         />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/work/:slug" element={<CaseStudyPage />} />
-        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services" element={<ServicesPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
+        <Route path="/approach" element={<ApproachPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

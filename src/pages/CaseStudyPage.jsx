@@ -19,7 +19,7 @@ export default function CaseStudyPage() {
   }, [slug]);
 
   return (
-    <article className="pt-32 md:pt-40 pb-28 bg-[#050505] text-[#F5F5F5]">
+    <article className="pt-32 md:pt-40 pb-28 bg-[#0C0E17] text-[#F5F5F5] min-h-screen">
       {/* Top Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
         <Link
@@ -76,7 +76,7 @@ export default function CaseStudyPage() {
 
       {/* 2. FULL SCREEN PROJECT VISUAL */}
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-20 md:mb-28">
-        <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden border border-white/10 bg-[#09090c] shadow-2xl relative">
+        <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden border border-[#0052FF]/20 bg-[#131725] shadow-2xl shadow-[#0052FF]/5 relative">
           <img
             src={project.heroImage}
             alt={project.title}
@@ -132,14 +132,14 @@ export default function CaseStudyPage() {
       {/* Secondary Gallery Composition */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 md:mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="aspect-[4/3] overflow-hidden border border-white/10 bg-[#09090c]">
+          <div className="aspect-[4/3] overflow-hidden border border-[#0052FF]/20 bg-[#131725]">
             <img
               src={project.secondaryImage}
               alt="Secondary visual view"
               className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
             />
           </div>
-          <div className="aspect-[4/3] overflow-hidden border border-white/10 bg-[#09090c]">
+          <div className="aspect-[4/3] overflow-hidden border border-[#0052FF]/20 bg-[#131725]">
             <img
               src={project.gallery[1] || project.heroImage}
               alt="Gallery snapshot"
@@ -163,7 +163,7 @@ export default function CaseStudyPage() {
               {project.techStack.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 bg-white/[0.03] border border-white/15 font-mono text-xs text-neutral-300"
+                  className="px-4 py-2 bg-[#131725] border border-[#0052FF]/20 font-mono text-xs text-neutral-300"
                 >
                   {tech}
                 </span>
@@ -181,7 +181,7 @@ export default function CaseStudyPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.deliverables.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2 font-mono text-xs text-neutral-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#0052FF] shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -191,7 +191,7 @@ export default function CaseStudyPage() {
       </div>
 
       {/* 6. RESULT / IMPACT METRICS */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 md:mb-36 bg-[#09090d] border border-white/10 p-8 md:p-14">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 md:mb-36 bg-[#131725] border border-[#0052FF]/25 shadow-xl shadow-[#0052FF]/5 p-8 md:p-14">
         <div className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase mb-4">
           06 // VERIFIED OUTCOMES
         </div>

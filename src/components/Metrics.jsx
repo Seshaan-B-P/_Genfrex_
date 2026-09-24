@@ -27,11 +27,11 @@ export default function Metrics() {
   return (
     <section
       id="impact"
-      className="py-16 md:py-20 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/[0.08] pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-[#0052FF]/15 pb-8">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold font-mono">
@@ -54,7 +54,7 @@ export default function Metrics() {
           {metrics.map((item, idx) => (
             <div
               key={item.label}
-              className="p-6 bg-[#0A0A0A] border border-white/10 hover:border-[#0052FF] transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 bg-[#131725] border border-[#0052FF]/20 hover:border-[#0052FF] hover:shadow-[0_0_20px_rgba(0,82,255,0.2)] transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">

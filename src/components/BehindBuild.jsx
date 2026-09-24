@@ -54,11 +54,11 @@ export default function BehindBuild() {
   return (
     <section
       id="behind-the-build"
-      className="py-32 md:py-48 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
+      className="py-32 md:py-48 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8 border-b border-white/[0.08] pb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8 border-b border-[#0052FF]/15 pb-12">
           <div>
             <span className="text-xs tracking-[0.25em] text-[#A0A0A0] uppercase block mb-4 font-medium">
               06 — PRODUCTION DOCUMENTARY

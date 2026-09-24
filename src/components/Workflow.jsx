@@ -162,11 +162,12 @@ export default function Workflow() {
 
   return (
     <section 
-      className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#070709]" 
-      id="workflow"
+      className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#0C0E17]" 
+      id="approach"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      <div id="workflow" className="absolute top-0 left-0 pointer-events-none" />
       {/* Subtle Electric Blue Ambient Background Glow */}
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#0052FF]/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#0052FF]/5 blur-[120px] rounded-full pointer-events-none" />
@@ -227,8 +228,8 @@ export default function Workflow() {
                   data-cursor="hover"
                   className={`group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 overflow-hidden ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#14141A] to-[#0E0E12] border-[#0052FF]/80 shadow-lg shadow-[#0052FF]/15'
-                      : 'bg-[#0B0B0E]/60 border-white/[0.06] hover:border-white/20 hover:bg-[#121216]/50'
+                      ? 'bg-gradient-to-r from-[#181E30] to-[#131725] border-[#0052FF]/80 shadow-lg shadow-[#0052FF]/20'
+                      : 'bg-[#131725]/60 border-[#0052FF]/15 hover:border-[#0052FF]/50 hover:bg-[#181E30]'
                   }`}
                 >
                   {/* Left Accent Bar */}
@@ -293,7 +294,7 @@ export default function Workflow() {
 
           {/* Right Column: Glassmorphic Active Showcase Card with Smooth Transitions */}
           <div className="lg:col-span-7">
-            <div className="bg-[#111116]/80 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-xl relative overflow-hidden shadow-2xl">
+            <div className="bg-[#131725]/90 border border-[#0052FF]/25 rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-xl relative overflow-hidden shadow-2xl shadow-[#0052FF]/10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}

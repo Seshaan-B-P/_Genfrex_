@@ -226,8 +226,8 @@ export default function SelectedWork({ onOpenVideo }) {
         {/* Carousel Container with Sleek Fade Shadows on edges */}
         <div className="relative">
           {/* Left & Right Gradient Shadows */}
-          <div className="absolute left-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-r from-[#0C0E17] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-4 w-12 sm:w-20 bg-gradient-to-l from-[#0C0E17] to-transparent z-10 pointer-events-none" />
 
           {/* Medium Sized Horizontal Auto-scroll Track */}
           <div

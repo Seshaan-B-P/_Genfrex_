@@ -1,16 +1,16 @@
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
-  /* Colors */
-  --bg:            #0A0A0A;
-  --bg-elev:       #121212;
-  --card:          #161616;
-  --card-2:        #1C1C1C;
-  --border:        rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  /* Colors: Light Black & Blue */
+  --bg:            #0C0E17;
+  --bg-elev:       #10131F;
+  --card:          #131725;
+  --card-2:        #181E30;
+  --border:        rgba(0, 82, 255, 0.16);
+  --border-strong: rgba(0, 82, 255, 0.32);
 
   --accent:        #0052FF;   /* GENFREX Royal Blue */
   --accent-2:      #00D4FF;   /* GENFREX Electric Cyan */
-  --accent-soft:   rgba(0, 82, 255, 0.15);
+  --accent-soft:   rgba(0, 82, 255, 0.16);
 
   --text:          #FFFFFF;
   --text-muted:    #9A9A9A;

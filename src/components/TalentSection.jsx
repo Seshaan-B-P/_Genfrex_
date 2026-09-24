@@ -112,7 +112,7 @@ export default function TalentSection() {
   return (
     <section
       id="talent"
-      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] overflow-hidden"
+      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 overflow-hidden"
     >
       {/* Background Subtle Ambience */}
       <div className="absolute top-1/3 right-1/4 w-[550px] h-[550px] bg-[#1677FF]/[0.035] rounded-full blur-[170px] pointer-events-none -z-10" />
@@ -273,7 +273,7 @@ export default function TalentSection() {
                     {cat.disciplines.map((disc, dIdx) => (
                       <span
                         key={dIdx}
-                        className="px-3 py-1.5 bg-[#050505] border border-white/15 font-mono text-xs text-white"
+                        className="px-3 py-1.5 bg-[#131725] border border-[#0052FF]/20 font-mono text-xs text-white"
                       >
                         {disc}
                       </span>

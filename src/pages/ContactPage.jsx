@@ -43,10 +43,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-32 md:pt-44 pb-28 px-6 md:px-12 bg-[#050505] text-[#F5F5F5]">
+    <div className="pt-32 md:pt-44 pb-28 px-6 md:px-12 bg-[#0C0E17] text-[#F5F5F5] min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="border-b border-white/[0.08] pb-12 mb-16">
+        <div className="border-b border-[#0052FF]/15 pb-12 mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-medium">
               01 — PROJECT INITIATION
@@ -68,27 +68,27 @@ export default function ContactPage() {
           {/* Left: Contact Info & Expectations (4 cols) */}
           <div className="lg:col-span-4 space-y-10">
             <div>
-              <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase block mb-3">
+              <span className="font-mono text-xs tracking-[0.2em] text-[#0052FF] uppercase block mb-3">
                 DIRECT CHANNELS
               </span>
               <div className="space-y-3 font-mono text-sm">
                 <div>
                   <span className="text-neutral-500 block text-xs">COMMISSION INQUIRIES:</span>
-                  <a href="mailto:hello@genfrex.com" className="text-white hover:text-brand-blue transition-colors">
-                    hello@genfrex.com
+                  <a href="mailto:genfrexofficial@gmail.com" className="text-white hover:text-[#0052FF] transition-colors">
+                    genfrexofficial@gmail.com
                   </a>
                 </div>
                 <div>
-                  <span className="text-neutral-500 block text-xs">TALENT NETWORK & ALLIANCES:</span>
-                  <a href="mailto:talent@genfrex.com" className="text-white hover:text-brand-blue transition-colors">
-                    talent@genfrex.com
+                  <span className="text-neutral-500 block text-xs">DIRECT LINE:</span>
+                  <a href="tel:+9047295361" className="text-white hover:text-[#0052FF] transition-colors">
+                    +91 9047295361
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border border-white/10 bg-[#09090c] space-y-3">
-              <span className="font-mono text-xs text-brand-blue uppercase tracking-widest block">
+            <div className="p-6 border border-[#0052FF]/20 bg-[#131725] shadow-lg shadow-[#0052FF]/5 space-y-3">
+              <span className="font-mono text-xs text-[#0052FF] uppercase tracking-widest block">
                 WHAT TO EXPECT
               </span>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -105,7 +105,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right: Bespoke Inquiry Suite (8 cols) */}
-          <div className="lg:col-span-8 bg-[#09090d] border border-white/10 p-8 md:p-14 relative">
+          <div className="lg:col-span-8 bg-[#131725] border border-[#0052FF]/25 shadow-2xl shadow-[#0052FF]/5 p-8 md:p-14 relative">
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -142,7 +142,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Morgan"
-                      className="w-full bg-[#050505] border border-white/15 focus:border-brand-blue px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
+                      className="w-full bg-[#0C0E17] border border-[#0052FF]/20 focus:border-[#0052FF] px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="alex@organization.com"
-                      className="w-full bg-[#050505] border border-white/15 focus:border-brand-blue px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
+                      className="w-full bg-[#0C0E17] border border-[#0052FF]/20 focus:border-[#0052FF] px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Company or venture name"
-                    className="w-full bg-[#050505] border border-white/15 focus:border-brand-blue px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 focus:border-[#0052FF] px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -191,8 +191,8 @@ export default function ContactPage() {
                           data-cursor="hover"
                           className={`px-3.5 py-2 font-mono text-xs tracking-wider uppercase transition-all duration-200 border ${
                             isSelected
-                              ? 'bg-brand-blue border-brand-blue text-white'
-                              : 'bg-[#050505] border-white/10 text-neutral-400 hover:border-white/30 hover:text-white'
+                              ? 'bg-[#0052FF] border-[#0052FF] text-white shadow-md shadow-[#0052FF]/30'
+                              : 'bg-[#0C0E17] border-[#0052FF]/20 text-neutral-400 hover:border-[#0052FF]/50 hover:text-white'
                           }`}
                         >
                           {type}
@@ -218,8 +218,8 @@ export default function ContactPage() {
                           data-cursor="hover"
                           className={`px-3.5 py-2 font-mono text-xs tracking-wider uppercase transition-all duration-200 border ${
                             isSelected
-                              ? 'bg-brand-blue border-brand-blue text-white'
-                              : 'bg-[#050505] border-white/10 text-neutral-400 hover:border-white/30 hover:text-white'
+                              ? 'bg-[#0052FF] border-[#0052FF] text-white shadow-md shadow-[#0052FF]/30'
+                              : 'bg-[#0C0E17] border-[#0052FF]/20 text-neutral-400 hover:border-[#0052FF]/50 hover:text-white'
                           }`}
                         >
                           {tier}
@@ -240,7 +240,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about the project goals, technical requirements, or talent constraints..."
-                    className="w-full bg-[#050505] border border-white/15 focus:border-brand-blue px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
+                    className="w-full bg-[#0C0E17] border border-[#0052FF]/20 focus:border-[#0052FF] px-4 py-3.5 text-sm text-white focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -249,7 +249,7 @@ export default function ContactPage() {
                   type="submit"
                   disabled={submitting}
                   data-cursor="hover"
-                  className="w-full py-5 bg-white text-black hover:bg-neutral-200 font-mono text-xs tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3 transition-colors disabled:opacity-50"
+                  className="w-full py-5 bg-[#0052FF] text-white hover:bg-[#1E6FFF] font-mono text-xs tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl shadow-[#0052FF]/25 disabled:opacity-50"
                 >
                   {submitting ? (
                     <span>PROCESSING INQUIRY...</span>

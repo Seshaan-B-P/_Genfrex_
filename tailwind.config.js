@@ -8,25 +8,27 @@ export default {
     extend: {
       colors: {
         background: {
-          DEFAULT: '#050505',
-          secondary: '#080808',
-          tertiary: '#0F0F12',
-          card: '#0A0A0D',
+          DEFAULT: '#0C0E17',
+          secondary: '#10131F',
+          tertiary: '#151A28',
+          card: '#131725',
+          elevated: '#181E30',
         },
         foreground: {
           DEFAULT: '#FFFFFF',
-          muted: '#A0A0A0',
-          dim: '#666666',
+          muted: '#A0AEC0',
+          dim: '#718096',
         },
         border: {
-          subtle: 'rgba(255, 255, 255, 0.08)',
-          highlight: 'rgba(255, 255, 255, 0.20)',
+          subtle: 'rgba(0, 82, 255, 0.12)',
+          highlight: 'rgba(0, 82, 255, 0.28)',
         },
         brand: {
           blue: '#0052FF',
           'blue-light': '#1E6FFF',
           'blue-electric': '#0052FF',
-          'blue-glow': 'rgba(0, 82, 255, 0.25)',
+          'blue-cyan': '#00D4FF',
+          'blue-glow': 'rgba(0, 82, 255, 0.28)',
         },
       },
       fontFamily: {

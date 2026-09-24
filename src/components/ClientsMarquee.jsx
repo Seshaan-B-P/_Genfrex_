@@ -13,9 +13,9 @@ export default function ClientsMarquee() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#050505] border-b border-white/[0.08] overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#0C0E17] border-b border-[#0052FF]/15 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10 text-center">
-        <span className="font-mono text-xs tracking-[0.3em] text-neutral-500 uppercase block mb-3">
+        <span className="font-mono text-xs tracking-[0.3em] text-[#0052FF] uppercase block mb-3">
           // PARTNER NETWORK
         </span>
         <h2 className="font-display font-medium text-lg md:text-2xl text-neutral-300 tracking-wide">
@@ -24,10 +24,10 @@ export default function ClientsMarquee() {
       </div>
 
       {/* Controlled Marquee Track */}
-      <div className="relative w-full overflow-hidden flex border-y border-white/[0.06] py-8 bg-[#08080b]">
+      <div className="relative w-full overflow-hidden flex border-y border-[#0052FF]/20 py-8 bg-[#101424]">
         {/* Left & Right Gradient Shadows */}
-        <div className="absolute left-0 inset-y-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 inset-y-0 w-24 bg-gradient-to-r from-[#0C0E17] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-[#0C0E17] to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee whitespace-nowrap gap-16 md:gap-24 items-center">
           {[...partners, ...partners].map((partner, idx) => (

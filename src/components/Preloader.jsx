@@ -41,7 +41,7 @@ export default function Preloader({ onComplete }) {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-0 z-50 bg-[#050505] flex flex-col justify-between p-6 sm:p-10 select-none pointer-events-auto"
+        className="fixed inset-0 z-50 bg-[#0C0E17] flex flex-col justify-between p-6 sm:p-10 select-none pointer-events-auto"
       >
         <div className="flex justify-between items-center text-[10px] text-[#666666] tracking-[0.25em] uppercase font-mono">
           <span>GENFREX</span>

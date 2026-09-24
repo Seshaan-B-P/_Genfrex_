@@ -56,11 +56,11 @@ export default function Capabilities() {
   return (
     <section
       id="domains"
-      className="py-16 md:py-20 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#0052FF]/15 pb-6 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="text-xs tracking-[0.25em] text-[#0052FF] uppercase font-bold font-mono">
@@ -89,8 +89,8 @@ export default function Capabilities() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`p-3.5 border text-left transition-all ${
                   isActive
-                    ? 'border-[#0052FF] bg-[#0A0A0A] shadow-[0_0_15px_rgba(0,82,255,0.2)]'
-                    : 'border-white/10 bg-[#08080A] hover:border-white/25'
+                    ? 'border-[#0052FF] bg-[#181E30] shadow-[0_0_15px_rgba(0,82,255,0.25)]'
+                    : 'border-[#0052FF]/20 bg-[#131725] hover:border-[#0052FF]/50'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
@@ -116,7 +116,7 @@ export default function Capabilities() {
         </div>
 
         {/* Active Domain Compact Deliverables Strip */}
-        <div className="p-5 bg-[#0A0A0A] border border-[#0052FF]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-5 bg-[#131725] border border-[#0052FF]/40 shadow-lg shadow-[#0052FF]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="font-mono text-xs text-[#0052FF] font-bold">
               {current.number} {current.name} &rarr;

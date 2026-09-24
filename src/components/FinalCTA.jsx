@@ -6,7 +6,7 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-28 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] relative overflow-hidden flex items-center justify-center"
+      className="py-20 md:py-28 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 relative overflow-hidden flex items-center justify-center"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-[#0052FF]/[0.06] rounded-full blur-[160px] pointer-events-none" />
 

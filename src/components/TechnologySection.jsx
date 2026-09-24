@@ -120,7 +120,7 @@ export default function TechnologySection() {
   return (
     <section
       id="technology"
-      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#050505] border-t border-white/[0.08] overflow-hidden"
+      className="relative min-h-[100svh] py-28 md:py-40 px-6 md:px-12 bg-[#0C0E17] border-t border-[#0052FF]/15 overflow-hidden"
     >
       {/* Background Soft Blue Illumination */}
       <div className="absolute top-1/3 left-1/3 w-[550px] h-[550px] bg-[#1677FF]/[0.035] rounded-full blur-[170px] pointer-events-none -z-10" />
