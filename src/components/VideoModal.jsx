@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 
-export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinematic Experience" }) {
+export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinematic Experience", muted = false }) {
+  const videoRef = useRef(null);
+  const isMuted = Boolean(muted || (videoUrl && videoUrl.includes('About Genfrex')));
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -18,6 +21,12 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted, videoUrl, isOpen]);
+
   if (!isOpen) return null;
 
   // Format embed url with autoplay
@@ -27,7 +36,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     if (match && match[2].length === 11) {
-      return `https://www.youtube.com/embed/${match[2]}?autoplay=1&rel=0`;
+      return `https://www.youtube.com/embed/${match[2]}?autoplay=1&rel=0${isMuted ? '&mute=1' : ''}`;
     }
     return url;
   };
@@ -53,9 +62,12 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
         <div className="relative w-full aspect-video bg-black flex items-center justify-center">
           {videoUrl && (videoUrl.endsWith('.mp4') || videoUrl.endsWith('.webm') || videoUrl.endsWith('.mov') || videoUrl.includes('.mp4')) ? (
             <video
+              ref={videoRef}
               src={videoUrl}
               controls
               autoPlay
+              muted={isMuted}
+              playsInline
               className="w-full h-full object-contain"
             >
               Your browser does not support the video tag.
@@ -74,3 +86,4 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title = "Cinemat
     </div>
   );
 }
+

@@ -13,7 +13,7 @@ import VideoModal from '../components/VideoModal';
 import QuoteModal from '../components/QuoteModal';
 
 export default function HomePage({ isQuoteOpen, setIsQuoteOpen }) {
-  const [videoState, setVideoState] = useState({ isOpen: false, url: '', title: '' });
+  const [videoState, setVideoState] = useState({ isOpen: false, url: '', title: '', muted: false });
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -24,12 +24,13 @@ export default function HomePage({ isQuoteOpen, setIsQuoteOpen }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleOpenVideo = (url, title = "Cinematic Experience") => {
-    setVideoState({ isOpen: true, url, title });
+  const handleOpenVideo = (url, title = "Cinematic Experience", muted = false) => {
+    const shouldMute = Boolean(muted || (url && url.includes('About Genfrex')));
+    setVideoState({ isOpen: true, url, title, muted: shouldMute });
   };
 
   const handleCloseVideo = () => {
-    setVideoState({ isOpen: false, url: '', title: '' });
+    setVideoState({ isOpen: false, url: '', title: '', muted: false });
   };
 
   const scrollToWorkflow = () => {
@@ -89,6 +90,7 @@ export default function HomePage({ isQuoteOpen, setIsQuoteOpen }) {
         onClose={handleCloseVideo}
         videoUrl={videoState.url}
         title={videoState.title}
+        muted={videoState.muted}
       />
 
       {/* REUSABLE REQUEST A QUOTE MODAL */}
