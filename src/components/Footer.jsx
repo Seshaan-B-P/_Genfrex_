@@ -45,48 +45,45 @@ export default function Footer({ onOpenQuote }) {
             </h5>
             <ul className="space-y-2.5 text-sm font-light text-[#9A9A9A]">
               <li>
-                <Link 
-                  to="/about" 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                <Link
+                  to="/about"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-white transition-colors"
                 >
                   About
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/services" 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                <Link
+                  to="/services"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-white transition-colors"
                 >
                   Services
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/approach" 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                <Link
+                  to="/approach"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-white transition-colors"
                 >
                   Approach
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/work" 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                <Link
+                  to="/work"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-white transition-colors"
                 >
                   Work
                 </Link>
               </li>
               <li>
-                <a href="/#why-genfrex" className="hover:text-white transition-colors">Why GENFREX</a>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                <Link
+                  to="/contact"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-white transition-colors"
                 >
                   Contact

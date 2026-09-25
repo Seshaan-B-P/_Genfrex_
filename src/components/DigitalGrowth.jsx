@@ -134,7 +134,7 @@ export default function DigitalGrowth() {
 
         {/* 13. DESKTOP INTERACTIVE SERVICE CAROUSEL / SELECTOR */}
         <div className="hidden md:grid grid-cols-12 gap-10 items-start mb-28">
-          
+
           {/* Left Column: 50-55% content */}
           <div className="col-span-6 space-y-8">
             {/* Service Tab Switcher */}
@@ -145,9 +145,8 @@ export default function DigitalGrowth() {
                   <button
                     key={svc.id}
                     onClick={() => setActiveTab(idx)}
-                    className={`flex items-center gap-2 transition-all duration-300 focus:outline-none ${
-                      isActive ? 'text-[#F5F7FA]' : 'text-[#8A8F98] hover:text-white'
-                    }`}
+                    className={`flex items-center gap-2 transition-all duration-300 focus:outline-none ${isActive ? 'text-[#F5F7FA]' : 'text-[#8A8F98] hover:text-white'
+                      }`}
                   >
                     <span className={isActive ? 'text-[#2D8CFF] font-bold' : ''}>
                       {svc.number}
@@ -439,11 +438,10 @@ export default function DigitalGrowth() {
             {growthSteps.map((step, idx) => (
               <React.Fragment key={step}>
                 <span
-                  className={`px-3 py-1.5 border transition-all ${
-                    idx === 0 || idx === growthSteps.length - 1
-                      ? 'border-[#1677FF] bg-[#1677FF]/10 text-white font-bold'
-                      : 'border-white/10 bg-black/40 text-neutral-300'
-                  }`}
+                  className={`px-3 py-1.5 border transition-all ${idx === 0 || idx === growthSteps.length - 1
+                    ? 'border-[#1677FF] bg-[#1677FF]/10 text-white font-bold'
+                    : 'border-white/10 bg-black/40 text-neutral-300'
+                    }`}
                 >
                   {step}
                 </span>

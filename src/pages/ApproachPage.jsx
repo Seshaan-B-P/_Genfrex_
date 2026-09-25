@@ -124,39 +124,7 @@ const PROCESS_STAGES = [
   }
 ];
 
-// --- 6 WHY GENFREX EDITORIAL PRINCIPLES (DIRECT FROM CATALOGUE) ---
-const WHY_GENFREX_PRINCIPLES = [
-  {
-    num: "01",
-    title: "One Digital Ecosystem",
-    desc: "Digital services and talent solutions under one ecosystem."
-  },
-  {
-    num: "02",
-    title: "Flexible Engagement",
-    desc: "Project-based, monthly, or customized engagement models."
-  },
-  {
-    num: "03",
-    title: "Talent + Technology",
-    desc: "Connect digital talent with technology-driven business requirements."
-  },
-  {
-    num: "04",
-    title: "AI-Ready",
-    desc: "Consider the growing role of AI, LLMs, and AI-powered search."
-  },
-  {
-    num: "05",
-    title: "Customized Solutions",
-    desc: "Solutions designed according to individual business requirements."
-  },
-  {
-    num: "06",
-    title: "Growth-Focused",
-    desc: "Solutions designed to actively support digital growth."
-  }
-];
+
 
 // --- 7 OPERATIONAL QUALITY STANDARDS ---
 const QUALITY_STANDARDS = [
@@ -228,56 +196,106 @@ export default function ApproachPage({ onOpenQuote }) {
           aria-hidden="true" 
         />
 
-        <div className="max-w-[1320px] mx-auto relative z-10 space-y-8">
-          
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase">
-            <Sparkles size={13} className="text-[#0052FF]" />
-            <span>OUR APPROACH</span>
-          </div>
-
-          {/* Main Headline (Single H1 for SEO) */}
-          <div className="space-y-4 max-w-4xl">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.06]">
-              FROM REQUIREMENT <br />
-              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#0052FF]">
-                TO GROWTH.
-              </span>
-            </h1>
-
-            <p className="text-xl sm:text-2xl md:text-3xl text-neutral-300 font-extralight tracking-tight">
-              A structured process designed around your business.
-            </p>
-          </div>
-
-          {/* Body Copy */}
-          <p className="text-neutral-400 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl">
-            Every business has different objectives, audiences, requirements, budgets, and timelines. GENFREX follows a structured approach to understand the requirement, create the right solution, execute it effectively, and continuously identify opportunities for improvement.
-          </p>
-
-          {/* CTAs */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              onClick={() => scrollToSection('process-intro')}
-              className="px-6 sm:px-7 py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-lg"
+        <div className="max-w-[1320px] mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Hero Editorial Content */}
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-7 space-y-6 sm:space-y-7"
             >
-              <span>EXPLORE OUR PROCESS</span>
-              <ArrowDown size={15} />
-            </button>
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase">
+                <Sparkles size={13} className="text-[#0052FF]" />
+                <span>OUR APPROACH</span>
+              </div>
 
-            <button
-              type="button"
-              onClick={handleOpenQuote}
-              className="px-6 sm:px-7 py-3.5 rounded-full border border-white/20 bg-white/[0.03] hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2"
+              {/* Main Headline (Single H1 for SEO) */}
+              <div className="space-y-3">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight text-white leading-[1.08]">
+                  FROM REQUIREMENT <br />
+                  <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#0052FF]">
+                    TO GROWTH.
+                  </span>
+                </h1>
+
+                <p className="text-lg sm:text-xl md:text-2xl text-neutral-300 font-extralight tracking-tight">
+                  A structured process designed around your business.
+                </p>
+              </div>
+
+              {/* Body Copy */}
+              <p className="text-neutral-400 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+                Every business has different objectives, audiences, requirements, budgets, and timelines. GENFREX follows a structured approach to understand the requirement, create the right solution, execute it effectively, and continuously identify opportunities for improvement.
+              </p>
+
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('process-intro')}
+                  className="px-6 sm:px-7 py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-lg"
+                >
+                  <span>EXPLORE OUR PROCESS</span>
+                  <ArrowDown size={15} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleOpenQuote}
+                  className="px-6 sm:px-7 py-3.5 rounded-full border border-white/20 bg-white/[0.03] hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2"
+                >
+                  <span>START A PROJECT</span>
+                  <ArrowUpRight size={15} className="text-[#0052FF]" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Right Column: High-End Framed Visual Workflow Diagram */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                y: [0, -6, 0]
+              }}
+              transition={{ 
+                opacity: { duration: 0.8, delay: 0.2 },
+                scale: { duration: 0.8, delay: 0.2 },
+                y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="lg:col-span-5 relative"
             >
-              <span>START A PROJECT</span>
-              <ArrowUpRight size={15} className="text-[#0052FF]" />
-            </button>
+              <div className="relative rounded-3xl border border-[#0052FF]/25 bg-[#131725]/90 p-4 sm:p-5 shadow-2xl backdrop-blur-xl group hover:border-[#0052FF]/50 transition-all duration-500 shadow-[#0052FF]/10">
+                {/* Subtle Ambient Gradient Sheen */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0052FF]/15 via-transparent to-transparent pointer-events-none rounded-3xl" />
+
+                <div className="relative overflow-hidden rounded-2xl border border-[#0052FF]/20 bg-[#0C0E17]">
+                  <img
+                    src="/Approach-hero.png"
+                    alt="GENFREX 6-Stage Process Workflow: Discover, Strategize, Connect, Execute, Optimize, Scale"
+                    className="w-full h-auto object-cover opacity-95 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0E17]/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                <div className="mt-4 pt-3 flex items-center justify-between text-xs font-mono text-neutral-400 border-t border-white/[0.06]">
+                  <span className="flex items-center gap-2 text-neutral-300">
+                    <span className="w-2 h-2 rounded-full bg-[#0052FF] animate-ping" />
+                    6-STAGE CONNECTED PROCESS
+                  </span>
+                  <span className="text-white/60">GENFREX 2026</span>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
 
           {/* Central Process Flow Ribbon */}
-          <div className="pt-8 border-t border-white/[0.08]">
+          <div className="mt-12 pt-8 border-t border-white/[0.08]">
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-mono text-neutral-400">
               <span className="text-white font-medium">METHODOLOGY:</span>
               <span className="text-white/90">DISCOVER</span>
@@ -747,51 +765,7 @@ export default function ApproachPage({ onOpenQuote }) {
         </div>
       </section>
 
-      {/* =============================================================
-          15 ─ WHY GENFREX (LARGE EDITORIAL LIST)
-          ============================================================= */}
-      <section id="why-genfrex" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
-        <div className="max-w-[1320px] mx-auto space-y-16">
-          
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              WHY GENFREX
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
-              Built around the business, <br />
-              <span className="font-normal text-white">not a fixed template.</span>
-            </h2>
-            <p className="text-neutral-400 font-light text-base sm:text-lg leading-relaxed">
-              Six core principles directly supported by the GENFREX Business Catalogue.
-            </p>
-          </div>
 
-          {/* Large Editorial List */}
-          <div className="divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
-            {WHY_GENFREX_PRINCIPLES.map((principle) => (
-              <div
-                key={principle.num}
-                className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline group hover:bg-white/[0.01] transition-colors"
-              >
-                <div className="md:col-span-2 text-xs font-mono text-[#0052FF]">
-                  {principle.num} — PRINCIPLE
-                </div>
-                <div className="md:col-span-5">
-                  <h3 className="text-2xl sm:text-3xl font-light text-white tracking-tight group-hover:text-white transition-colors">
-                    {principle.title}
-                  </h3>
-                </div>
-                <div className="md:col-span-5">
-                  <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
-                    {principle.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* =============================================================
           16 ─ STRUCTURED EXECUTION & QUALITY STANDARDS
@@ -900,29 +874,6 @@ export default function ApproachPage({ onOpenQuote }) {
               CONTACT GENFREX
             </Link>
           </div>
-
-          {/* Direct Verified Contact Details */}
-          <div className="pt-12 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono text-neutral-400">
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-              <span className="text-white/40 block mb-1">REPRESENTATIVE</span>
-              <span className="text-white font-medium">P.S. Dharshan</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-              <span className="text-white/40 block mb-1">DIRECT EMAIL</span>
-              <a href="mailto:genfrexofficial@gmail.com" className="text-white hover:text-[#0052FF] transition-colors">
-                genfrexofficial@gmail.com
-              </a>
-            </div>
-
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-              <span className="text-white/40 block mb-1">DIRECT TELEPHONE</span>
-              <a href="tel:+9047295361" className="text-white hover:text-[#0052FF] transition-colors">
-                +91 90472 95361
-              </a>
-            </div>
-          </div>
-
         </div>
       </section>
 

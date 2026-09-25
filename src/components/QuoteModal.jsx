@@ -3,6 +3,7 @@ import { X, Check, ArrowRight } from 'lucide-react';
 
 export default function QuoteModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -31,9 +32,45 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      const payload = {
+        _subject: `New Project Quote Request: ${formData.service} — ${formData.name}`,
+        _template: "box",
+        _captcha: "false",
+        _replyto: formData.email,
+        "Client Name": formData.name,
+        "Email Address": formData.email,
+      };
+
+      if (formData.phone?.trim()) {
+        payload["Phone Number"] = formData.phone.trim();
+      }
+      if (formData.company?.trim()) {
+        payload["Company / Brand"] = formData.company.trim();
+      }
+
+      payload["Service Required"] = formData.service;
+      payload["Project Message"] = formData.message;
+      payload["Source"] = "GENFREX Quote Modal";
+
+      await fetch("https://formsubmit.co/ajax/2bd3fde99c008854100a294c8b2634c4", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      setIsSubmitting(false);
+      setSubmitted(true);
+    } catch (err) {
+      console.warn("Quote modal submission fallback:", err);
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const handleChange = (e) => {

@@ -69,7 +69,7 @@ export default function CaseStudyPage() {
           </div>
           <div>
             <span className="text-neutral-500 block mb-1 uppercase tracking-wider">SERVICES USED</span>
-            <span className="text-[#00D4FF] font-medium">{project.servicesUsed || "SEO | Web Development | Digital Marketing | Content | Talent"}</span>
+            <span className="text-[#00D4FF] font-medium">{Array.isArray(project.servicesUsed) ? project.servicesUsed.join(' • ') : project.servicesUsed}</span>
           </div>
         </div>
       </div>
@@ -190,26 +190,28 @@ export default function CaseStudyPage() {
         </div>
       </div>
 
-      {/* 6. RESULT / IMPACT METRICS */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 md:mb-36 bg-[#131725] border border-[#0052FF]/25 shadow-xl shadow-[#0052FF]/5 p-8 md:p-14">
-        <div className="font-mono text-xs tracking-[0.25em] text-brand-blue uppercase mb-4">
-          06 // VERIFIED OUTCOMES
+      {/* 6. RESULT / VERIFIED OUTCOME */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 md:mb-36 bg-[#131725] border border-[#0052FF]/25 shadow-xl shadow-[#0052FF]/5 p-8 md:p-14 rounded-2xl relative overflow-hidden">
+        <div className="font-mono text-xs tracking-[0.25em] text-[#0052FF] uppercase mb-4">
+          06 // VERIFIED OUTCOMES & OPERATIONAL IMPACT
         </div>
-        <h3 className="font-display font-bold text-2xl md:text-4xl text-white mb-10">
-          Impact Metrics & Quantitative Return
+        <h3 className="font-display font-bold text-2xl md:text-4xl text-white mb-6">
+          Delivered Architecture & Operational Value
         </h3>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {project.metrics.map((m, i) => (
-            <div key={i} className="border-l-2 border-brand-blue pl-4">
-              <div className="font-display font-extrabold text-4xl md:text-5xl text-white mb-1">
-                {m.value}
-              </div>
-              <div className="font-mono text-xs text-neutral-400 uppercase tracking-wider">
-                {m.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="text-neutral-300 font-light text-base md:text-xl leading-relaxed max-w-4xl mb-8">
+          {project.outcome}
+        </p>
+
+        {project.execution && (
+          <div className="pt-6 border-t border-white/[0.08]">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              Execution Architecture
+            </h4>
+            <p className="text-neutral-400 font-light text-sm sm:text-base leading-relaxed">
+              {project.execution}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* 7. NEXT PROJECT CINEMATIC TRANSITION */}

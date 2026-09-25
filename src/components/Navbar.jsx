@@ -22,7 +22,6 @@ export default function Navbar({ onOpenQuote }) {
     { label: 'Services', to: '/services', isRoute: true },
     { label: 'Approach', to: '/approach', isRoute: true },
     { label: 'Work', to: '/work', isRoute: true },
-    { label: 'Why GENFREX', href: '#why-genfrex' },
     { label: 'Contact', to: '/contact', isRoute: true },
   ];
 
@@ -41,6 +40,9 @@ export default function Navbar({ onOpenQuote }) {
 
   const isActiveLink = (link) => {
     if (link.isRoute) {
+      if (link.to === '/work') {
+        return location.pathname.startsWith('/work');
+      }
       return location.pathname === link.to;
     }
     return location.pathname === '/' && location.hash === link.href;

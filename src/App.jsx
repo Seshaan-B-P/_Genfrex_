@@ -52,8 +52,8 @@ export default function App() {
           path="/"
           element={<HomePage isQuoteOpen={isQuoteOpen} setIsQuoteOpen={setIsQuoteOpen} />}
         />
-        <Route path="/work" element={<WorkPage />} />
-        <Route path="/work/:slug" element={<CaseStudyPage />} />
+        <Route path="/work" element={<WorkPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
+        <Route path="/work/:slug" element={<CaseStudyPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/services" element={<ServicesPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/approach" element={<ApproachPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/about" element={<AboutPage />} />

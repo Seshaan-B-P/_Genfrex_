@@ -40,14 +40,50 @@ const fadeInUp = {
   }
 };
 
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: 0.08,
+      delayChildren: 0.06
     }
+  }
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
   }
 };
 
@@ -127,51 +163,37 @@ const WORKFLOW_STAGES = [
   }
 ];
 
-// --- WHY GENFREX 6 EDITORIAL PRINCIPLES (FROM CATALOGUE) ---
-const WHY_GENFREX_PRINCIPLES = [
-  {
-    num: "01",
-    title: "One Digital Ecosystem",
-    desc: "Digital services and talent solutions under one ecosystem.",
-    detail: "Avoid fragmented agencies and detached contractors. GENFREX unifies growth strategy, engineering, and vetted creators within a cohesive operational model."
-  },
-  {
-    num: "02",
-    title: "Flexible Engagement",
-    desc: "Project-based, monthly, or customized engagement models.",
-    detail: "No rigid retainers or restrictive contracts. Engage GENFREX for focused deliverables, continuous digital growth partnerships, or tailor-made project squads."
-  },
-  {
-    num: "03",
-    title: "Talent + Technology",
-    desc: "Connect digital talent with technology-driven business requirements.",
-    detail: "Pair high-caliber specialized digital professionals with modern engineering tools and automated systems to solve complex business demands."
-  },
-  {
-    num: "04",
-    title: "AI-Ready",
-    desc: "Consider the growing role of AI, LLMs, and AI-powered search.",
-    detail: "Stay ahead of shifting consumer behaviors with AI-informed search optimization, intelligent workflow augmentation, and structured content architecture."
-  },
-  {
-    num: "05",
-    title: "Customized Solutions",
-    desc: "Solutions designed according to individual business requirements.",
-    detail: "We do not push one-size-fits-all packages. Every strategy is designed around your specific market, timeline, budget, and business objectives."
-  },
-  {
-    num: "06",
-    title: "Growth-Focused",
-    desc: "Solutions designed to actively support digital growth.",
-    detail: "Every asset, campaign, and software feature is engineered with purpose — built to improve visibility, elevate authority, and deliver lasting impact."
-  }
-];
+
 
 export default function ServicesPage({ onOpenQuote }) {
   const [internalQuoteOpen, setInternalQuoteOpen] = useState(false);
   const [activeStage, setActiveStage] = useState(0);
   const [activeDigitalGrowthTab, setActiveDigitalGrowthTab] = useState(0);
+  const [isGrowthPaused, setIsGrowthPaused] = useState(false);
+  const [isWorkflowPaused, setIsWorkflowPaused] = useState(false);
   const [hoveredPillar, setHoveredPillar] = useState(null);
+
+  // Auto-rotate Digital Growth tabs every 4.5 seconds (pauses when user hovers)
+  useEffect(() => {
+    if (isGrowthPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveDigitalGrowthTab((prev) => (prev + 1) % 4);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [isGrowthPaused]);
+
+  // Auto-advance "How We Work" stages every 5 seconds (pauses when user hovers)
+  useEffect(() => {
+    if (isWorkflowPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveStage((prev) => (prev + 1) % WORKFLOW_STAGES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isWorkflowPaused]);
 
   const handleOpenQuote = () => {
     if (typeof onOpenQuote === 'function') {
@@ -216,23 +238,34 @@ export default function ServicesPage({ onOpenQuote }) {
           01 ─ SERVICES HERO (CINEMATIC STYLED & ANIMATED)
           ============================================================= */}
       <section className="relative pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-32 px-4 sm:px-6 md:px-8 overflow-hidden border-b border-white/[0.08]">
-        {/* Animated Electric Ambient Backlights */}
+        {/* Animated Multi-layered Electric Ambient Backlights */}
         <motion.div 
           animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.12, 0.22, 0.12]
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.28, 0.15],
+            x: [0, 20, 0]
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-gradient-to-r from-[#0052FF]/30 via-cyan-500/20 to-[#0052FF]/30 blur-[150px] pointer-events-none rounded-full" 
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-gradient-to-r from-[#0052FF]/30 via-cyan-500/25 to-[#0052FF]/30 blur-[150px] pointer-events-none rounded-full" 
           aria-hidden="true" 
         />
         <motion.div 
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.08, 0.16, 0.08]
+            scale: [1, 1.25, 1],
+            opacity: [0.1, 0.2, 0.1],
+            y: [0, -30, 0]
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-2/3 right-[-10%] w-[500px] h-[500px] bg-[#0052FF]/20 blur-[160px] pointer-events-none rounded-full" 
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-2/3 right-[-10%] w-[520px] h-[520px] bg-[#0052FF]/20 blur-[160px] pointer-events-none rounded-full" 
+          aria-hidden="true" 
+        />
+        <motion.div 
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.06, 0.14, 0.06]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          className="absolute bottom-10 left-[-5%] w-[420px] h-[420px] bg-cyan-500/15 blur-[140px] pointer-events-none rounded-full" 
           aria-hidden="true" 
         />
 
@@ -246,8 +279,8 @@ export default function ServicesPage({ onOpenQuote }) {
               variants={staggerContainer}
               className="lg:col-span-7 space-y-6 sm:space-y-8"
             >
-              {/* Eyebrow Pill */}
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase backdrop-blur-md">
+              {/* Eyebrow Pill with Pulsing Glow */}
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase backdrop-blur-md shadow-[0_0_15px_rgba(0,82,255,0.2)]">
                 <Sparkles size={13} className="text-[#0052FF] animate-pulse" />
                 <span>SERVICES</span>
               </motion.div>
@@ -275,22 +308,22 @@ export default function ServicesPage({ onOpenQuote }) {
               {/* Action Buttons with Micro-Interactions */}
               <motion.div variants={fadeInUp} className="pt-2 flex flex-wrap items-center gap-4">
                 <motion.button
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={() => scrollToSection('services-intro')}
-                  className="px-7 py-4 rounded-full bg-white text-black hover:bg-neutral-200 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-[0_10px_30px_rgba(255,255,255,0.15)] group"
+                  className="px-7 py-4 rounded-full bg-white text-black hover:bg-neutral-200 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-[0_10px_30px_rgba(255,255,255,0.18)] group"
                 >
                   <span>EXPLORE SERVICES</span>
-                  <ArrowDown size={15} className="group-hover:translate-y-0.5 transition-transform" />
+                  <ArrowDown size={15} className="group-hover:translate-y-1 transition-transform" />
                 </motion.button>
 
                 <motion.button
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={handleOpenQuote}
-                  className="px-7 py-4 rounded-full border border-white/20 bg-white/[0.03] hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-lg group"
+                  className="px-7 py-4 rounded-full border border-white/20 bg-white/[0.03] hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-2 shadow-lg group hover:shadow-[0_0_25px_rgba(0,82,255,0.25)]"
                 >
                   <span>START A PROJECT</span>
                   <ArrowUpRight size={15} className="text-[#0052FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -300,26 +333,38 @@ export default function ServicesPage({ onOpenQuote }) {
               {/* Ecosystem Architecture Badges */}
               <motion.div variants={fadeInUp} className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-mono text-neutral-400">
                 <span className="text-white font-medium">ECOSYSTEM:</span>
-                <span className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('digital-growth')}>DIGITAL GROWTH</span>
+                <motion.span whileHover={{ scale: 1.08, color: '#0052FF' }} className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('digital-growth')}>DIGITAL GROWTH</motion.span>
                 <span className="text-white/20">•</span>
-                <span className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('web-technology')}>TECHNOLOGY</span>
+                <motion.span whileHover={{ scale: 1.08, color: '#0052FF' }} className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('web-technology')}>TECHNOLOGY</motion.span>
                 <span className="text-white/20">•</span>
-                <span className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('talent-solutions')}>TALENT</span>
+                <motion.span whileHover={{ scale: 1.08, color: '#0052FF' }} className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('talent-solutions')}>TALENT</motion.span>
                 <span className="text-white/20">•</span>
-                <span className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('content-creative')}>CONTENT</span>
+                <motion.span whileHover={{ scale: 1.08, color: '#0052FF' }} className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('content-creative')}>CONTENT</motion.span>
                 <span className="text-white/20">•</span>
-                <span className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('ai-innovation')}>AI</span>
+                <motion.span whileHover={{ scale: 1.08, color: '#0052FF' }} className="hover:text-white transition-colors cursor-pointer" onClick={() => scrollToSection('ai-innovation')}>AI</motion.span>
               </motion.div>
             </motion.div>
 
             {/* Right Column: High-End Framed Visual Asset with Hover Glow */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                y: [0, -10, 0]
+              }}
+              transition={{ 
+                opacity: { duration: 0.8, delay: 0.2 },
+                scale: { duration: 0.8, delay: 0.2 },
+                y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative rounded-3xl border border-[#0052FF]/20 bg-[#131725]/90 p-4 sm:p-5 shadow-2xl backdrop-blur-xl group hover:border-[#0052FF]/50 transition-all duration-500 shadow-[#0052FF]/10">
+              <motion.div 
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ duration: 0.3 }}
+                className="relative rounded-3xl border border-[#0052FF]/30 bg-[#131725]/90 p-4 sm:p-5 shadow-2xl backdrop-blur-xl group hover:border-[#0052FF]/60 transition-all duration-500 shadow-[#0052FF]/20"
+              >
                 {/* Subtle Gradient Sheen */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0052FF]/15 via-transparent to-transparent pointer-events-none rounded-3xl" />
 
@@ -327,7 +372,7 @@ export default function ServicesPage({ onOpenQuote }) {
                   <img
                     src="/services-hero.png"
                     alt="GENFREX Connected Digital Ecosystem"
-                    className="w-full h-auto object-cover opacity-90 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    className="w-full h-auto object-cover opacity-90 group-hover:scale-[1.04] transition-transform duration-700 ease-out"
                     loading="eager"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -343,7 +388,7 @@ export default function ServicesPage({ onOpenQuote }) {
                   </span>
                   <span className="text-white/60">GENFREX 2026</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
 
           </div>
@@ -380,26 +425,33 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Quick Pillar Jump Bar (Animated Editorial Navigation Cards) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4"
+          >
             {[
               { id: "digital-growth", num: "01", name: "Digital Growth", desc: "SEO, AI Search, Marketing" },
               { id: "web-technology", num: "02", name: "Web & Tech", desc: "Websites, Apps, Architecture" },
               { id: "talent-solutions", num: "03", name: "Talent Solutions", desc: "Developers, Marketers, Squads" },
               { id: "content-creative", num: "04", name: "Content & Creative", desc: "Copy, Social, Visual Assets" },
               { id: "ai-innovation", num: "05", name: "AI & Innovation", desc: "LLMs, Workflows, Automation" }
-            ].map((pillar, idx) => (
+            ].map((pillar) => (
               <motion.button
                 key={pillar.id}
-                whileHover={{ y: -4, borderColor: "rgba(0, 82, 255, 0.6)" }}
-                whileTap={{ scale: 0.98 }}
+                variants={cardVariant}
+                whileHover={{ y: -8, scale: 1.03, borderColor: "rgba(0, 82, 255, 0.7)", boxShadow: "0 20px 35px -10px rgba(0, 82, 255, 0.25)" }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => scrollToSection(pillar.id)}
-                className="p-5 rounded-2xl bg-[#0D0E13] border border-white/10 text-left transition-all duration-300 group flex flex-col justify-between shadow-lg hover:shadow-[#0052FF]/10 relative overflow-hidden"
+                className="p-5 rounded-2xl bg-[#0D0E13] border border-white/10 text-left transition-all duration-300 group flex flex-col justify-between shadow-lg relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-4 relative z-10">
                   <span className="group-hover:text-[#0052FF] font-semibold transition-colors">{pillar.num}</span>
-                  <div className="w-6 h-6 rounded-full bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF] transition-colors">
+                  <div className="w-6 h-6 rounded-full bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF] group-hover:scale-110 group-hover:rotate-45 transition-all duration-300">
                     <ArrowDown size={12} className="text-white/40 group-hover:text-white transition-colors" />
                   </div>
                 </div>
@@ -414,7 +466,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 </div>
               </motion.button>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -434,7 +486,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="max-w-3xl"
           >
             <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              01 — DIGITAL GROWTH
+              DIGITAL GROWTH
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
               Build visibility. <br />
@@ -446,10 +498,20 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Editorial Service Tabs / Stacked Sequence */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div 
+            onMouseEnter={() => setIsGrowthPaused(true)}
+            onMouseLeave={() => setIsGrowthPaused(false)}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
+          >
             
             {/* Left: Selector List with Large Typography */}
-            <div className="lg:col-span-5 space-y-3">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={staggerContainer}
+              className="lg:col-span-5 space-y-3"
+            >
               {[
                 {
                   id: "seo",
@@ -482,12 +544,13 @@ export default function ServicesPage({ onOpenQuote }) {
               ].map((item, idx) => (
                 <motion.button
                   key={item.id}
-                  whileHover={{ x: 4 }}
+                  variants={cardVariant}
+                  whileHover={{ x: 8, borderColor: "rgba(0, 82, 255, 0.6)" }}
                   whileTap={{ scale: 0.99 }}
                   onClick={() => setActiveDigitalGrowthTab(idx)}
                   className={`w-full text-left p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex items-start gap-4 relative overflow-hidden ${
                     activeDigitalGrowthTab === idx
-                      ? 'bg-[#12141C] border-[#0052FF]/70 shadow-lg shadow-[#0052FF]/10'
+                      ? 'bg-[#12141C] border-[#0052FF]/70 shadow-lg shadow-[#0052FF]/15'
                       : 'bg-[#0A0B0E] border-white/[0.08] hover:border-white/20'
                   }`}
                 >
@@ -495,6 +558,15 @@ export default function ServicesPage({ onOpenQuote }) {
                     <motion.div 
                       layoutId="activeTabIndicator"
                       className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#0052FF]"
+                    />
+                  )}
+                  {activeDigitalGrowthTab === idx && !isGrowthPaused && (
+                    <motion.div 
+                      key={`progress-${idx}`}
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 4.5, ease: "linear" }}
+                      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#0052FF] to-cyan-400"
                     />
                   )}
                   <span className={`text-xs font-mono font-bold pt-1 ${activeDigitalGrowthTab === idx ? 'text-[#0052FF]' : 'text-neutral-500'}`}>
@@ -510,19 +582,25 @@ export default function ServicesPage({ onOpenQuote }) {
                   </div>
                 </motion.button>
               ))}
-            </div>
+            </motion.div>
 
             {/* Right: Detailed Capabilities Showcase with AnimatePresence */}
-            <div className="lg:col-span-7 bg-[#131725] border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={scaleIn}
+              className="lg:col-span-7 bg-[#131725] border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl"
+            >
               <div className="absolute top-0 right-0 w-80 h-80 bg-[#0052FF]/10 blur-[100px] pointer-events-none rounded-full" />
 
               <AnimatePresence mode="wait">
                 {activeDigitalGrowthTab === 0 && (
                   <motion.div 
                     key="tab-seo"
-                    initial={{ opacity: 0, x: 15 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -15 }}
+                    exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35 }}
                     className="space-y-8"
                   >
@@ -550,10 +628,17 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Competitor Analysis & Audits",
                           "Strategy & Monthly Management"
                         ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[#0052FF]/40 transition-colors">
+                          <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.08)" }}
+                            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] transition-colors cursor-default"
+                          >
                             <Check size={15} className="text-[#0052FF] flex-shrink-0" />
                             <span className="text-sm font-light text-white/90">{item}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -568,9 +653,9 @@ export default function ServicesPage({ onOpenQuote }) {
                 {activeDigitalGrowthTab === 1 && (
                   <motion.div 
                     key="tab-ai-search"
-                    initial={{ opacity: 0, x: 15 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -15 }}
+                    exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35 }}
                     className="space-y-8"
                   >
@@ -599,10 +684,17 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Structured Content Strategies",
                           "AI-friendly Content Architecture"
                         ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[#0052FF]/40 transition-colors">
+                          <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.08)" }}
+                            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] transition-colors cursor-default"
+                          >
                             <Check size={15} className="text-[#0052FF] flex-shrink-0" />
                             <span className="text-sm font-light text-white/90">{item}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -617,9 +709,9 @@ export default function ServicesPage({ onOpenQuote }) {
                 {activeDigitalGrowthTab === 2 && (
                   <motion.div 
                     key="tab-digital-marketing"
-                    initial={{ opacity: 0, x: 15 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -15 }}
+                    exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35 }}
                     className="space-y-8"
                   >
@@ -648,10 +740,17 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Performance Tracking",
                           "Conversion-focused Strategies"
                         ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[#0052FF]/40 transition-colors">
+                          <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.08)" }}
+                            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] transition-colors cursor-default"
+                          >
                             <Check size={15} className="text-[#0052FF] flex-shrink-0" />
                             <span className="text-sm font-light text-white/90">{item}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -666,9 +765,9 @@ export default function ServicesPage({ onOpenQuote }) {
                 {activeDigitalGrowthTab === 3 && (
                   <motion.div 
                     key="tab-social-media-seo"
-                    initial={{ opacity: 0, x: 15 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -15 }}
+                    exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.35 }}
                     className="space-y-8"
                   >
@@ -696,10 +795,17 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Social Search Visibility",
                           "Content Planning"
                         ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-[#0052FF]/40 transition-colors">
+                          <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.08)" }}
+                            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] transition-colors cursor-default"
+                          >
                             <Check size={15} className="text-[#0052FF] flex-shrink-0" />
                             <span className="text-sm font-light text-white/90">{item}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -712,7 +818,34 @@ export default function ServicesPage({ onOpenQuote }) {
                 )}
               </AnimatePresence>
 
-            </div>
+              {/* Pagination Controls & Auto-rotate Status */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-neutral-400">
+
+
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setActiveDigitalGrowthTab((prev) => (prev === 0 ? 3 : prev - 1))}
+                    className="w-7 h-7 rounded-lg bg-white/[0.04] border border-white/10 hover:border-[#0052FF] hover:bg-[#0052FF]/20 text-white/70 hover:text-white transition-all flex items-center justify-center"
+                    aria-label="Previous service"
+                  >
+                    ←
+                  </button>
+                  <span className="text-white font-semibold">
+                    0{activeDigitalGrowthTab + 1} / 04
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setActiveDigitalGrowthTab((prev) => (prev + 1) % 4)}
+                    className="w-7 h-7 rounded-lg bg-white/[0.04] border border-white/10 hover:border-[#0052FF] hover:bg-[#0052FF]/20 text-white/70 hover:text-white transition-all flex items-center justify-center"
+                    aria-label="Next service"
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+
+            </motion.div>
 
           </div>
 
@@ -734,7 +867,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="max-w-3xl"
           >
             <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              02 — WEB & TECHNOLOGY
+              WEB & TECHNOLOGY
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
               Digital infrastructure built <br />
@@ -745,21 +878,30 @@ export default function ServicesPage({ onOpenQuote }) {
             </p>
           </motion.div>
 
-          {/* 4 Architectural Pillars Grid with Hover Elevate */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {/* 4 Architectural Pillars Grid with Staggered Entrance */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          >
             
             {/* Pillar 1: Website Design & Development */}
             <motion.div 
-              whileHover={{ y: -5 }}
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-xl hover:shadow-[#0052FF]/5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0052FF]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     01 • FRONT-FACING PLATFORMS
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/10 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     <Monitor size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
                   </div>
                 </div>
@@ -784,9 +926,13 @@ export default function ServicesPage({ onOpenQuote }) {
                     "E-commerce Websites",
                     "Custom Websites"
                   ].map((tag) => (
-                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 group-hover:border-white/20 transition-colors">
+                    <motion.span 
+                      key={tag} 
+                      whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
+                      className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
+                    >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -794,16 +940,19 @@ export default function ServicesPage({ onOpenQuote }) {
 
             {/* Pillar 2: Web Applications */}
             <motion.div 
-              whileHover={{ y: -5 }}
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-xl hover:shadow-[#0052FF]/5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0052FF]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     02 • CUSTOM SOFTWARE & LOGIC
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/10 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     <Code2 size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
                   </div>
                 </div>
@@ -828,9 +977,13 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Database Solutions",
                     "Third-party Integrations"
                   ].map((tag) => (
-                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 group-hover:border-white/20 transition-colors">
+                    <motion.span 
+                      key={tag} 
+                      whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
+                      className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
+                    >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -838,16 +991,19 @@ export default function ServicesPage({ onOpenQuote }) {
 
             {/* Pillar 3: Website Maintenance */}
             <motion.div 
-              whileHover={{ y: -5 }}
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-xl hover:shadow-[#0052FF]/5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0052FF]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     03 • CONTINUOUS RELIABILITY
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/10 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     <WorkflowIcon size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
                   </div>
                 </div>
@@ -872,9 +1028,13 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Performance Optimization",
                     "Technical Support"
                   ].map((tag) => (
-                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 group-hover:border-white/20 transition-colors">
+                    <motion.span 
+                      key={tag} 
+                      whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
+                      className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
+                    >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -882,16 +1042,19 @@ export default function ServicesPage({ onOpenQuote }) {
 
             {/* Pillar 4: Deployment & Support */}
             <motion.div 
-              whileHover={{ y: -5 }}
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-xl hover:shadow-[#0052FF]/5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0052FF]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     04 • INFRASTRUCTURE LAUNCH
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/10 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     <Network size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
                   </div>
                 </div>
@@ -915,15 +1078,19 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Technical Maintenance",
                     "Ongoing Support"
                   ].map((tag) => (
-                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 group-hover:border-white/20 transition-colors">
+                    <motion.span 
+                      key={tag} 
+                      whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
+                      className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
+                    >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -943,7 +1110,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="max-w-3xl"
           >
             <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              03 — TALENT SOLUTIONS
+              TALENT SOLUTIONS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
               Connect with the <br />
@@ -955,28 +1122,41 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 3 Core Roles Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             
             {/* Developer Talent */}
             <motion.div 
-              whileHover={{ y: -4 }}
-              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6 group-hover:scale-110 group-hover:bg-[#0052FF]/20 group-hover:border-[#0052FF]/40 transition-all duration-300">
                   <Code2 size={22} />
                 </div>
                 <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest block mb-1">
                   CATEGORY 01
                 </span>
-                <h3 className="text-xl font-medium text-white mb-4">
+                <h3 className="text-xl font-medium text-white mb-4 group-hover:text-white transition-colors">
                   Developer Talent
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["Web Developers", "WordPress Developers", "Front-end Developers", "Back-end Developers", "Full-stack Developers"].map((role, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="text-[#0052FF]">•</span> {role}
-                    </li>
+                    <motion.li 
+                      key={i} 
+                      whileHover={{ x: 6, color: "#ffffff" }}
+                      className="flex items-center gap-2 transition-colors cursor-default"
+                    >
+                      <span className="text-[#0052FF] group-hover:scale-125 transition-transform">•</span> {role}
+                    </motion.li>
                   ))}
                 </ul>
               </div>
@@ -984,24 +1164,31 @@ export default function ServicesPage({ onOpenQuote }) {
 
             {/* Marketing Talent */}
             <motion.div 
-              whileHover={{ y: -4 }}
-              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6 group-hover:scale-110 group-hover:bg-[#0052FF]/20 group-hover:border-[#0052FF]/40 transition-all duration-300">
                   <TrendingUp size={22} />
                 </div>
                 <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest block mb-1">
                   CATEGORY 02
                 </span>
-                <h3 className="text-xl font-medium text-white mb-4">
+                <h3 className="text-xl font-medium text-white mb-4 group-hover:text-white transition-colors">
                   Marketing Talent
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["SEO Specialists", "Digital Marketers", "Social Media Specialists", "Content Strategists"].map((role, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="text-[#0052FF]">•</span> {role}
-                    </li>
+                    <motion.li 
+                      key={i} 
+                      whileHover={{ x: 6, color: "#ffffff" }}
+                      className="flex items-center gap-2 transition-colors cursor-default"
+                    >
+                      <span className="text-[#0052FF] group-hover:scale-125 transition-transform">•</span> {role}
+                    </motion.li>
                   ))}
                 </ul>
               </div>
@@ -1009,34 +1196,51 @@ export default function ServicesPage({ onOpenQuote }) {
 
             {/* Creative Talent */}
             <motion.div 
-              whileHover={{ y: -4 }}
-              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#0052FF] mb-6 group-hover:scale-110 group-hover:bg-[#0052FF]/20 group-hover:border-[#0052FF]/40 transition-all duration-300">
                   <PenTool size={22} />
                 </div>
                 <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest block mb-1">
                   CATEGORY 03
                 </span>
-                <h3 className="text-xl font-medium text-white mb-4">
+                <h3 className="text-xl font-medium text-white mb-4 group-hover:text-white transition-colors">
                   Creative Talent
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["Graphic Designers", "Video Editors", "Content Creators", "Creative Professionals"].map((role, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="text-[#0052FF]">•</span> {role}
-                    </li>
+                    <motion.li 
+                      key={i} 
+                      whileHover={{ x: 6, color: "#ffffff" }}
+                      className="flex items-center gap-2 transition-colors cursor-default"
+                    >
+                      <span className="text-[#0052FF] group-hover:scale-125 transition-transform">•</span> {role}
+                    </motion.li>
                   ))}
                 </ul>
               </div>
             </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* Project-Based Teams Blueprint */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0E0F14] via-[#12141C] to-[#0E0F14] border border-white/10 relative overflow-hidden shadow-2xl">
-            <div className="max-w-3xl space-y-4">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeInUp}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0E0F14] via-[#12141C] to-[#0E0F14] border border-white/10 hover:border-[#0052FF]/50 relative overflow-hidden shadow-2xl transition-all group"
+          >
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#0052FF]/10 blur-[90px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity" />
+
+            <div className="max-w-3xl space-y-4 relative z-10">
               <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest block">
                 SPECIALIZED SQUAD MODEL
               </span>
@@ -1049,16 +1253,19 @@ export default function ServicesPage({ onOpenQuote }) {
               
               <div className="pt-4 flex flex-wrap items-center gap-3">
                 <span className="text-xs font-mono text-neutral-400">CATALOGUE EXAMPLE:</span>
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs sm:text-sm font-medium text-white shadow-inner">
+                <motion.div 
+                  whileHover={{ scale: 1.04 }}
+                  className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#0052FF]/40 text-xs sm:text-sm font-medium text-white shadow-inner transition-colors"
+                >
                   <span>Developer</span>
                   <span className="text-[#0052FF] font-bold">+</span>
                   <span>Designer</span>
                   <span className="text-[#0052FF] font-bold">+</span>
                   <span>Marketer</span>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1078,7 +1285,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="max-w-3xl"
           >
             <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              04 — CONTENT & CREATIVE
+              CONTENT & CREATIVE
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
               Content that strengthens <br />
@@ -1090,21 +1297,32 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 3 Capabilities Grid with Animated Hover */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          >
             
             {/* 1. SEO & Web Content */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     WRITTEN AUTHORITY
                   </span>
-                  <FileText size={18} className="text-white/40" />
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FileText size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3">
+                <h3 className="text-2xl font-medium text-white mb-3 group-hover:text-white transition-colors">
                   SEO & Web Content
                 </h3>
                 <p className="text-neutral-400 font-light text-sm leading-relaxed mb-6">
@@ -1118,27 +1336,36 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Website & Landing Page Content",
                   "Topic Clusters"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light">
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ x: 5, color: "#ffffff" }}
+                    className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
+                  >
                     <Check size={14} className="text-[#0052FF] flex-shrink-0" />
                     <span>{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
             {/* 2. Social Media Content */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     AUDIENCE ENGAGEMENT
                   </span>
-                  <Share2 size={18} className="text-white/40" />
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <Share2 size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3">
+                <h3 className="text-2xl font-medium text-white mb-3 group-hover:text-white transition-colors">
                   Social Media Content
                 </h3>
                 <p className="text-neutral-400 font-light text-sm leading-relaxed mb-6">
@@ -1153,27 +1380,36 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Content Calendars",
                   "Platform-specific Content"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light">
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ x: 5, color: "#ffffff" }}
+                    className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
+                  >
                     <Check size={14} className="text-[#0052FF] flex-shrink-0" />
                     <span>{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
             {/* 3. Creative & Video */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest">
                     VISUAL MEDIA & ASSETS
                   </span>
-                  <Video size={18} className="text-white/40" />
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#0052FF]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <Video size={18} className="text-white/60 group-hover:text-[#0052FF] transition-colors" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3">
+                <h3 className="text-2xl font-medium text-white mb-3 group-hover:text-white transition-colors">
                   Creative & Video
                 </h3>
                 <p className="text-neutral-400 font-light text-sm leading-relaxed mb-6">
@@ -1188,15 +1424,19 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Social Media Creatives",
                   "Business Graphics & Digital Branding Assets"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light">
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ x: 5, color: "#ffffff" }}
+                    className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
+                  >
                     <Check size={14} className="text-[#0052FF] flex-shrink-0" />
                     <span>{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1216,7 +1456,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="max-w-3xl"
           >
             <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              05 — AI & DIGITAL INNOVATION
+              AI & DIGITAL INNOVATION
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
               Smarter workflows. <br />
@@ -1228,7 +1468,13 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 6 Areas of Focus */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               {
                 num: "01",
@@ -1263,14 +1509,17 @@ export default function ServicesPage({ onOpenQuote }) {
             ].map((area) => (
               <motion.div
                 key={area.num}
-                whileHover={{ y: -4 }}
-                className="p-7 rounded-2xl bg-[#131725] border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between shadow-lg"
+                variants={cardVariant}
+                whileHover={{ y: -6, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 18px 36px -10px rgba(0, 82, 255, 0.25)" }}
+                className="p-7 rounded-2xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between shadow-lg group relative overflow-hidden"
               >
-                <div>
-                  <span className="text-xs font-mono text-[#0052FF] uppercase tracking-wider block mb-2">
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#0052FF]/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                <div className="relative z-10">
+                  <span className="text-xs font-mono text-[#0052FF] group-hover:text-cyan-400 group-hover:scale-105 uppercase tracking-wider block mb-2 transition-all">
                     FOCUS {area.num}
                   </span>
-                  <h3 className="text-lg font-medium text-white mb-2">
+                  <h3 className="text-lg font-medium text-white mb-2 group-hover:text-white transition-colors">
                     {area.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
@@ -1279,11 +1528,22 @@ export default function ServicesPage({ onOpenQuote }) {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* AI-Powered Approach Editorial Statement */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0A0B0F] border border-[#0052FF]/30 relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#0052FF]/10 blur-[100px] pointer-events-none" />
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeInUp}
+            whileHover={{ y: -4, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 20px 45px -10px rgba(0, 82, 255, 0.2)" }}
+            className="p-8 sm:p-12 rounded-3xl bg-[#0A0B0F] border border-[#0052FF]/30 relative overflow-hidden shadow-2xl transition-all group"
+          >
+            <motion.div 
+              animate={{ scale: [1, 1.25, 1], opacity: [0.1, 0.22, 0.1] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 right-0 w-96 h-96 bg-[#0052FF]/15 blur-[100px] pointer-events-none rounded-full" 
+            />
             
             <div className="max-w-3xl space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0052FF]/10 border border-[#0052FF]/20 text-xs font-mono text-[#0052FF]">
@@ -1300,7 +1560,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 We position AI as an enabling capability designed to improve speed and strategic depth — never as a replacement for human creative judgement and accountability.
               </p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1308,7 +1568,12 @@ export default function ServicesPage({ onOpenQuote }) {
       {/* =============================================================
           08 ─ HOW WE WORK (CINEMATIC 6-STAGE TIMELINE WITH ANIMATION)
           ============================================================= */}
-      <section id="approach" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
+      <section 
+        id="approach" 
+        onMouseEnter={() => setIsWorkflowPaused(true)}
+        onMouseLeave={() => setIsWorkflowPaused(false)}
+        className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative"
+      >
         <div className="max-w-[1320px] mx-auto space-y-16">
           
           {/* Section Header */}
@@ -1327,16 +1592,22 @@ export default function ServicesPage({ onOpenQuote }) {
                 <span className="font-normal text-white">sustainable growth.</span>
               </h2>
             </motion.div>
-            <div className="text-xs font-mono text-neutral-400">
-              STAGE {WORKFLOW_STAGES[activeStage].num} OF 06
+            
+            <div className="flex items-center gap-3">
+              
+              <div className="text-xs font-mono text-neutral-400">
+                STAGE {WORKFLOW_STAGES[activeStage].num} OF 06
+              </div>
             </div>
           </div>
 
           {/* Interactive Horizontal Stage Timeline (Desktop / Tablet) */}
           <div className="hidden lg:grid grid-cols-6 gap-2 border-b border-white/[0.08] pb-6">
             {WORKFLOW_STAGES.map((stg, idx) => (
-              <button
+              <motion.button
                 key={stg.num}
+                whileHover={{ y: -3, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveStage(idx)}
                 className={`text-left p-4 rounded-2xl transition-all duration-300 border relative ${
                   activeStage === idx
@@ -1350,18 +1621,33 @@ export default function ServicesPage({ onOpenQuote }) {
                     className="absolute inset-0 bg-[#0052FF]/10 rounded-2xl pointer-events-none"
                   />
                 )}
+                {activeStage === idx && !isWorkflowPaused && (
+                  <motion.div 
+                    key={`workflow-prog-${idx}`}
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 5.0, ease: "linear" }}
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0052FF] to-cyan-400 rounded-b-2xl"
+                  />
+                )}
                 <span className={`text-xs font-mono font-bold block mb-1 ${activeStage === idx ? 'text-[#0052FF]' : 'text-neutral-500'}`}>
                   {stg.num} / 06
                 </span>
                 <span className="text-sm font-medium tracking-tight block">
                   {stg.name}
                 </span>
-              </button>
+              </motion.button>
             ))}
           </div>
 
           {/* Active Stage Editorial Stage Display with Smooth Crossfade */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 relative overflow-hidden shadow-2xl">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={scaleIn}
+            className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/30 transition-colors relative overflow-hidden shadow-2xl"
+          >
             <AnimatePresence mode="wait">
               <motion.div 
                 key={`stage-${activeStage}`}
@@ -1395,51 +1681,67 @@ export default function ServicesPage({ onOpenQuote }) {
                       Key Deliverables
                     </h4>
                     {WORKFLOW_STAGES[activeStage].deliverables.map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 text-sm font-light text-neutral-300">
+                      <motion.div 
+                        key={i} 
+                        whileHover={{ x: 5, color: '#ffffff' }}
+                        className="flex items-center gap-3 text-sm font-light text-neutral-300 transition-colors cursor-default"
+                      >
                         <Check size={14} className="text-[#0052FF] flex-shrink-0" />
                         <span>{item}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
 
                   {/* Navigation controls */}
                   <div className="pt-6 flex items-center justify-between border-t border-white/[0.08]">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       type="button"
                       onClick={() => setActiveStage((prev) => (prev === 0 ? 5 : prev - 1))}
                       className="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
                     >
                       ← PREVIOUS STAGE
-                    </button>
+                    </motion.button>
                     <div className="flex items-center gap-1.5">
                       {WORKFLOW_STAGES.map((_, dotIdx) => (
                         <button
                           key={dotIdx}
                           onClick={() => setActiveStage(dotIdx)}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            activeStage === dotIdx ? 'bg-[#0052FF] w-6' : 'bg-white/20'
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            activeStage === dotIdx ? 'bg-[#0052FF] w-6' : 'bg-white/20 w-2 hover:bg-white/40'
                           }`}
                           aria-label={`Jump to stage ${dotIdx + 1}`}
                         />
                       ))}
                     </div>
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       type="button"
                       onClick={() => setActiveStage((prev) => (prev === 5 ? 0 : prev + 1))}
                       className="text-xs font-mono text-[#0052FF] hover:text-white transition-colors"
                     >
                       NEXT STAGE →
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
 
-                {/* Stage Asset Illustration */}
+                {/* Stage Asset Illustration with Floating Animation */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="relative rounded-2xl border border-[#0052FF]/20 bg-[#131725] p-4 shadow-2xl shadow-[#0052FF]/10 overflow-hidden max-w-md w-full">
-                    <img
+                  <motion.div 
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative rounded-2xl border border-[#0052FF]/30 bg-[#131725] p-4 shadow-2xl shadow-[#0052FF]/15 overflow-hidden max-w-md w-full group hover:border-[#0052FF]/60 transition-all duration-300"
+                  >
+                    <motion.img
+                      key={`img-${activeStage}`}
+                      initial={{ opacity: 0, scale: 0.94 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4 }}
                       src={WORKFLOW_STAGES[activeStage].img}
                       alt={`GENFREX Stage ${WORKFLOW_STAGES[activeStage].name}`}
-                      className="w-full h-auto object-contain rounded-xl"
+                      className="w-full h-auto object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500"
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
@@ -1448,72 +1750,12 @@ export default function ServicesPage({ onOpenQuote }) {
                     <div className="mt-3 text-center text-xs font-mono text-neutral-500">
                       GENFREX OPERATIONAL BLUEPRINT
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
               </motion.div>
             </AnimatePresence>
-          </div>
-
-        </div>
-      </section>
-
-      {/* =============================================================
-          09 ─ WHY GENFREX (6 EDITORIAL PRINCIPLES)
-          ============================================================= */}
-      <section id="why-genfrex" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
-        <div className="max-w-[1320px] mx-auto space-y-16">
-          
-          {/* Section Header */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-3xl"
-          >
-            <span className="text-xs font-mono tracking-widest text-[#0052FF] uppercase block mb-3">
-              WHY GENFREX
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white leading-tight mb-4">
-              One ecosystem. <br />
-              <span className="font-normal text-white">Multiple digital capabilities.</span>
-            </h2>
-            <p className="text-neutral-400 font-light text-base sm:text-lg leading-relaxed">
-              GENFREX connects strategy, engineering, and specialized talent to eliminate the friction of managing fragmented service providers.
-            </p>
           </motion.div>
-
-          {/* 6 Editorial Principles Grid with Hover Stagger */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {WHY_GENFREX_PRINCIPLES.map((principle) => (
-              <motion.div
-                key={principle.num}
-                whileHover={{ y: -4 }}
-                className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/50 transition-all flex flex-col justify-between group shadow-lg"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono text-[#0052FF] uppercase tracking-widest font-bold">
-                      PRINCIPLE {principle.num}
-                    </span>
-                    <span className="text-white/20 group-hover:text-white/60 transition-colors font-mono text-xs">
-                      GENFREX
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-medium text-white mb-2 group-hover:text-[#0052FF] transition-colors">
-                    {principle.title}
-                  </h3>
-                  <p className="text-sm text-neutral-300 font-light leading-relaxed mb-4">
-                    {principle.desc}
-                  </p>
-                  <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                    {principle.detail}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
         </div>
       </section>
@@ -1545,14 +1787,23 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Two Primary Models + Custom Discussion */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             
             {/* Model 1: Project-Based */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-2xl hover:shadow-[#0052FF]/10 transition-all flex flex-col justify-between group"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 25px 50px -15px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-2xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
+              <div className="absolute -top-20 -right-20 w-44 h-44 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-[#0052FF]">
                   <span>STRUCTURED DELIVERABLES</span>
                 </div>
@@ -1567,38 +1818,43 @@ export default function ServicesPage({ onOpenQuote }) {
                   <div className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
                     Best Suited For:
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Website design, development, and launches</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Digital marketing campaign setup & audits</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Dedicated short-term sprint deliverables</span>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
-              <div className="pt-8">
-                <button
+              <div className="pt-8 relative z-10">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={handleOpenQuote}
                   className="w-full py-3.5 rounded-full border border-white/20 hover:border-[#0052FF] hover:bg-[#0052FF]/10 text-white text-xs font-mono uppercase tracking-widest transition-all"
                 >
                   DISCUSS A PROJECT
-                </button>
+                </motion.button>
               </div>
             </motion.div>
 
             {/* Model 2: Monthly Engagement */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/60 hover:shadow-2xl hover:shadow-[#0052FF]/10 transition-all flex flex-col justify-between group"
+              variants={cardVariant}
+              whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 25px 50px -15px rgba(0, 82, 255, 0.25)" }}
+              className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-2xl transition-all flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
+              <div className="absolute -top-20 -right-20 w-44 h-44 bg-[#0052FF]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-[#0052FF]">
                   <span>CONTINUOUS PARTNERSHIP</span>
                 </div>
@@ -1613,38 +1869,47 @@ export default function ServicesPage({ onOpenQuote }) {
                   <div className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
                     Best Suited For:
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Monthly SEO & search presence management</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Continuous website security & performance upkeep</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-neutral-300 font-light">
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} className="flex items-center gap-3 text-sm text-neutral-300 font-light transition-transform cursor-default">
                     <Check size={14} className="text-[#0052FF]" />
                     <span>Ongoing social media & digital marketing distribution</span>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
-              <div className="pt-8">
-                <button
+              <div className="pt-8 relative z-10">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={handleOpenQuote}
                   className="w-full py-3.5 rounded-full bg-[#0052FF] hover:bg-[#1E6FFF] text-white text-xs font-mono uppercase tracking-widest transition-all shadow-lg"
                 >
                   EXPLORE MONTHLY
-                </button>
+                </motion.button>
               </div>
             </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* Customized Engagement Note */}
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] text-center text-xs sm:text-sm text-neutral-400 font-light">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            whileHover={{ y: -2 }}
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-white/20 transition-all text-center text-xs sm:text-sm text-neutral-400 font-light"
+          >
             Need a hybrid arrangement? <strong className="text-white font-medium">Customized engagement</strong> can be discussed based on your specific requirements, timeline, and internal team workflow.
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1675,10 +1940,20 @@ export default function ServicesPage({ onOpenQuote }) {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+          >
             
             {/* Left: Operational Quality Standards */}
-            <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-6">
+            <motion.div 
+              variants={cardVariant}
+              whileHover={{ y: -4, borderColor: "rgba(0, 82, 255, 0.4)" }}
+              className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-6 shadow-lg transition-all"
+            >
               <div className="flex items-center gap-2 text-xs font-mono text-[#0052FF]">
                 <ShieldCheck size={16} />
                 <span>OPERATIONAL QUALITY PRINCIPLES</span>
@@ -1697,16 +1972,24 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Performance monitoring",
                   "Continuous improvement"
                 ].map((std, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#0052FF]/30 transition-colors">
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.06)" }}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] transition-colors cursor-default"
+                  >
                     <Check size={14} className="text-[#0052FF] flex-shrink-0" />
                     <span className="text-xs sm:text-sm text-neutral-300 font-light">{std}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Strict Confidentiality Mandate */}
-            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-5">
+            <motion.div 
+              variants={cardVariant}
+              whileHover={{ y: -4, borderColor: "rgba(6, 182, 212, 0.5)", boxShadow: "0 20px 40px -10px rgba(6, 182, 212, 0.15)" }}
+              className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-5 shadow-lg transition-all"
+            >
               <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
                 <Lock size={15} />
                 <span>CONFIDENTIALITY</span>
@@ -1720,9 +2003,9 @@ export default function ServicesPage({ onOpenQuote }) {
               <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] text-xs text-neutral-400 font-light">
                 We respect commercial privacy and intellectual property throughout the duration of every project and beyond.
               </div>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1734,87 +2017,65 @@ export default function ServicesPage({ onOpenQuote }) {
         {/* Ambient Glow */}
         <motion.div 
           animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.12, 0.22, 0.12]
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.28, 0.15]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-[#0052FF]/15 blur-[150px] pointer-events-none rounded-full" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-[#0052FF]/20 blur-[150px] pointer-events-none rounded-full" 
           aria-hidden="true" 
         />
 
-        <div className="max-w-4xl mx-auto relative z-10 space-y-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto relative z-10 space-y-8"
+        >
           
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase">
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase shadow-[0_0_15px_rgba(0,82,255,0.25)]">
             <Sparkles size={13} className="text-[#0052FF] animate-pulse" />
             <span>HAVE A PROJECT IN MIND?</span>
-          </div>
+          </motion.div>
 
           {/* Main Headline */}
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extralight tracking-tight text-white leading-tight">
+          <motion.h2 variants={fadeInUp} className="text-3xl sm:text-5xl md:text-6xl font-extralight tracking-tight text-white leading-tight">
             LET'S BUILD YOUR NEXT <br />
             <span className="font-semibold text-white">
               DIGITAL GROWTH OPPORTUNITY.
             </span>
-          </h2>
+          </motion.h2>
 
           {/* Supporting Text */}
-          <p className="text-neutral-300 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          <motion.p variants={fadeInUp} className="text-neutral-300 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
             Whether you need a website, better search visibility, digital marketing, AI optimization, a developer, a freelancer, or a complete digital team — GENFREX can help identify the right solution.
-          </p>
+          </motion.p>
 
           {/* Action CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div variants={fadeInUp} className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={handleOpenQuote}
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0052FF] hover:bg-[#1E6FFF] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_12px_30px_-5px_rgba(0,82,255,0.45)]"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0052FF] hover:bg-[#1E6FFF] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_12px_30px_-5px_rgba(0,82,255,0.5)] group"
             >
               <span>START YOUR DIGITAL GROWTH JOURNEY</span>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.button>
 
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/contact"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="inline-block w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 bg-white/[0.03] hover:border-white/50 text-white text-xs sm:text-sm font-medium tracking-wider uppercase transition-all duration-300"
+                className="inline-block w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 bg-white/[0.03] hover:border-white/50 hover:bg-white/[0.06] text-white text-xs sm:text-sm font-medium tracking-wider uppercase transition-all duration-300"
               >
                 CONTACT GENFREX
               </Link>
             </motion.div>
-          </div>
-
-          {/* Direct Verified Contact Details */}
-          <div className="pt-12 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono text-neutral-400">
-            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/20 transition-colors">
-              <span className="text-white/40 block mb-1">REPRESENTATIVE</span>
-              <span className="text-white font-medium">P.S. Dharshan</span>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#0052FF]/40 transition-colors">
-              <span className="text-white/40 block mb-1">DIRECT EMAIL</span>
-              <a href="mailto:genfrexofficial@gmail.com" className="text-white hover:text-[#0052FF] transition-colors">
-                genfrexofficial@gmail.com
-              </a>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#0052FF]/40 transition-colors">
-              <span className="text-white/40 block mb-1">DIRECT TELEPHONE</span>
-              <a href="tel:+9047295361" className="text-white hover:text-[#0052FF] transition-colors">
-                +91 90472 95361
-              </a>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/20 transition-colors">
-              <span className="text-white/40 block mb-1">OFFICIAL PLATFORM</span>
-              <span className="text-white">genfrex.vercel.app</span>
-            </div>
-          </div>
-
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Embedded Quote Modal if not triggered via parent onOpenQuote */}

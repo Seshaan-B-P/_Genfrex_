@@ -3,14 +3,14 @@ import { ArrowRight } from 'lucide-react';
 
 export default function AiBanner({ onScrollToWorkflow }) {
   return (
-    <section className="py-12 md:py-20 px-4 sm:px-6" id="why-genfrex">
+    <section className="py-12 md:py-20 px-4 sm:px-6">
       <div className="max-w-[1200px] mx-auto">
         <div className="ai-banner border border-white/10 rounded-3xl p-8 sm:p-14 md:p-20 text-center relative overflow-hidden bg-gradient-to-b from-[#141418] to-[#0A0A0C]">
           {/* Subtle Electric Blue Ambient Light */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#0052FF]/15 blur-[90px] pointer-events-none rounded-full" />
 
           <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-3">
-            WHY GENFREX • UNIQUE VALUE PROPOSITION
+            THE GENFREX ADVANTAGE • CONNECTED ECOSYSTEM
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-extralight tracking-tight text-white max-w-4xl mx-auto leading-tight mb-8">
             Connecting Potential. Creating Opportunities.
