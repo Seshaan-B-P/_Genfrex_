@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @media (hover: hover) and (pointer: fine) {
+
   body.has-custom-cursor,
   body.has-custom-cursor a,
   body.has-custom-cursor button,
@@ -96,7 +97,7 @@ body {
   background: var(--accent);
 }
 
-/* 5N2 Media Typography */
+/* Genfrex Media Typography */
 .eyebrow {
   color: var(--accent);
   font-family: var(--font-head);
@@ -892,6 +893,7 @@ body {
 }
 
 @media (max-width: 520px) {
+
   .vtesti-slide.is-prev-2,
   .vtesti-slide.is-next-2 {
     opacity: 0;
@@ -906,9 +908,11 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -919,10 +923,12 @@ body {
     transform: translate(-120%, -50%);
     opacity: 0.4;
   }
+
   50% {
     transform: translate(20%, -50%);
     opacity: 0.8;
   }
+
   100% {
     transform: translate(-120%, -50%);
     opacity: 0.4;
@@ -947,14 +953,12 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
   line-height: 0.85;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.7) 20%,
-    #0052FF 50%,
-    #00D4FF 68%,
-    rgba(255, 255, 255, 0.85) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.7) 20%,
+      #0052FF 50%,
+      #00D4FF 68%,
+      rgba(255, 255, 255, 0.85) 100%);
   background-size: 240% 240%;
   -webkit-background-clip: text;
   background-clip: text;

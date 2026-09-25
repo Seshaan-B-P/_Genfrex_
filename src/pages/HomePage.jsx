@@ -44,7 +44,7 @@ export default function HomePage({ isQuoteOpen, setIsQuoteOpen }) {
 
   return (
     <main className="bg-[#0C0E17] text-white min-h-screen relative overflow-hidden">
-      {/* 01 ─ 5N2 MEDIA HERO WITH DUAL AMBIENT BLUE GLOW & SHOWCASE STAGE */}
+      {/* 01 ─ Genfrex MEDIA HERO WITH DUAL AMBIENT BLUE GLOW & SHOWCASE STAGE */}
       <Hero
         onOpenVideo={handleOpenVideo}
         onOpenQuote={() => setIsQuoteOpen(true)}

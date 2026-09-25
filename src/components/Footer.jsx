@@ -34,7 +34,7 @@ export default function Footer({ onOpenQuote }) {
           <div className="lg:col-span-4 space-y-4">
             <GenfrexLogo className="h-9 w-auto" />
             <p className="text-[#9A9A9A] text-sm font-light leading-relaxed max-w-sm">
-              GENFREX is an AV-First, Digital-First creative and growth agency delivering end-to-end commercial productions, high-conversion software platforms, digital marketing, and strategic brand ecosystems.
+              GENFREX is a creative and digital growth agency connecting businesses with strategic marketing, commercial productions, technology solutions, and digital talent. We help brands strengthen their digital presence, reach the right audiences, and create opportunities for sustainable growth.
             </p>
           </div>
 

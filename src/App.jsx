@@ -43,7 +43,7 @@ export default function App() {
       {/* Scroll Restorer */}
       <ScrollToTop />
 
-      {/* 5N2 Media Inspired Navbar */}
+      {/* Genfrex Media Inspired Navbar */}
       <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
 
       {/* Application Routes */}
@@ -66,7 +66,7 @@ export default function App() {
         onClose={() => setIsQuoteOpen(false)}
       />
 
-      {/* 5N2 Media Inspired Footer */}
+      {/* Genfrex Media Inspired Footer */}
       <Footer onOpenQuote={() => setIsQuoteOpen(true)} />
     </div>
   );

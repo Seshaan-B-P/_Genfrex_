@@ -83,7 +83,7 @@ export default function AboutPage() {
     {
       name: "Dharshan",
       role: "Director",
-      image: "/CEO.jpeg",
+      image: "/CEO-avatar.jpg",
       linkedin: "https://www.linkedin.com/in/dharshanselvaraj/"
     }
   ];
@@ -110,7 +110,7 @@ export default function AboutPage() {
     {
       name: "Seshaan",
       role: "Technical Head",
-      image: "",
+      image: "/Seshaan-avatar.jpg",
       linkedin: "https://www.linkedin.com/in/seshaanbp/"
     }
   ];
@@ -524,10 +524,10 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{ y: -6 }}
-                  className="flex flex-col items-center text-center group w-28 sm:w-32 cursor-pointer"
+                  className="flex flex-col items-center text-center group w-32 sm:w-40 cursor-pointer"
                 >
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/30 transition-transform duration-300 group-hover:scale-105">
-                    <div className="w-full h-full rounded-full overflow-hidden bg-[#131725] flex items-center justify-center">
+                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/30 transition-transform duration-300 group-hover:scale-105">
+                    <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
                       {member.image ? (
                         <img
                           src={member.image}
@@ -536,7 +536,7 @@ export default function AboutPage() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-2xl select-none">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-3xl sm:text-4xl select-none">
                           {member.name.charAt(0)}
                         </div>
                       )}
@@ -546,10 +546,10 @@ export default function AboutPage() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
+                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
                         aria-label={`${member.name} LinkedIn`}
                       >
-                        <Linkedin size={11} className="fill-current" />
+                        <Linkedin size={13} className="fill-current" />
                       </a>
                     )}
                   </div>
@@ -572,12 +572,12 @@ export default function AboutPage() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className="flex flex-col items-center text-center group w-28 sm:w-32 cursor-pointer"
+                    className="flex flex-col items-center text-center group w-32 sm:w-40 cursor-pointer"
                   >
-                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-[#131725] flex items-center justify-center">
+                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/30 transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
                         {member.image ? (
                           <img
                             src={member.image}
@@ -586,7 +586,7 @@ export default function AboutPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-2xl select-none">
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-3xl sm:text-4xl select-none">
                             {member.name.charAt(0)}
                           </div>
                         )}
@@ -596,10 +596,10 @@ export default function AboutPage() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
+                          className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
                           aria-label={`${member.name} LinkedIn`}
                         >
-                          <Linkedin size={11} className="fill-current" />
+                          <Linkedin size={13} className="fill-current" />
                         </a>
                       )}
                     </div>
