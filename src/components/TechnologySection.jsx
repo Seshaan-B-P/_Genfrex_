@@ -366,7 +366,7 @@ export default function TechnologySection() {
                       <span className="text-[#2D8CFF]">CONTINUOUS</span>
                     </div>
 
-                    <div className="grid grid-cols-4 gap-2 font-mono text-center text-xs">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-xs">
                       {current.flow.map((item, idx) => (
                         <div
                           key={item}

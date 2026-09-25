@@ -87,7 +87,7 @@ export default function TalentEcosystem() {
             </div>
 
             {/* Core Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
               <div className="p-4 bg-black/40 border border-white/10">
                 <span className="font-mono text-[10px] text-neutral-500 block mb-1">ACCEPTANCE GATE</span>
                 <span className="font-display font-bold text-lg md:text-xl text-brand-blue">{activeDiscipline.vettingRate}</span>

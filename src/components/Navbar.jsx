@@ -56,15 +56,15 @@ export default function Navbar({ onOpenQuote }) {
           : 'bg-transparent py-5 md:py-6'
           }`}
       >
-        <div className="max-w-[1320px] mx-auto px-4 md:px-8 flex items-center justify-between">
+        <div className="max-w-[1320px] mx-auto px-3.5 sm:px-6 md:px-8 flex items-center justify-between gap-2">
           {/* Brand Logo */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 focus:outline-none"
+            className="flex items-center shrink-0 focus:outline-none"
             aria-label="GENFREX home"
           >
-            <GenfrexLogo className="h-8 md:h-9 w-auto" />
+            <GenfrexLogo className="h-[21px] sm:h-7 md:h-8 lg:h-9 w-auto max-w-[155px] xs:max-w-[175px] sm:max-w-none" />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -101,7 +101,7 @@ export default function Navbar({ onOpenQuote }) {
           </nav>
 
           {/* Nav Actions */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="tel:+9047295361"
               className="hidden sm:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-[#0052FF]/30 bg-[#131725] hover:border-[#0052FF] hover:bg-[#0052FF]/15 text-white text-xs sm:text-sm font-medium transition-all shadow-sm"
@@ -114,19 +114,19 @@ export default function Navbar({ onOpenQuote }) {
             <button
               type="button"
               onClick={onOpenQuote}
-              className="btn btn-primary text-xs md:text-sm py-2 px-3.5 md:px-5"
+              className="inline-flex items-center justify-center font-medium rounded-full bg-[#0052FF] hover:bg-[#0042D9] active:scale-95 text-white transition-all shadow-md shadow-[#0052FF]/25 whitespace-nowrap shrink-0 text-xs sm:text-sm py-1.5 px-3 sm:py-2 sm:px-4 md:px-5 cursor-pointer border border-[#0052FF]"
               aria-label="Review Quote"
             >
-              Review Quote
+              <span className="hidden min-[380px]:inline">Review </span>Quote
             </button>
 
             {/* Mobile Toggle */}
             <button
               onClick={() => setDrawerOpen(true)}
-              className="lg:hidden p-2 text-white/80 hover:text-white focus:outline-none"
+              className="lg:hidden p-1.5 sm:p-2 text-white/80 hover:text-white focus:outline-none shrink-0"
               aria-label="Open menu"
             >
-              <Menu size={24} />
+              <Menu size={22} className="sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>

@@ -277,7 +277,7 @@ export default function WhatWeDo() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-3 font-mono text-center text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 font-mono text-center text-xs">
                       <div className="p-3 bg-black/60 border border-white/10">
                         <span className="text-[#2D8CFF] block text-[10px] mb-1">LEAD</span>
                         <span className="text-white font-semibold">DEVELOPERS</span>
