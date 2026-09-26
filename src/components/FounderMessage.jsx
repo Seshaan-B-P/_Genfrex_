@@ -64,7 +64,7 @@ export default function FounderMessage({ onOpenVideo }) {
                 /* Default View: CEO Image with Play Button */
                 <>
                   <img
-                    src="/CEO.jpeg."
+                    src="/CEO.jpeg"
                     alt="Founder & Leadership"
                     className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"

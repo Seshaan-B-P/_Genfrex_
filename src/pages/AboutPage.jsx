@@ -83,7 +83,7 @@ export default function AboutPage() {
     {
       name: "Dharshan",
       role: "Director",
-      image: "/CEO-avatar.jpg.",
+      image: "/CEO-avatar.jpg",
       linkedin: "https://www.linkedin.com/in/dharshanselvaraj/"
     }
   ];
