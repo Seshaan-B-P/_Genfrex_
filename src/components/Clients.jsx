@@ -2,13 +2,57 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const clientLogos = [
-  'AA Garden', 'Ananta Living', 'CBR Constructions', 'Chettinad Builders',
-  'Emami Agro', 'Flio Technologies', 'Flyer Eats', 'Fogger Systems',
-  'Garam Masala', 'Gugan Silks', 'Ideal Homes', 'Kaalaiyan Agro',
-  'Kash Kopuram', 'Kukoo Kids', 'Lakshmi Mills', 'Malar Rice',
-  'Mayil Mark', 'Nana Nani Homes', 'Nandhi Mark', 'Sri Baby Jewels',
-  'SS Brand Rice', 'Sukraa Diamond', 'Tee Na Tea', 'Vigneshwara', 'Zha Fashion'
+  { name: 'AA Garden', slug: 'aa-garden', logo: '/clients/aa-garden.png' },
+  { name: 'Ananta Living', slug: 'ananta-living', logo: '/clients/ananta-living.png' },
+  { name: 'CBR Constructions', slug: 'cbr-constructions', logo: '/clients/cbr-constructions.png' },
+  { name: 'Chettinad Builders', slug: 'chettinad-builders', logo: '/clients/chettinad-builders.png' },
+  { name: 'Emami Agro', slug: 'emami-agro', logo: '/clients/emami-agro.png' },
+  { name: 'Flio Technologies', slug: 'flio-technologies', logo: '/clients/flio-technologies.png' },
+  { name: 'Flyer Eats', slug: 'flyer-eats', logo: '/clients/flyer-eats.png' },
+  { name: 'Fogger Systems', slug: 'fogger-systems', logo: '/clients/fogger-systems.png' },
+  { name: 'Garam Masala', slug: 'garam-masala', logo: '/clients/garam-masala.png' },
+  { name: 'Gugan Silks', slug: 'gugan-silks', logo: '/clients/gugan-silks.png' },
+  { name: 'Ideal Homes', slug: 'ideal-homes', logo: '/clients/ideal-homes.png' },
+  { name: 'Kaalaiyan Agro', slug: 'kaalaiyan-agro', logo: '/clients/kaalaiyan-agro.png' },
+  { name: 'Kash Kopuram', slug: 'kash-kopuram', logo: '/clients/kash-kopuram.png' },
+  { name: 'Kukoo Kids', slug: 'kukoo-kids', logo: '/clients/kukoo-kids.png' },
+  { name: 'Lakshmi Mills', slug: 'lakshmi-mills', logo: '/clients/lakshmi-mills.png' },
+  { name: 'Malar Rice', slug: 'malar-rice', logo: '/clients/malar-rice.png' },
+  { name: 'Mayil Mark', slug: 'mayil-mark', logo: '/clients/mayil-mark.png' },
+  { name: 'Nana Nani Homes', slug: 'nana-nani-homes', logo: '/clients/nana-nani-homes.png' },
+  { name: 'Nandhi Mark', slug: 'nandhi-mark', logo: '/clients/nandhi-mark.png' },
+  { name: 'Sri Baby Jewels', slug: 'sri-baby-jewels', logo: '/clients/sri-baby-jewels.png' },
+  { name: 'SS Brand Rice', slug: 'ss-brand-rice', logo: '/clients/ss-brand-rice.png' },
+  { name: 'Sukraa Diamond', slug: 'sukraa-diamond', logo: '/clients/sukraa-diamond.png' },
+  { name: 'Tee Na Tea', slug: 'tee-na-tea', logo: '/clients/tee-na-tea.png' },
+  { name: 'Vigneshwara', slug: 'vigneshwara', logo: '/clients/vigneshwara.png' },
+  { name: 'Zha Fashion', slug: 'zha-fashion', logo: '/clients/zha-fashion.png' }
 ];
+
+function ClientLogoItem({ client }) {
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="logo-cell group/cell px-6 py-3 border border-white/5 rounded-xl bg-white/[0.02] hover:border-[#0052FF]/40 hover:bg-[#0052FF]/5 transition-all duration-300 flex items-center justify-center min-w-[150px] h-[72px]">
+      {!hasError ? (
+        <img
+          src={client.logo}
+          alt={`${client.name} logo`}
+          onError={() => setHasError(true)}
+          className="max-h-11 w-auto max-w-[160px] object-contain transition-transform duration-300 group-hover/cell:scale-105"
+          loading="lazy"
+        />
+      ) : (
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0052FF]/60 group-hover/cell:bg-[#00D4FF] transition-colors" />
+          <span className="text-sm md:text-base font-medium tracking-wide text-white/70 whitespace-nowrap uppercase group-hover/cell:text-white transition-colors">
+            {client.name}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function AnimatedCounter({ end, duration = 2000, suffix = '+' }) {
   const [count, setCount] = useState(0);
@@ -135,14 +179,7 @@ export default function Clients() {
       <div className="logo-marquee mt-10 border-y border-white/[0.08] py-8 bg-[#0E0E11]/40">
         <div className="logo-marquee-track">
           {[...clientLogos, ...clientLogos].map((client, idx) => (
-            <div
-              key={idx}
-              className="logo-cell px-6 py-2 border border-white/5 rounded-xl bg-white/[0.02]"
-            >
-              <span className="text-sm md:text-base font-medium tracking-wide text-white/70 whitespace-nowrap uppercase">
-                {client}
-              </span>
-            </div>
+            <ClientLogoItem key={`${client.slug}-${idx}`} client={client} />
           ))}
         </div>
       </div>
