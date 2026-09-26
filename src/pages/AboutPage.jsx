@@ -513,9 +513,9 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-12 sm:space-y-16">
-            {/* Row 1: Directors */}
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 max-w-4xl mx-auto">
+          <div className="space-y-14 sm:space-y-20">
+            {/* Row 1: Directors (Prominent Large Feature) */}
+            <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 max-w-4xl mx-auto">
               {directors.map((member, i) => (
                 <motion.div
                   key={i}
@@ -523,11 +523,11 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className="flex flex-col items-center text-center group w-32 sm:w-40 cursor-pointer"
+                  whileHover={{ y: -8 }}
+                  className="flex flex-col items-center text-center group w-48 sm:w-64 md:w-72 cursor-pointer"
                 >
-                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/30 transition-transform duration-300 group-hover:scale-105">
-                    <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
+                  <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 aspect-square shrink-0 rounded-3xl p-1.5 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-2xl shadow-[#0052FF]/35 transition-transform duration-300 group-hover:scale-105">
+                    <div className="w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#131725] flex items-center justify-center">
                       {member.image ? (
                         <img
                           src={member.image}
@@ -536,7 +536,7 @@ export default function AboutPage() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-3xl sm:text-4xl select-none">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-5xl sm:text-6xl select-none">
                           {member.name.charAt(0)}
                         </div>
                       )}
@@ -546,26 +546,26 @@ export default function AboutPage() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
+                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-lg shadow-blue-500/30 transition-transform hover:scale-125"
                         aria-label={`${member.name} LinkedIn`}
                       >
-                        <Linkedin size={13} className="fill-current" />
+                        <Linkedin size={18} className="fill-current" />
                       </a>
                     )}
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-white tracking-tight mt-3.5 group-hover:text-[#00D4FF] transition-colors">
+                  <h4 className="text-lg sm:text-2xl font-bold text-white tracking-tight mt-5 group-hover:text-[#00D4FF] transition-colors">
                     {member.name}
                   </h4>
-                  <p className="text-xs text-neutral-400 font-light mt-0.5">
+                  <p className="text-sm sm:text-base text-[#00D4FF] font-medium mt-1">
                     {member.role}
                   </p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Row 2: Team Members */}
+            {/* Row 2: Team Members (Substantially Larger & Balanced) */}
             {managers && managers.length > 0 && (
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 max-w-5xl mx-auto">
+              <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-14 max-w-6xl mx-auto">
                 {managers.map((member, i) => (
                   <motion.div
                     key={i}
@@ -574,9 +574,9 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className="flex flex-col items-center text-center group w-32 sm:w-40 cursor-pointer"
+                    className="flex flex-col items-center text-center group w-36 sm:w-48 md:w-52 cursor-pointer"
                   >
-                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-lg shadow-[#0052FF]/30 transition-transform duration-300 group-hover:scale-105">
+                    <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-xl shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
                       <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
                         {member.image ? (
                           <img
@@ -586,7 +586,7 @@ export default function AboutPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-3xl sm:text-4xl select-none">
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-4xl sm:text-5xl select-none">
                             {member.name.charAt(0)}
                           </div>
                         )}
@@ -596,17 +596,17 @@ export default function AboutPage() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
+                          className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
                           aria-label={`${member.name} LinkedIn`}
                         >
-                          <Linkedin size={13} className="fill-current" />
+                          <Linkedin size={15} className="fill-current" />
                         </a>
                       )}
                     </div>
-                    <h4 className="text-sm sm:text-base font-bold text-white tracking-tight mt-3.5 group-hover:text-[#00D4FF] transition-colors">
+                    <h4 className="text-base sm:text-xl font-bold text-white tracking-tight mt-4 group-hover:text-[#00D4FF] transition-colors">
                       {member.name}
                     </h4>
-                    <p className="text-xs text-neutral-400 font-light mt-0.5">
+                    <p className="text-xs sm:text-sm text-neutral-400 font-light mt-0.5">
                       {member.role}
                     </p>
                   </motion.div>
