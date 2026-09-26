@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowUpRight, 
-  ArrowRight, 
-  ArrowDown, 
-  Check, 
-  Sparkles, 
-  Search, 
-  TrendingUp, 
-  Share2, 
-  Cpu, 
-  Users, 
-  FileText, 
-  ShieldCheck, 
-  Lock, 
-  Mail, 
-  Phone, 
-  Code2, 
+import {
+  ArrowUpRight,
+  ArrowRight,
+  ArrowDown,
+  Check,
+  Sparkles,
+  Search,
+  TrendingUp,
+  Share2,
+  Cpu,
+  Users,
+  FileText,
+  ShieldCheck,
+  Lock,
+  Mail,
+  Phone,
+  Code2,
   Workflow as WorkflowIcon,
   Bot,
   Video,
@@ -33,8 +33,8 @@ import QuoteModal from '../components/QuoteModal';
 // --- ANIMATION VARIANTS ---
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
   }
@@ -42,8 +42,8 @@ const fadeInUp = {
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
   }
@@ -51,8 +51,8 @@ const fadeInLeft = {
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
   }
@@ -71,8 +71,8 @@ const staggerContainer = {
 
 const cardVariant = {
   hidden: { opacity: 0, y: 24 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
   }
@@ -80,8 +80,8 @@ const cardVariant = {
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
   }
@@ -206,7 +206,7 @@ export default function ServicesPage({ onOpenQuote }) {
   useEffect(() => {
     // SEO Page Metadata
     document.title = "GENFREX Services | Digital Growth, Technology & Talent";
-    
+
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -239,41 +239,41 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section className="relative pt-32 sm:pt-40 md:pt-48 pb-20 sm:pb-32 px-4 sm:px-6 md:px-8 overflow-hidden border-b border-white/[0.08]">
         {/* Animated Multi-layered Electric Ambient Backlights */}
-        <motion.div 
+        <motion.div
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.15, 0.28, 0.15],
             x: [0, 20, 0]
           }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-gradient-to-r from-[#0052FF]/30 via-cyan-500/25 to-[#0052FF]/30 blur-[150px] pointer-events-none rounded-full" 
-          aria-hidden="true" 
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-gradient-to-r from-[#0052FF]/30 via-cyan-500/25 to-[#0052FF]/30 blur-[150px] pointer-events-none rounded-full"
+          aria-hidden="true"
         />
-        <motion.div 
+        <motion.div
           animate={{
             scale: [1, 1.25, 1],
             opacity: [0.1, 0.2, 0.1],
             y: [0, -30, 0]
           }}
           transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-2/3 right-[-10%] w-[520px] h-[520px] bg-[#0052FF]/20 blur-[160px] pointer-events-none rounded-full" 
-          aria-hidden="true" 
+          className="absolute top-2/3 right-[-10%] w-[520px] h-[520px] bg-[#0052FF]/20 blur-[160px] pointer-events-none rounded-full"
+          aria-hidden="true"
         />
-        <motion.div 
+        <motion.div
           animate={{
             scale: [1, 1.15, 1],
             opacity: [0.06, 0.14, 0.06]
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute bottom-10 left-[-5%] w-[420px] h-[420px] bg-cyan-500/15 blur-[140px] pointer-events-none rounded-full" 
-          aria-hidden="true" 
+          className="absolute bottom-10 left-[-5%] w-[420px] h-[420px] bg-cyan-500/15 blur-[140px] pointer-events-none rounded-full"
+          aria-hidden="true"
         />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Column: Cinematic Editorial Hero Copy with Staggered Entrance */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
@@ -286,7 +286,7 @@ export default function ServicesPage({ onOpenQuote }) {
               </motion.div>
 
               {/* Main Headline (Single H1 for SEO) */}
-              <motion.h1 
+              <motion.h1
                 variants={fadeInUp}
                 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.06]"
               >
@@ -298,7 +298,7 @@ export default function ServicesPage({ onOpenQuote }) {
               </motion.h1>
 
               {/* Supporting Copy */}
-              <motion.p 
+              <motion.p
                 variants={fadeInUp}
                 className="text-neutral-300 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl"
               >
@@ -346,21 +346,21 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Right Column: High-End Framed Visual Asset with Hover Glow */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ 
-                opacity: 1, 
+              animate={{
+                opacity: 1,
                 scale: 1,
                 y: [0, -10, 0]
               }}
-              transition={{ 
+              transition={{
                 opacity: { duration: 0.8, delay: 0.2 },
                 scale: { duration: 0.8, delay: 0.2 },
                 y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
               }}
               className="lg:col-span-5 relative"
             >
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 transition={{ duration: 0.3 }}
                 className="relative rounded-3xl border border-[#0052FF]/30 bg-[#131725]/90 p-4 sm:p-5 shadow-2xl backdrop-blur-xl group hover:border-[#0052FF]/60 transition-all duration-500 shadow-[#0052FF]/20"
@@ -400,8 +400,8 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="services-intro" className="py-20 sm:py-28 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto">
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -425,7 +425,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Quick Pillar Jump Bar (Animated Editorial Navigation Cards) */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -476,9 +476,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="digital-growth" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -498,14 +498,14 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Editorial Service Tabs / Stacked Sequence */}
-          <div 
+          <div
             onMouseEnter={() => setIsGrowthPaused(true)}
             onMouseLeave={() => setIsGrowthPaused(false)}
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
           >
-            
+
             {/* Left: Selector List with Large Typography */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
@@ -548,20 +548,19 @@ export default function ServicesPage({ onOpenQuote }) {
                   whileHover={{ x: 8, borderColor: "rgba(0, 82, 255, 0.6)" }}
                   whileTap={{ scale: 0.99 }}
                   onClick={() => setActiveDigitalGrowthTab(idx)}
-                  className={`w-full text-left p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex items-start gap-4 relative overflow-hidden ${
-                    activeDigitalGrowthTab === idx
+                  className={`w-full text-left p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex items-start gap-4 relative overflow-hidden ${activeDigitalGrowthTab === idx
                       ? 'bg-[#12141C] border-[#0052FF]/70 shadow-lg shadow-[#0052FF]/15'
                       : 'bg-[#0A0B0E] border-white/[0.08] hover:border-white/20'
-                  }`}
+                    }`}
                 >
                   {activeDigitalGrowthTab === idx && (
-                    <motion.div 
+                    <motion.div
                       layoutId="activeTabIndicator"
                       className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#0052FF]"
                     />
                   )}
                   {activeDigitalGrowthTab === idx && !isGrowthPaused && (
-                    <motion.div 
+                    <motion.div
                       key={`progress-${idx}`}
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
@@ -585,7 +584,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Right: Detailed Capabilities Showcase with AnimatePresence */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
@@ -596,7 +595,7 @@ export default function ServicesPage({ onOpenQuote }) {
 
               <AnimatePresence mode="wait">
                 {activeDigitalGrowthTab === 0 && (
-                  <motion.div 
+                  <motion.div
                     key="tab-seo"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -628,7 +627,7 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Competitor Analysis & Audits",
                           "Strategy & Monthly Management"
                         ].map((item, i) => (
-                          <motion.div 
+                          <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -651,7 +650,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 )}
 
                 {activeDigitalGrowthTab === 1 && (
-                  <motion.div 
+                  <motion.div
                     key="tab-ai-search"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -684,7 +683,7 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Structured Content Strategies",
                           "AI-friendly Content Architecture"
                         ].map((item, i) => (
-                          <motion.div 
+                          <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -707,7 +706,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 )}
 
                 {activeDigitalGrowthTab === 2 && (
-                  <motion.div 
+                  <motion.div
                     key="tab-digital-marketing"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -740,7 +739,7 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Performance Tracking",
                           "Conversion-focused Strategies"
                         ].map((item, i) => (
-                          <motion.div 
+                          <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -763,7 +762,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 )}
 
                 {activeDigitalGrowthTab === 3 && (
-                  <motion.div 
+                  <motion.div
                     key="tab-social-media-seo"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -795,7 +794,7 @@ export default function ServicesPage({ onOpenQuote }) {
                           "Social Search Visibility",
                           "Content Planning"
                         ].map((item, i) => (
-                          <motion.div 
+                          <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -857,9 +856,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="web-technology" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -879,16 +878,16 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 4 Architectural Pillars Grid with Staggered Entrance */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
           >
-            
+
             {/* Pillar 1: Website Design & Development */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
@@ -926,8 +925,8 @@ export default function ServicesPage({ onOpenQuote }) {
                     "E-commerce Websites",
                     "Custom Websites"
                   ].map((tag) => (
-                    <motion.span 
-                      key={tag} 
+                    <motion.span
+                      key={tag}
                       whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
                       className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
                     >
@@ -939,7 +938,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Pillar 2: Web Applications */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
@@ -977,8 +976,8 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Database Solutions",
                     "Third-party Integrations"
                   ].map((tag) => (
-                    <motion.span 
-                      key={tag} 
+                    <motion.span
+                      key={tag}
                       whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
                       className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
                     >
@@ -990,7 +989,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Pillar 3: Website Maintenance */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
@@ -1028,8 +1027,8 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Performance Optimization",
                     "Technical Support"
                   ].map((tag) => (
-                    <motion.span 
-                      key={tag} 
+                    <motion.span
+                      key={tag}
                       whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
                       className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
                     >
@@ -1041,7 +1040,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Pillar 4: Deployment & Support */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.015, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 45px -12px rgba(0, 82, 255, 0.25)" }}
               transition={{ duration: 0.3 }}
@@ -1078,8 +1077,8 @@ export default function ServicesPage({ onOpenQuote }) {
                     "Technical Maintenance",
                     "Ongoing Support"
                   ].map((tag) => (
-                    <motion.span 
-                      key={tag} 
+                    <motion.span
+                      key={tag}
                       whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 82, 255, 0.15)", borderColor: "rgba(0, 82, 255, 0.4)", color: "#ffffff" }}
                       className="text-xs px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/80 transition-all cursor-default"
                     >
@@ -1100,9 +1099,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="talent-solutions" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1122,16 +1121,16 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 3 Core Roles Categories */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            
+
             {/* Developer Talent */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1150,8 +1149,8 @@ export default function ServicesPage({ onOpenQuote }) {
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["Web Developers", "WordPress Developers", "Front-end Developers", "Back-end Developers", "Full-stack Developers"].map((role, i) => (
-                    <motion.li 
-                      key={i} 
+                    <motion.li
+                      key={i}
                       whileHover={{ x: 6, color: "#ffffff" }}
                       className="flex items-center gap-2 transition-colors cursor-default"
                     >
@@ -1163,7 +1162,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Marketing Talent */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1182,8 +1181,8 @@ export default function ServicesPage({ onOpenQuote }) {
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["SEO Specialists", "Digital Marketers", "Social Media Specialists", "Content Strategists"].map((role, i) => (
-                    <motion.li 
-                      key={i} 
+                    <motion.li
+                      key={i}
                       whileHover={{ x: 6, color: "#ffffff" }}
                       className="flex items-center gap-2 transition-colors cursor-default"
                     >
@@ -1195,7 +1194,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Creative Talent */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1214,8 +1213,8 @@ export default function ServicesPage({ onOpenQuote }) {
                 </h3>
                 <ul className="space-y-2.5 text-sm text-neutral-300 font-light">
                   {["Graphic Designers", "Video Editors", "Content Creators", "Creative Professionals"].map((role, i) => (
-                    <motion.li 
-                      key={i} 
+                    <motion.li
+                      key={i}
                       whileHover={{ x: 6, color: "#ffffff" }}
                       className="flex items-center gap-2 transition-colors cursor-default"
                     >
@@ -1229,7 +1228,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Project-Based Teams Blueprint */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -1250,10 +1249,10 @@ export default function ServicesPage({ onOpenQuote }) {
               <p className="text-neutral-300 font-light text-base leading-relaxed">
                 Build a flexible team around your specific project requirements. Rather than hiring permanently or juggling independent contractors, assemble a synchronized cross-functional squad tailored to your deliverables.
               </p>
-              
+
               <div className="pt-4 flex flex-wrap items-center gap-3">
                 <span className="text-xs font-mono text-neutral-400">CATALOGUE EXAMPLE:</span>
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.04 }}
                   className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#0052FF]/40 text-xs sm:text-sm font-medium text-white shadow-inner transition-colors"
                 >
@@ -1275,9 +1274,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="content-creative" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1297,16 +1296,16 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 3 Capabilities Grid with Animated Hover */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
           >
-            
+
             {/* 1. SEO & Web Content */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1336,8 +1335,8 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Website & Landing Page Content",
                   "Topic Clusters"
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     whileHover={{ x: 5, color: "#ffffff" }}
                     className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
                   >
@@ -1349,7 +1348,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* 2. Social Media Content */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1380,8 +1379,8 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Content Calendars",
                   "Platform-specific Content"
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     whileHover={{ x: 5, color: "#ffffff" }}
                     className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
                   >
@@ -1393,7 +1392,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* 3. Creative & Video */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 22px 42px -12px rgba(0, 82, 255, 0.25)" }}
               className="p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1424,8 +1423,8 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Social Media Creatives",
                   "Business Graphics & Digital Branding Assets"
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     whileHover={{ x: 5, color: "#ffffff" }}
                     className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300 font-light transition-colors cursor-default"
                   >
@@ -1446,9 +1445,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="ai-innovation" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1468,7 +1467,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* 6 Areas of Focus */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -1531,7 +1530,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* AI-Powered Approach Editorial Statement */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -1539,12 +1538,12 @@ export default function ServicesPage({ onOpenQuote }) {
             whileHover={{ y: -4, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 20px 45px -10px rgba(0, 82, 255, 0.2)" }}
             className="p-8 sm:p-12 rounded-3xl bg-[#0A0B0F] border border-[#0052FF]/30 relative overflow-hidden shadow-2xl transition-all group"
           >
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.25, 1], opacity: [0.1, 0.22, 0.1] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-96 h-96 bg-[#0052FF]/15 blur-[100px] pointer-events-none rounded-full" 
+              className="absolute top-0 right-0 w-96 h-96 bg-[#0052FF]/15 blur-[100px] pointer-events-none rounded-full"
             />
-            
+
             <div className="max-w-3xl space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0052FF]/10 border border-[#0052FF]/20 text-xs font-mono text-[#0052FF]">
                 <Bot size={13} />
@@ -1568,17 +1567,17 @@ export default function ServicesPage({ onOpenQuote }) {
       {/* =============================================================
           08 ─ HOW WE WORK (CINEMATIC 6-STAGE TIMELINE WITH ANIMATION)
           ============================================================= */}
-      <section 
-        id="approach" 
+      <section
+        id="approach"
         onMouseEnter={() => setIsWorkflowPaused(true)}
         onMouseLeave={() => setIsWorkflowPaused(false)}
         className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative"
       >
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -1592,9 +1591,9 @@ export default function ServicesPage({ onOpenQuote }) {
                 <span className="font-normal text-white">sustainable growth.</span>
               </h2>
             </motion.div>
-            
+
             <div className="flex items-center gap-3">
-              
+
               <div className="text-xs font-mono text-neutral-400">
                 STAGE {WORKFLOW_STAGES[activeStage].num} OF 06
               </div>
@@ -1609,20 +1608,19 @@ export default function ServicesPage({ onOpenQuote }) {
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveStage(idx)}
-                className={`text-left p-4 rounded-2xl transition-all duration-300 border relative ${
-                  activeStage === idx
+                className={`text-left p-4 rounded-2xl transition-all duration-300 border relative ${activeStage === idx
                     ? 'bg-[#12141C] border-[#0052FF]/60 text-white shadow-lg'
                     : 'bg-transparent border-transparent text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.02]'
-                }`}
+                  }`}
               >
                 {activeStage === idx && (
-                  <motion.div 
+                  <motion.div
                     layoutId="activeStageGlow"
                     className="absolute inset-0 bg-[#0052FF]/10 rounded-2xl pointer-events-none"
                   />
                 )}
                 {activeStage === idx && !isWorkflowPaused && (
-                  <motion.div 
+                  <motion.div
                     key={`workflow-prog-${idx}`}
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
@@ -1641,7 +1639,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </div>
 
           {/* Active Stage Editorial Stage Display with Smooth Crossfade */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -1649,7 +1647,7 @@ export default function ServicesPage({ onOpenQuote }) {
             className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:border-[#0052FF]/30 transition-colors relative overflow-hidden shadow-2xl"
           >
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={`stage-${activeStage}`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -1657,7 +1655,7 @@ export default function ServicesPage({ onOpenQuote }) {
                 transition={{ duration: 0.35 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center"
               >
-                
+
                 <div className="lg:col-span-6 space-y-6">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20">
@@ -1681,8 +1679,8 @@ export default function ServicesPage({ onOpenQuote }) {
                       Key Deliverables
                     </h4>
                     {WORKFLOW_STAGES[activeStage].deliverables.map((item, i) => (
-                      <motion.div 
-                        key={i} 
+                      <motion.div
+                        key={i}
                         whileHover={{ x: 5, color: '#ffffff' }}
                         className="flex items-center gap-3 text-sm font-light text-neutral-300 transition-colors cursor-default"
                       >
@@ -1701,16 +1699,15 @@ export default function ServicesPage({ onOpenQuote }) {
                       onClick={() => setActiveStage((prev) => (prev === 0 ? 5 : prev - 1))}
                       className="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
                     >
-                      ← PREVIOUS STAGE
+                      ←
                     </motion.button>
                     <div className="flex items-center gap-1.5">
                       {WORKFLOW_STAGES.map((_, dotIdx) => (
                         <button
                           key={dotIdx}
                           onClick={() => setActiveStage(dotIdx)}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            activeStage === dotIdx ? 'bg-[#0052FF] w-6' : 'bg-white/20 w-2 hover:bg-white/40'
-                          }`}
+                          className={`h-2 rounded-full transition-all duration-300 ${activeStage === dotIdx ? 'bg-[#0052FF] w-6' : 'bg-white/20 w-2 hover:bg-white/40'
+                            }`}
                           aria-label={`Jump to stage ${dotIdx + 1}`}
                         />
                       ))}
@@ -1722,14 +1719,14 @@ export default function ServicesPage({ onOpenQuote }) {
                       onClick={() => setActiveStage((prev) => (prev === 5 ? 0 : prev + 1))}
                       className="text-xs font-mono text-[#0052FF] hover:text-white transition-colors"
                     >
-                      NEXT STAGE →
+                      →
                     </motion.button>
                   </div>
                 </div>
 
                 {/* Stage Asset Illustration with Floating Animation */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <motion.div 
+                  <motion.div
                     animate={{ y: [0, -6, 0] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                     className="relative rounded-2xl border border-[#0052FF]/30 bg-[#131725] p-4 shadow-2xl shadow-[#0052FF]/15 overflow-hidden max-w-md w-full group hover:border-[#0052FF]/60 transition-all duration-300"
@@ -1765,9 +1762,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="engagement-models" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1787,16 +1784,16 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Two Primary Models + Custom Discussion */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            
+
             {/* Model 1: Project-Based */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 25px 50px -15px rgba(0, 82, 255, 0.25)" }}
               className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-2xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1847,7 +1844,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Model 2: Monthly Engagement */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02, borderColor: "rgba(0, 82, 255, 0.6)", boxShadow: "0 25px 50px -15px rgba(0, 82, 255, 0.25)" }}
               className="p-8 sm:p-12 rounded-3xl bg-[#131725] border border-white/10 hover:shadow-2xl transition-all flex flex-col justify-between group relative overflow-hidden"
@@ -1900,7 +1897,7 @@ export default function ServicesPage({ onOpenQuote }) {
           </motion.div>
 
           {/* Customized Engagement Note */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1919,9 +1916,9 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="quality-confidentiality" className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 border-b border-white/[0.08] relative">
         <div className="max-w-[1320px] mx-auto space-y-16">
-          
+
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -1940,16 +1937,16 @@ export default function ServicesPage({ onOpenQuote }) {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
           >
-            
+
             {/* Left: Operational Quality Standards */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -4, borderColor: "rgba(0, 82, 255, 0.4)" }}
               className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-6 shadow-lg transition-all"
@@ -1961,7 +1958,7 @@ export default function ServicesPage({ onOpenQuote }) {
               <h3 className="text-xl sm:text-2xl font-light text-white">
                 How We Maintain High Standards
               </h3>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {[
                   "Clear project requirements",
@@ -1972,8 +1969,8 @@ export default function ServicesPage({ onOpenQuote }) {
                   "Performance monitoring",
                   "Continuous improvement"
                 ].map((std, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     whileHover={{ x: 4, borderColor: "rgba(0, 82, 255, 0.4)", backgroundColor: "rgba(0, 82, 255, 0.06)" }}
                     className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] transition-colors cursor-default"
                   >
@@ -1985,7 +1982,7 @@ export default function ServicesPage({ onOpenQuote }) {
             </motion.div>
 
             {/* Right: Strict Confidentiality Mandate */}
-            <motion.div 
+            <motion.div
               variants={cardVariant}
               whileHover={{ y: -4, borderColor: "rgba(6, 182, 212, 0.5)", boxShadow: "0 20px 40px -10px rgba(6, 182, 212, 0.15)" }}
               className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-[#131725] border border-white/10 space-y-5 shadow-lg transition-all"
@@ -2015,24 +2012,24 @@ export default function ServicesPage({ onOpenQuote }) {
           ============================================================= */}
       <section id="final-cta" className="py-24 sm:py-36 px-4 sm:px-6 md:px-8 relative overflow-hidden text-center">
         {/* Ambient Glow */}
-        <motion.div 
+        <motion.div
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.15, 0.28, 0.15]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-[#0052FF]/20 blur-[150px] pointer-events-none rounded-full" 
-          aria-hidden="true" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] max-w-full h-[450px] bg-[#0052FF]/20 blur-[150px] pointer-events-none rounded-full"
+          aria-hidden="true"
         />
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
           className="max-w-4xl mx-auto relative z-10 space-y-8"
         >
-          
+
           {/* Eyebrow */}
           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono tracking-widest text-[#0052FF] uppercase shadow-[0_0_15px_rgba(0,82,255,0.25)]">
             <Sparkles size={13} className="text-[#0052FF] animate-pulse" />

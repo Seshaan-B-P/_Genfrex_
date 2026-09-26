@@ -465,7 +465,7 @@ export default function ApproachPage({ onOpenQuote }) {
                     onClick={() => setActiveStageIndex((prev) => (prev === 0 ? 5 : prev - 1))}
                     className="text-xs font-mono text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
                   >
-                    <span>← PREVIOUS STAGE</span>
+                    <span>← </span>
                   </button>
 
                   <div className="flex items-center gap-1.5">
@@ -486,7 +486,7 @@ export default function ApproachPage({ onOpenQuote }) {
                     onClick={() => setActiveStageIndex((prev) => (prev === 5 ? 0 : prev + 1))}
                     className="text-xs font-mono text-[#0052FF] hover:text-white transition-colors flex items-center gap-2"
                   >
-                    <span>NEXT STAGE →</span>
+                    <span>→</span>
                   </button>
                 </div>
 

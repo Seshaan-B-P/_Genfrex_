@@ -119,7 +119,7 @@ export default function MethodTimeline() {
                 onClick={() => setActiveStepIndex(prev => Math.min(prev + 1, methodSteps.length - 1))}
                 className="text-xs font-mono tracking-widest text-neutral-400 hover:text-white disabled:opacity-30 disabled:hover:text-neutral-400"
               >
-                NEXT STAGE &rarr;
+                 &rarr;
               </button>
             </div>
           </div>
