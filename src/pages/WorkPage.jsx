@@ -117,9 +117,9 @@ export default function WorkPage({ onOpenQuote }) {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.08] max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl mx-auto uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
             SELECTED WORK. <br />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#0052FF]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-[#60A5FA] to-[#0052FF]">
               PROVEN DIGITAL IMPACT.
             </span>
           </h1>

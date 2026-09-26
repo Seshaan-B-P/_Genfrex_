@@ -249,7 +249,7 @@ export default function ContactPage() {
           </div>
 
           {/* Single H1 Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl mx-auto uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
             HAVE A PROJECT <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-[#60A5FA] to-[#0052FF]">
               IN MIND?
