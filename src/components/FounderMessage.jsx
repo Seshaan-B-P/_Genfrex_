@@ -59,7 +59,7 @@ export default function FounderMessage({ onOpenVideo }) {
             className="lg:col-span-5 relative group"
           >
             <div className="relative rounded-2xl overflow-hidden border border-white/15 hover:border-[#0052FF]/50 shadow-2xl shadow-black/80 bg-black aspect-[4/3] flex items-center justify-center transition-colors duration-300">
-              
+
               {!isPlaying ? (
                 /* Default View: CEO Image with Play Button */
                 <>
@@ -84,12 +84,12 @@ export default function FounderMessage({ onOpenVideo }) {
                   {/* Bottom Founder Tag */}
                   <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-white/90">
                     <span className="w-2 h-2 rounded-full bg-[#00D4FF]" />
-                    <span>DHARSHAN P S // FOUNDER</span>
+                    <span>DHARSHAN // FOUNDER</span>
                   </div>
                 </>
               ) : (
                 /* Inline Video View: Plays directly inside this card with NO audio */
-                <div 
+                <div
                   className="relative w-full h-full cursor-pointer group/video"
                   onClick={handleTogglePlay}
                 >
