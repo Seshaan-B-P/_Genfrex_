@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Play, Pause, RotateCcw } from 'lucide-react';
 
 export default function FounderMessage({ onOpenVideo }) {
@@ -46,12 +47,18 @@ export default function FounderMessage({ onOpenVideo }) {
   };
 
   return (
-    <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0E0E10] border-y border-white/[0.06]" id="founder">
+    <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0E0E10] border-y border-white/[0.06] overflow-hidden" id="founder">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           {/* Video / Photo Card Side */}
-          <div className="lg:col-span-5 relative group">
-            <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl shadow-black/80 bg-black aspect-[4/3] flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 relative group"
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 hover:border-[#0052FF]/50 shadow-2xl shadow-black/80 bg-black aspect-[4/3] flex items-center justify-center transition-colors duration-300">
               
               {!isPlaying ? (
                 /* Default View: CEO Image with Play Button */
@@ -121,7 +128,7 @@ export default function FounderMessage({ onOpenVideo }) {
                     <button
                       type="button"
                       onClick={handleTogglePlay}
-                      className="w-8 h-8 rounded-full bg-black/80 hover:bg-[#0052FF] border border-white/20 text-white backdrop-blur-md flex items-center justify-center transition-all shadow-md active:scale-95"
+                      className="w-8 h-8 rounded-full bg-black/80 hover:bg-[#0052FF] border border-white/20 text-white backdrop-blur-md flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer"
                       title={isPaused ? "Play video" : "Pause video"}
                     >
                       {isPaused ? <Play size={13} className="ml-0.5 fill-white" /> : <Pause size={13} />}
@@ -130,7 +137,7 @@ export default function FounderMessage({ onOpenVideo }) {
                     <button
                       type="button"
                       onClick={handleResetToPhoto}
-                      className="px-3 py-1.5 rounded-full bg-black/80 hover:bg-[#0052FF] border border-white/20 text-[11px] font-medium text-white backdrop-blur-md flex items-center gap-1.5 transition-all shadow-md active:scale-95"
+                      className="px-3 py-1.5 rounded-full bg-black/80 hover:bg-[#0052FF] border border-white/20 text-[11px] font-medium text-white backdrop-blur-md flex items-center gap-1.5 transition-all shadow-md active:scale-95 cursor-pointer"
                       title="Return to founder photo"
                     >
                       <RotateCcw size={12} />
@@ -141,10 +148,16 @@ export default function FounderMessage({ onOpenVideo }) {
               )}
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Text Side */}
-          <div className="lg:col-span-7 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="lg:col-span-7 space-y-6"
+          >
             <span className="text-xs font-semibold uppercase tracking-widest text-[#0052FF]">
               LEADERSHIP PHILOSOPHY
             </span>
@@ -176,7 +189,7 @@ export default function FounderMessage({ onOpenVideo }) {
                 <span className="block text-[#9A9A9A] text-sm font-light">Founder · Agency Head · Technology & Creative Director</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { Play, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const talksData = [
@@ -137,12 +138,18 @@ export default function Testimonials({ onOpenVideo }) {
     <section className="py-20 md:py-32 px-4 sm:px-6 bg-[#0C0E17] overflow-hidden border-t border-[#0052FF]/15" id="talks">
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
-        <div className="section-head center mb-14 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="section-head center mb-14 text-center"
+        >
           <span className="eyebrow block mb-2">Testimonials</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white">
             Hear it straight from the Hearts
           </h2>
-        </div>
+        </motion.div>
 
         {/* 3D Coverflow Container with Auto-scroll */}
         <div

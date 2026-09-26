@@ -1,6 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Compass, Target, Sparkles, Users, Infinity as InfinityIcon, ArrowRight } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.05 }
+  }
+};
 
 export default function AboutStudio() {
   return (
@@ -14,9 +32,15 @@ export default function AboutStudio() {
       <div className="max-w-[1200px] mx-auto relative z-10 space-y-20">
 
         {/* ── 01: WHO WE ARE (SPLIT TWO-COLUMN HERO WITH ACCENT) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+        >
           {/* Left Text Column */}
-          <div className="lg:col-span-6">
+          <motion.div variants={fadeInUp} className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-white/80 mb-5">
               <Sparkles size={12} className="text-[#0052FF]" />
               <span>ABOUT GENFREX</span>
@@ -36,28 +60,40 @@ export default function AboutStudio() {
 
             <div className="flex flex-wrap gap-2.5">
               {['Digital Presence', 'Online Visibility', 'Technology Solutions', 'Skilled Digital Talent'].map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80">
+                <span key={tag} className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80 hover:border-[#0052FF]/40 transition-colors">
                   ✦ {tag}
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Figure Showcase */}
-          <div className="lg:col-span-6 relative group overflow-hidden rounded-3xl border border-white/20 shadow-2xl bg-white p-3 sm:p-5 flex items-center justify-center">
+          <motion.div
+            variants={fadeInUp}
+            className="lg:col-span-6 relative group overflow-hidden rounded-3xl border border-white/20 shadow-2xl bg-white p-3 sm:p-5 flex items-center justify-center hover:border-[#0052FF]/50 transition-all duration-500"
+          >
             <img
               src="/About.png"
               alt="GENFREX collaborative digital and talent ecosystem"
               className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.01] transition-transform duration-500"
               loading="lazy"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* ── 02: VISION & MISSION (DUAL CARDS - RADICALSTART STYLE) ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
+        >
           {/* Our Vision */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 hover:border-[#0052FF]/50 transition-all duration-300 shadow-xl group">
+          <motion.div
+            variants={fadeInUp}
+            className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 hover:border-[#0052FF]/50 hover:-translate-y-1 transition-all duration-300 shadow-xl group"
+          >
             <div className="w-12 h-12 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/20 flex items-center justify-center text-[#00D4FF] mb-5 group-hover:scale-110 transition-transform">
               <Compass size={24} />
             </div>
@@ -70,10 +106,13 @@ export default function AboutStudio() {
             <p className="text-sm sm:text-base text-white/80 font-light leading-relaxed">
               "To build a connected digital ecosystem where businesses, technology, freelancers, and digital talent can create limitless opportunities together."
             </p>
-          </div>
+          </motion.div>
 
           {/* Our Mission */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 hover:border-[#00D4FF]/50 transition-all duration-300 shadow-xl group">
+          <motion.div
+            variants={fadeInUp}
+            className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#141620] to-[#0A0B0E] border border-white/10 hover:border-[#00D4FF]/50 hover:-translate-y-1 transition-all duration-300 shadow-xl group"
+          >
             <div className="w-12 h-12 rounded-2xl bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center text-[#00D4FF] mb-5 group-hover:scale-110 transition-transform">
               <Target size={24} />
             </div>
@@ -86,12 +125,18 @@ export default function AboutStudio() {
             <p className="text-sm sm:text-base text-white/80 font-light leading-relaxed">
               "To empower businesses with accessible digital solutions and connect them with the right talent to achieve sustainable digital growth."
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* ── 03: BRAND PHILOSOPHY (GEN + FRE + X) ── */}
-        <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#0C0D12] border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={staggerContainer}
+          className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[#0C0D12] border border-white/10 shadow-2xl relative overflow-hidden"
+        >
+          <motion.div variants={fadeInUp} className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-semibold tracking-widest text-[#0052FF] uppercase block mb-2">
               THE GENFREX FORMULA
             </span>
@@ -105,11 +150,14 @@ export default function AboutStudio() {
               <span className="text-white/40">+</span>
               <span className="text-[#00D4FF]">X</span>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* GEN (White / Silver from Logo) */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-white/15 hover:border-white/40 transition-all">
+            <motion.div
+              variants={fadeInUp}
+              className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-white/15 hover:border-white/40 hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-3xl font-black text-[#FFFFFF] tracking-tight">GEN</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/10 text-white">01</span>
@@ -118,10 +166,13 @@ export default function AboutStudio() {
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
                 Empowering digital-native creativity, modern cultural fluency, and rapid next-gen agility.
               </p>
-            </div>
+            </motion.div>
 
             {/* FRE (Electric Royal Blue from Logo) */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-[#0052FF]/25 hover:border-[#0052FF]/60 transition-all">
+            <motion.div
+              variants={fadeInUp}
+              className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-[#0052FF]/25 hover:border-[#0052FF]/60 hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-3xl font-black text-[#0052FF] tracking-tight">FRE</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#0052FF]/10 text-[#0052FF]">02</span>
@@ -130,10 +181,13 @@ export default function AboutStudio() {
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
                 Connecting businesses directly with pre-vetted, high-impact freelance digital specialists on demand.
               </p>
-            </div>
+            </motion.div>
 
             {/* X (Luminous Cyan from Logo) */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-[#00D4FF]/25 hover:border-[#00D4FF]/60 transition-all">
+            <motion.div
+              variants={fadeInUp}
+              className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-[#00D4FF]/25 hover:border-[#00D4FF]/60 hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-3xl font-black text-[#00D4FF] tracking-tight">X</span>
                 <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#00D4FF]/10 text-[#00D4FF]">03</span>
@@ -142,10 +196,10 @@ export default function AboutStudio() {
               <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
                 Transformative digital experiences, seamless execution, and compounding business growth.
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="mt-8 text-center">
+          <motion.div variants={fadeInUp} className="mt-8 text-center">
             <Link
               to="/about"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#00D4FF] hover:text-white transition-colors"
@@ -153,8 +207,8 @@ export default function AboutStudio() {
               <span>Explore our full story and capabilities</span>
               <ArrowRight size={14} />
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>

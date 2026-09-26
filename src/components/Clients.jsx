@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const clientLogos = [
   'AA Garden', 'Ananta Living', 'CBR Constructions', 'Chettinad Builders',
@@ -69,7 +70,13 @@ export default function Clients() {
   return (
     <section className="py-20 md:py-32 px-4 sm:px-6" id="clients">
       <div className="max-w-[1200px] mx-auto">
-        <div className="section-head center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="section-head center mb-16"
+        >
           <span className="eyebrow">Our Clients</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white">
             Trusted by brands that demand more.
@@ -77,38 +84,51 @@ export default function Clients() {
           <p className="lead mt-3">
             Our clients are our top priority, and we are committed to providing them with exceptional craft, robust engineering, and tangible business ROI.
           </p>
-        </div>
+        </motion.div>
 
         {/* 4-Column Animated Stats Row */}
-        <div className="stats-row">
-          <div className="stat-item">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.1, duration: 0.6 }
+            }
+          }}
+          className="stats-row"
+        >
+          <div className="stat-item hover:-translate-y-1 transition-transform duration-300">
             <span className="stat-num text-white">
               <AnimatedCounter end={75} duration={1800} suffix="+" />
             </span>
             <span className="stat-label">Global Clients</span>
           </div>
 
-          <div className="stat-item">
+          <div className="stat-item hover:-translate-y-1 transition-transform duration-300">
             <span className="stat-num text-white">
               <AnimatedCounter end={200} duration={2200} suffix="+" />
             </span>
             <span className="stat-label">Ad Films & Spots</span>
           </div>
 
-          <div className="stat-item">
+          <div className="stat-item hover:-translate-y-1 transition-transform duration-300">
             <span className="stat-num text-white">
               <AnimatedCounter end={50} duration={1600} suffix="+" />
             </span>
             <span className="stat-label">Corporate Platforms</span>
           </div>
 
-          <div className="stat-item">
+          <div className="stat-item hover:-translate-y-1 transition-transform duration-300">
             <span className="stat-num text-white">
               <AnimatedCounter end={100} duration={2000} suffix="+" />
             </span>
             <span className="stat-label">Growth Campaigns</span>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Infinite Client Logo Marquee */}

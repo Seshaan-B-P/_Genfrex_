@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Linkedin, Facebook, Youtube, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Linkedin, Facebook, Youtube, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import GenfrexLogo from './GenfrexLogo';
 
 export default function Footer({ onOpenQuote }) {
@@ -177,14 +177,49 @@ export default function Footer({ onOpenQuote }) {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar: Copyright & Legal Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-light text-[#666] border-t border-white/[0.08]">
           <p>© 2026 GENFREX. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Privacy Policy</a>
-            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Terms of Service</a>
-            <a href="#about" className="hover:text-[#9A9A9A] transition-colors">Site Credits</a>
+            <Link
+              to="/privacy-policy"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0052FF] rounded"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-of-service"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0052FF] rounded"
+            >
+              Terms of Service
+            </Link>
           </div>
+        </div>
+
+        {/* Final Credit Row */}
+        <div className="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#555] border-t border-white/[0.04]">
+          <span className="font-light tracking-wide text-[#666]">
+            Site Credits
+          </span>
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Designed & Developed by GENFREX"
+            className="group inline-flex items-center gap-1.5 text-xs text-[#8A8F9D] hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0052FF] rounded py-0.5 px-1 -mx-1 transition-colors"
+          >
+            <span>
+              Designed &amp; Developed by{' '}
+              <span className="text-white group-hover:text-[#0052FF] transition-colors font-medium">
+                GENFREX
+              </span>
+            </span>
+            <ArrowUpRight
+              size={13}
+              className="text-[#0052FF] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transform-none"
+            />
+          </Link>
         </div>
 
       </div>

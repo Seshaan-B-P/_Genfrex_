@@ -13,6 +13,8 @@ import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import ApproachPage from './pages/ApproachPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -58,6 +60,10 @@ export default function App() {
         <Route path="/approach" element={<ApproachPage onOpenQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-of-service" element={<TermsPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
 
       {/* Global Quote Modal */}

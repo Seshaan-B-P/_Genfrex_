@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { X, Check, ArrowRight } from 'lucide-react';
 
 export default function QuoteModal({ isOpen, onClose }) {
@@ -194,6 +195,17 @@ export default function QuoteModal({ isOpen, onClose }) {
                 <span>Request a Quote</span>
                 <ArrowRight size={18} />
               </button>
+
+              <p className="text-center text-[11px] text-[#9A9A9A] font-light mt-3">
+                By submitting, you agree to our{' '}
+                <Link
+                  to="/privacy-policy"
+                  onClick={onClose}
+                  className="text-[#0052FF] hover:underline"
+                >
+                  Privacy Policy
+                </Link>.
+              </p>
             </form>
           </div>
         ) : (

@@ -174,7 +174,13 @@ export default function Workflow() {
 
       <div className="max-w-[1320px] mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]"
+        >
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="eyebrow !mb-0">Client Workflow</span>
@@ -210,7 +216,7 @@ export default function Workflow() {
               <ArrowRight size={18} />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2-Column Split Interactive Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">

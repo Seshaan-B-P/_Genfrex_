@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, ArrowDown, Play, Sparkles } from 'lucide-react';
 
 export default function Hero({ onOpenVideo, onOpenQuote }) {
@@ -41,41 +42,112 @@ export default function Hero({ onOpenVideo, onOpenQuote }) {
         {/* Layer 3: Bottom Gradient to seamlessly melt into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0C0E17] via-[#0C0E17]/85 to-transparent pointer-events-none" />
 
-        {/* Layer 4: Electric Blue & Cyan Ambient Glow behind typography */}
-        <div
+        {/* Layer 4: Electric Blue & Cyan Ambient Glow behind typography with gentle breathing */}
+        <motion.div
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.75, 1, 0.75]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[950px] h-[380px] bg-gradient-to-r from-[#0052FF]/25 via-[#00D4FF]/25 to-[#0052FF]/20 blur-[130px] pointer-events-none rounded-full"
           aria-hidden="true"
         />
       </div>
 
       {/* 01 ─ HERO FOREGROUND CONTENT (DIRECTLY ON TOP OF VIDEO) */}
-      <div className="w-full max-w-[1140px] mx-auto flex flex-col items-center text-center relative z-10 my-auto">
-        
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+          }
+        }}
+        className="w-full max-w-[1140px] mx-auto flex flex-col items-center text-center relative z-10 my-auto"
+      >
         {/* Top Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6 sm:mb-8">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: -16, scale: 0.9 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
+            }
+          }}
+          className="flex flex-wrap items-center justify-center gap-2.5 mb-6 sm:mb-8"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0C0E17]/80 border border-[#0052FF]/40 text-[11px] sm:text-xs font-medium text-white/90 backdrop-blur-xl shadow-lg shadow-[#0052FF]/15">
             <Sparkles size={13} className="text-[#00D4FF]" />
             <span className="tracking-wide">DIGITAL • CREATIVE • PERFORMANCE</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* High-Impact Main Heading */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
+        <motion.h1
+          variants={{
+            hidden: { opacity: 0, y: 32 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
+            }
+          }}
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
+        >
           AGENCY <span className="bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text">CAPABILITIES</span>
-        </h1>
+        </motion.h1>
 
         {/* Luminous Gradient Subheading */}
-        <p className="mt-4 sm:mt-5 text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#00D4FF] via-[#60A5FA] to-[#0052FF] bg-clip-text text-transparent drop-shadow-md">
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 22 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+            }
+          }}
+          className="mt-4 sm:mt-5 text-lg sm:text-2xl md:text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#00D4FF] via-[#60A5FA] to-[#0052FF] bg-clip-text text-transparent drop-shadow-md"
+        >
           Strategy. Creativity. Performance. Growth.
-        </p>
+        </motion.p>
 
         {/* Descriptive Agency Statement */}
-        <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-white/80 font-normal max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 18 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+            }
+          }}
+          className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-white/80 font-normal max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
+        >
           A digital-first agency built to help ambitious brands become more visible, more relevant, and more effective online.
-        </p>
+        </motion.p>
 
         {/* Action CTAs */}
-        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 20, scale: 0.95 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+            }
+          }}
+          className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4"
+        >
           <button
             type="button"
             onClick={onOpenQuote}
@@ -93,11 +165,16 @@ export default function Hero({ onOpenVideo, onOpenQuote }) {
             <Play size={15} className="text-[#00D4FF] fill-[#00D4FF]" />
             <span>Watch Full Reel</span>
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* 02 ─ BOTTOM BAR: SCROLL INDICATOR */}
-      <div className="w-full max-w-[1240px] mx-auto flex items-center justify-center relative z-10 pt-6">
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.7 }}
+        className="w-full max-w-[1240px] mx-auto flex items-center justify-center relative z-10 pt-6"
+      >
         <button
           type="button"
           onClick={handleScrollDown}
@@ -109,7 +186,7 @@ export default function Hero({ onOpenVideo, onOpenQuote }) {
           </span>
           <ArrowDown size={16} className="text-white/70 group-hover:text-[#00D4FF] animate-bounce transition-colors" />
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 }

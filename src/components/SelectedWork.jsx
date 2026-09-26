@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Play } from 'lucide-react';
 
 const worksData = [
@@ -192,7 +193,13 @@ export default function SelectedWork({ onOpenVideo }) {
     <section className="py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden" id="works">
       <div className="max-w-[1320px] mx-auto">
         {/* Section Header with Navigation Arrows */}
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-wrap items-end justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]"
+        >
           <div>
             <span className="eyebrow">Portfolio</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white">
@@ -221,7 +228,7 @@ export default function SelectedWork({ onOpenVideo }) {
               <ArrowRight size={18} />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Carousel Container with Sleek Fade Shadows on edges */}
         <div className="relative">

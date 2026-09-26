@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
@@ -248,9 +249,9 @@ export default function ContactPage() {
           </div>
 
           {/* Single H1 Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[74px] font-black tracking-[-0.03em] text-white leading-[1.05] max-w-5xl uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
             HAVE A PROJECT <br />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#0052FF]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-[#60A5FA] to-[#0052FF]">
               IN MIND?
             </span>
           </h1>
@@ -562,6 +563,13 @@ export default function ContactPage() {
                       </>
                     )}
                   </button>
+
+                  <p className="text-center text-[11px] text-[#9A9A9A] font-light mt-3">
+                    By submitting, you acknowledge our{' '}
+                    <Link to="/privacy-policy" className="text-[#0052FF] hover:underline">
+                      Privacy Policy
+                    </Link>.
+                  </p>
                 </form>
               </div>
             ) : (
