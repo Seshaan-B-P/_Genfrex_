@@ -185,7 +185,7 @@ export default function FounderMessage({ onOpenVideo }) {
             </p>
             <div className="pt-4 border-t border-white/10 flex items-center justify-between">
               <div>
-                <span className="block text-white font-medium text-lg">Dharshan P S</span>
+                <span className="block text-white font-medium text-lg">Dharshan</span>
                 <span className="block text-[#9A9A9A] text-sm font-light">Founder · Agency Head · Technology & Creative Director</span>
               </div>
             </div>
