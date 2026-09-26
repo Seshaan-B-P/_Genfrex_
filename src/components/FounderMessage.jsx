@@ -58,18 +58,18 @@ export default function FounderMessage({ onOpenVideo }) {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative group"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/15 hover:border-[#0052FF]/50 shadow-2xl shadow-black/80 bg-black aspect-[4/3] flex items-center justify-center transition-colors duration-300">
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 hover:border-[#0052FF]/50 shadow-2xl shadow-black/80 bg-black aspect-[4/5] max-h-[580px] flex items-center justify-center transition-colors duration-300">
 
               {!isPlaying ? (
-                /* Default View: CEO Image with Play Button */
+                /* Default View: Full Portrait CEO Image with Play Button */
                 <>
                   <img
                     src="/CEO.jpeg"
-                    alt="Founder & Leadership"
-                    className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-700"
+                    alt="Dharshan - Founder & Leadership"
+                    className="w-full h-full object-cover object-top brightness-95 group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
 
                   {/* Transparent Glass Play Button over Founder Image */}
                   <button

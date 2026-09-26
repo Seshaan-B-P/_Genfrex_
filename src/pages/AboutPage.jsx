@@ -82,23 +82,17 @@ export default function AboutPage() {
   const directors = [
     {
       name: "Dharshan",
-      role: "Director",
-      image: "/CEO-avatar.jpg",
+      role: "Director & Agency Head",
+      image: "/CEO.jpeg",
       linkedin: "https://www.linkedin.com/in/dharshanselvaraj/"
     }
   ];
 
   const managers = [
     {
-      name: "Deepak",
-      role: "HR Head",
-      image: "",
-      linkedin: "https://www.linkedin.com/in/deepakparamanantham/"
-    },
-    {
       name: "Arun Kumar",
       role: "SEO Specialist",
-      image: "",
+      image: "/arun-kumar.jpg",
       linkedin: "https://www.linkedin.com/in/arun-kumar-seo-/"
     },
     {
@@ -110,7 +104,7 @@ export default function AboutPage() {
     {
       name: "Seshaan",
       role: "Technical Head",
-      image: "/Seshaan-avatar.jpg",
+      image: "/Seshaan-portrait.jpg",
       linkedin: "https://www.linkedin.com/in/seshaanbp/"
     }
   ];
@@ -497,15 +491,16 @@ export default function AboutPage() {
         </motion.section>
 
         {/* ── 06: PEOPLE AT GENFREX (Team Showcase with Glowing Rings) ── */}
-        <section className="pt-4">
+        <section className="pt-4" id="people">
+          {/* Line 1: Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-2xl mx-auto mb-14 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-4xl font-extralight tracking-tight text-white mb-3 uppercase">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-white mb-3 uppercase">
               People at <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#0052FF]">GENFREX</span>
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 font-light">
@@ -513,30 +508,30 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-14 sm:space-y-20">
-            {/* Row 1: Directors (Prominent Large Feature) */}
+          <div className="space-y-12 sm:space-y-16">
+            {/* Line 2: Directors (Full Portrait Card with Smooth Entrance) */}
             <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 max-w-4xl mx-auto">
               {directors.map((member, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="flex flex-col items-center text-center group w-48 sm:w-64 md:w-72 cursor-pointer"
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -10 }}
+                  className="flex flex-col items-center text-center group w-56 sm:w-64 md:w-72 cursor-pointer"
                 >
-                  <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 aspect-square shrink-0 rounded-3xl p-1.5 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-2xl shadow-[#0052FF]/35 transition-transform duration-300 group-hover:scale-105">
+                  <div className="relative w-52 sm:w-60 md:w-64 aspect-[3/4] shrink-0 rounded-3xl p-1.5 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-2xl shadow-[#0052FF]/35 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(0,82,255,0.45)] group-hover:scale-105">
                     <div className="w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#131725] flex items-center justify-center">
                       {member.image ? (
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-5xl sm:text-6xl select-none">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-6xl select-none">
                           {member.name.charAt(0)}
                         </div>
                       )}
@@ -546,14 +541,14 @@ export default function AboutPage() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-lg shadow-blue-500/30 transition-transform hover:scale-125"
+                        className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-xl shadow-blue-500/40 transition-transform hover:scale-125 z-10"
                         aria-label={`${member.name} LinkedIn`}
                       >
                         <Linkedin size={18} className="fill-current" />
                       </a>
                     )}
                   </div>
-                  <h4 className="text-lg sm:text-2xl font-bold text-white tracking-tight mt-5 group-hover:text-[#00D4FF] transition-colors">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight mt-5 group-hover:text-[#00D4FF] transition-colors">
                     {member.name}
                   </h4>
                   <p className="text-sm sm:text-base text-[#00D4FF] font-medium mt-1">
@@ -563,31 +558,57 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Row 2: Team Members (Substantially Larger & Balanced) */}
+            {/* Line 3: Team Members (Staggered Line-by-Line Entrance & Full Portrait Aspect) */}
             {managers && managers.length > 0 && (
-              <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-14 max-w-6xl mx-auto">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.15,
+                      delayChildren: 0.25
+                    }
+                  }
+                }}
+                className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-12 max-w-6xl mx-auto"
+              >
                 {managers.map((member, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    whileHover={{ y: -6 }}
-                    className="flex flex-col items-center text-center group w-36 sm:w-48 md:w-52 cursor-pointer"
+                    variants={{
+                      hidden: { opacity: 0, y: 45, scale: 0.93 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+                      }
+                    }}
+                    whileHover={{ y: -8 }}
+                    className="flex flex-col items-center text-center group w-44 sm:w-52 md:w-56 cursor-pointer"
                   >
-                    <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 aspect-square shrink-0 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-xl shadow-[#0052FF]/25 transition-transform duration-300 group-hover:scale-105">
-                      <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
+                    <div className="relative w-40 sm:w-48 md:w-52 aspect-[3/4] shrink-0 rounded-3xl p-1.5 bg-gradient-to-tr from-[#0052FF] via-[#00D4FF] to-[#0052FF] shadow-xl shadow-[#0052FF]/25 transition-all duration-500 group-hover:shadow-[0_12px_35px_rgba(0,82,255,0.4)] group-hover:scale-105">
+                      <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#131725] flex items-center justify-center">
                         {member.image ? (
                           <img
                             src={member.image}
                             alt={member.name}
-                            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0052FF] to-[#00D4FF] text-white font-extrabold text-4xl sm:text-5xl select-none">
-                            {member.name.charAt(0)}
+                          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#101426] via-[#131725] to-[#182035] border border-white/5 select-none relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#0052FF]/20 via-transparent to-[#00D4FF]/20 pointer-events-none" />
+                            <span className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-tr from-white via-[#00D4FF] to-[#0052FF] drop-shadow-md">
+                              {member.name.charAt(0)}
+                            </span>
+                            <span className="text-[10px] font-mono tracking-widest text-[#00D4FF]/80 uppercase mt-2">
+                              GENFREX
+                            </span>
                           </div>
                         )}
                       </div>
@@ -596,7 +617,7 @@ export default function AboutPage() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-md shadow-blue-500/25 transition-transform hover:scale-125"
+                          className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white shadow-lg shadow-blue-500/30 transition-transform hover:scale-125 z-10"
                           aria-label={`${member.name} LinkedIn`}
                         >
                           <Linkedin size={15} className="fill-current" />
@@ -611,7 +632,7 @@ export default function AboutPage() {
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             )}
           </div>
         </section>
