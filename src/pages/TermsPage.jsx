@@ -344,7 +344,7 @@ export default function TermsPage() {
       <div className="absolute top-[65%] left-[-10%] w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-        
+
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-[#9A9A9A]">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -432,11 +432,11 @@ export default function TermsPage() {
 
         {/* Content Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
+
           {/* Left Column: Sticky Table of Contents & Founder Card */}
           <aside className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-24 space-y-6">
-              
+
               {/* Table of Contents Index */}
               <div className="bg-[#131725]/90 backdrop-blur-md rounded-2xl p-5 border border-white/[0.08] shadow-xl">
                 <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-white/[0.08]">
@@ -460,24 +460,22 @@ export default function TermsPage() {
                         key={item.id}
                         type="button"
                         onClick={() => scrollToSection(item.id)}
-                        className={`w-full text-left px-3 py-2 rounded-xl text-xs transition-all flex items-center justify-between gap-2 ${
-                          isActive
-                            ? 'bg-[#0052FF] text-white font-medium shadow-md shadow-[#0052FF]/20'
-                            : 'text-[#9A9A9A] hover:text-white hover:bg-white/[0.04]'
-                        }`}
+                        className={`w-full text-left px-3 py-2 rounded-xl text-xs transition-all flex items-center justify-between gap-2 ${isActive
+                          ? 'bg-[#0052FF] text-white font-medium shadow-md shadow-[#0052FF]/20'
+                          : 'text-[#9A9A9A] hover:text-white hover:bg-white/[0.04]'
+                          }`}
                       >
                         <div className="flex items-center gap-2.5 truncate">
                           <Icon size={14} className={isActive ? 'text-white' : 'text-[#0052FF] flex-shrink-0'} />
                           <span className="truncate">{item.number}. {item.title}</span>
                         </div>
                         <span
-                          className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
-                            isOpen
-                              ? isActive
-                                ? 'bg-white/20 text-white'
-                                : 'bg-[#0052FF]/15 text-[#0052FF]'
-                              : 'text-neutral-500'
-                          }`}
+                          className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${isOpen
+                            ? isActive
+                              ? 'bg-white/20 text-white'
+                              : 'bg-[#0052FF]/15 text-[#0052FF]'
+                            : 'text-neutral-500'
+                            }`}
                         >
                           {isOpen ? 'Open' : '—'}
                         </span>
@@ -569,11 +567,10 @@ export default function TermsPage() {
             {/* 1. Introduction */}
             <div
               id="introduction"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['introduction']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['introduction']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -637,11 +634,10 @@ export default function TermsPage() {
             {/* 2. Scope of Services */}
             <div
               id="scope-of-services"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['scope-of-services']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['scope-of-services']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -788,11 +784,10 @@ export default function TermsPage() {
             {/* 3. Project Inquiries and Acceptance */}
             <div
               id="project-inquiries-acceptance"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['project-inquiries-acceptance']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['project-inquiries-acceptance']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -869,11 +864,10 @@ export default function TermsPage() {
             {/* 4. Pricing and Payment */}
             <div
               id="pricing-and-payment"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['pricing-and-payment']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['pricing-and-payment']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -970,11 +964,10 @@ export default function TermsPage() {
             {/* 5. Project Scope and Changes */}
             <div
               id="project-scope-and-changes"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['project-scope-and-changes']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['project-scope-and-changes']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1037,11 +1030,10 @@ export default function TermsPage() {
             {/* 6. Timelines and Client Responsibilities */}
             <div
               id="timelines-responsibilities"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['timelines-responsibilities']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['timelines-responsibilities']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1116,11 +1108,10 @@ export default function TermsPage() {
             {/* 7. Revisions, Approvals, and Acceptance */}
             <div
               id="revisions-approvals"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['revisions-approvals']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['revisions-approvals']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1175,11 +1166,10 @@ export default function TermsPage() {
             {/* 8. Intellectual Property and Ownership */}
             <div
               id="intellectual-property"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['intellectual-property']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['intellectual-property']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1274,11 +1264,10 @@ export default function TermsPage() {
             {/* 9. Confidentiality */}
             <div
               id="confidentiality"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['confidentiality']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['confidentiality']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1341,11 +1330,10 @@ export default function TermsPage() {
             {/* 10. Third-Party Services and Platforms */}
             <div
               id="third-party-services"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['third-party-services']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['third-party-services']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1407,11 +1395,10 @@ export default function TermsPage() {
             {/* 11. Digital Marketing, SEO, and Performance */}
             <div
               id="digital-marketing-performance"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['digital-marketing-performance']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['digital-marketing-performance']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1474,11 +1461,10 @@ export default function TermsPage() {
             {/* 12. AI and Technology Solutions */}
             <div
               id="ai-and-technology"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['ai-and-technology']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['ai-and-technology']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1543,11 +1529,10 @@ export default function TermsPage() {
             {/* 13. Website Maintenance and Support */}
             <div
               id="website-maintenance-support"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['website-maintenance-support']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['website-maintenance-support']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1609,11 +1594,10 @@ export default function TermsPage() {
             {/* 14. Acceptable Use */}
             <div
               id="acceptable-use"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['acceptable-use']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['acceptable-use']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1682,11 +1666,10 @@ export default function TermsPage() {
             {/* 15. Suspension and Termination */}
             <div
               id="suspension-and-termination"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['suspension-and-termination']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['suspension-and-termination']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1746,11 +1729,10 @@ export default function TermsPage() {
             {/* 16. Limitation of Liability */}
             <div
               id="limitation-of-liability"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['limitation-of-liability']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['limitation-of-liability']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1812,11 +1794,10 @@ export default function TermsPage() {
             {/* 17. Privacy and Data Protection */}
             <div
               id="privacy-data-protection"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['privacy-data-protection']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['privacy-data-protection']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1885,11 +1866,10 @@ export default function TermsPage() {
             {/* 18. Changes to These Terms */}
             <div
               id="changes-to-terms"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['changes-to-terms']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['changes-to-terms']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -1945,11 +1925,10 @@ export default function TermsPage() {
             {/* 19. Governing Law and Dispute Resolution */}
             <div
               id="governing-law"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['governing-law']
-                  ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['governing-law']
+                ? 'bg-[#131725] border-[#0052FF]/30 shadow-xl shadow-[#0052FF]/5'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"
@@ -2003,11 +1982,10 @@ export default function TermsPage() {
             {/* 20. Contact Information */}
             <div
               id="contact-information"
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                openSections['contact-information']
-                  ? 'bg-gradient-to-br from-[#131725] via-[#101422] to-[#0A0D18] border-[#0052FF]/40 shadow-2xl shadow-[#0052FF]/10'
-                  : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
-              }`}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${openSections['contact-information']
+                ? 'bg-gradient-to-br from-[#131725] via-[#101422] to-[#0A0D18] border-[#0052FF]/40 shadow-2xl shadow-[#0052FF]/10'
+                : 'bg-[#131725]/60 border-white/[0.06] hover:border-white/[0.12]'
+                }`}
             >
               <button
                 type="button"

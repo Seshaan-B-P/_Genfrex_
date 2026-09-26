@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, Check, ArrowRight } from 'lucide-react';
+import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/formConfig';
 
 export default function QuoteModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -36,39 +37,100 @@ export default function QuoteModal({ isOpen, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const timestamp = new Date().toLocaleString('en-IN', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+      timeZone: 'Asia/Kolkata'
+    });
+
     try {
       const payload = {
-        _subject: `New Project Quote Request: ${formData.service} — ${formData.name}`,
-        _template: "box",
+        _subject: `⚡ [GENFREX QUOTE REQUEST] ${formData.service} — ${formData.name}`,
+        _template: "table",
         _captcha: "false",
         _replyto: formData.email,
-        "Client Name": formData.name,
-        "Email Address": formData.email,
+        "1. Client Full Name": formData.name,
+        "2. Company / Brand": formData.company?.trim() || "Not specified / Startup",
+        "3. Official Email": formData.email,
+        "4. Phone Number": formData.phone?.trim() || "Not provided",
+        "5. Service Required": formData.service,
+        "6. Project Overview & Scope": formData.message?.trim() || "Initial project consultation requested",
+        "7. Request Timestamp": timestamp,
+        "8. Inbound Source": "GENFREX Modal Quote Form"
       };
 
-      if (formData.phone?.trim()) {
-        payload["Phone Number"] = formData.phone.trim();
+      if (GOOGLE_SHEETS_SCRIPT_URL && GOOGLE_SHEETS_SCRIPT_URL.trim() !== "") {
+        // Direct Google Sheets + Gmail via Google Apps Script
+        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            company: formData.company,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            details: formData.message,
+            source: "GENFREX Quote Modal"
+          })
+        });
+        setIsSubmitting(false);
+        setSubmitted(true);
+      } else {
+        await fetch("https://formsubmit.co/ajax/genfrexofficial@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+        setIsSubmitting(false);
+        setSubmitted(true);
       }
-      if (formData.company?.trim()) {
-        payload["Company / Brand"] = formData.company.trim();
-      }
-
-      payload["Service Required"] = formData.service;
-      payload["Project Message"] = formData.message;
-      payload["Source"] = "GENFREX Quote Modal";
-
-      await fetch("https://formsubmit.co/ajax/2bd3fde99c008854100a294c8b2634c4", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-      setIsSubmitting(false);
-      setSubmitted(true);
     } catch (err) {
       console.warn("Quote modal submission fallback:", err);
+      // Fallback mailto dispatch with executive structure
+      const subject = encodeURIComponent(`GENFREX Quote Request: ${formData.service} — ${formData.name}`);
+      const formattedBody =
+        `======================================================
+         GENFREX — NEW PROJECT QUOTE REQUEST
+======================================================
+
+Dear GENFREX Team,
+
+A new quote request has been submitted through the GENFREX quick quote modal.
+
+──────────────────────────────────────────────────────
+CLIENT & PROJECT INFORMATION
+──────────────────────────────────────────────────────
+• Client Name       : ${formData.name}
+• Company / Brand   : ${formData.company?.trim() || 'Not specified'}
+• Email Address     : ${formData.email}
+• Phone Number      : ${formData.phone?.trim() || 'Not provided'}
+• Service Required  : ${formData.service}
+
+──────────────────────────────────────────────────────
+PROJECT MESSAGE / GOALS
+──────────────────────────────────────────────────────
+${formData.message?.trim() || 'Initial consultation requested.'}
+
+──────────────────────────────────────────────────────
+METADATA
+──────────────────────────────────────────────────────
+• Submitted On      : ${timestamp}
+• Inbound Channel   : GENFREX Quick Quote Modal
+
+======================================================
+Reply directly to ${formData.email}
+GENFREX — Where Ideas Meet Measurable Impact.
+======================================================`;
+
+      window.location.href = `mailto:genfrexofficial@gmail.com?subject=${subject}&body=${encodeURIComponent(formattedBody)}`;
       setIsSubmitting(false);
       setSubmitted(true);
     }
@@ -80,13 +142,13 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div 
-        className="fixed inset-0" 
+      <div
+        className="fixed inset-0"
         onClick={onClose}
         aria-label="Close modal background"
       />
       <div className="relative w-full max-w-xl bg-[#131725] border border-[#0052FF]/30 rounded-2xl p-6 md:p-8 shadow-2xl shadow-[#0052FF]/10 z-10 max-h-[90vh] overflow-y-auto">
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#181E30] hover:bg-[#0052FF]/20 flex items-center justify-center text-white/70 hover:text-white transition-colors border border-[#0052FF]/20"
           aria-label="Close quote modal"

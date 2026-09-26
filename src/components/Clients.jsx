@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 const clientLogos = [
   { name: 'AA Garden', slug: 'aa-garden', logo: '/clients/aa-garden.png' },
-  { name: 'Ananta Living', slug: 'ananta-living', logo: '/clients/ananta-living.png' },
+  { name: 'Ananta Living', slug: 'ananta-living', logo: '/clients/ananta-living.jpg' },
   { name: 'CBR Constructions', slug: 'cbr-constructions', logo: '/clients/cbr-constructions.png' },
-  { name: 'Chettinad Builders', slug: 'chettinad-builders', logo: '/clients/chettinad-builders.png' },
-  { name: 'Emami Agro', slug: 'emami-agro', logo: '/clients/emami-agro.png' },
+  { name: 'Chettinad Builders', slug: 'chettinad-builders', logo: '/clients/chettinad-builders.jpg' },
+  { name: 'Emami Agro', slug: 'emami-agro', logo: '/clients/emami-agro.jpg' },
   { name: 'Flio Technologies', slug: 'flio-technologies', logo: '/clients/flio-technologies.png' },
-  { name: 'Flyer Eats', slug: 'flyer-eats', logo: '/clients/flyer-eats.png' },
+  { name: 'Flyer Eats', slug: 'flyer-eats', logo: '/clients/flyer-eats.jpg' },
   { name: 'Fogger Systems', slug: 'fogger-systems', logo: '/clients/fogger-systems.png' },
   { name: 'Garam Masala', slug: 'garam-masala', logo: '/clients/garam-masala.png' },
   { name: 'Gugan Silks', slug: 'gugan-silks', logo: '/clients/gugan-silks.png' },
@@ -29,23 +29,40 @@ const clientLogos = [
   { name: 'Zha Fashion', slug: 'zha-fashion', logo: '/clients/zha-fashion.png' }
 ];
 
+const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'PNG', 'JPG', 'JPEG'];
+
 function ClientLogoItem({ client }) {
+  const [extIndex, setExtIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
 
+  // If explicit logo given and on first try, try it. Else iterate extensions.
+  const currentSrc = extIndex === 0 && client.logo
+    ? client.logo
+    : `/clients/${client.slug}.${EXTENSIONS[extIndex]}`;
+
+  const handleError = () => {
+    if (extIndex < EXTENSIONS.length - 1) {
+      setExtIndex((prev) => prev + 1);
+    } else {
+      setHasError(true);
+    }
+  };
+
   return (
-    <div className="logo-cell group/cell px-6 py-3 border border-white/5 rounded-xl bg-white/[0.02] hover:border-[#0052FF]/40 hover:bg-[#0052FF]/5 transition-all duration-300 flex items-center justify-center min-w-[150px] h-[72px]">
+    <div className="logo-cell group/cell px-5 py-2.5 rounded-2xl bg-white shadow-md shadow-black/40 hover:shadow-xl hover:shadow-[#0052FF]/25 hover:-translate-y-1 hover:scale-105 border border-white/60 transition-all duration-300 flex items-center justify-center min-w-[160px] h-[68px] overflow-hidden select-none">
       {!hasError ? (
         <img
-          src={client.logo}
+          key={currentSrc}
+          src={currentSrc}
           alt={`${client.name} logo`}
-          onError={() => setHasError(true)}
-          className="max-h-11 w-auto max-w-[160px] object-contain transition-transform duration-300 group-hover/cell:scale-105"
+          onError={handleError}
+          className="max-h-11 w-auto max-w-[130px] object-contain transition-transform duration-300 group-hover/cell:scale-105"
           loading="lazy"
         />
       ) : (
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0052FF]/60 group-hover/cell:bg-[#00D4FF] transition-colors" />
-          <span className="text-sm md:text-base font-medium tracking-wide text-white/70 whitespace-nowrap uppercase group-hover/cell:text-white transition-colors">
+        <div className="flex items-center gap-2 px-1">
+          <span className="w-2 h-2 rounded-full bg-[#0052FF] group-hover/cell:scale-125 transition-transform" />
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-[#0C0E17] whitespace-nowrap uppercase">
             {client.name}
           </span>
         </div>

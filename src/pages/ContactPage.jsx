@@ -17,6 +17,7 @@ import {
   RotateCcw,
   Send
 } from 'lucide-react';
+import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/formConfig';
 
 export default function ContactPage() {
   // SEO Metadata
@@ -126,58 +127,118 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setErrorMessage('');
 
+    const timestamp = new Date().toLocaleString('en-IN', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+      timeZone: 'Asia/Kolkata'
+    });
+
     try {
       const payload = {
-        _subject: `New Project Enquiry: ${formData.service} — ${formData.name}`,
-        _template: "box",
+        _subject: `⚡ [GENFREX INQUIRY] ${formData.service} — ${formData.name}`,
+        _template: "table",
         _captcha: "false",
         _replyto: formData.email,
-        "Client Name": formData.name,
-        "Email Address": formData.email,
+        "1. Client Full Name": formData.name,
+        "2. Company / Brand": formData.company?.trim() || "Not specified / Startup",
+        "3. Official Email": formData.email,
+        "4. Phone / WhatsApp": formData.phone?.trim() || "Not provided",
+        "5. Required Service": formData.service,
+        "6. Investment Budget": formData.budget || "Flexible / To be discussed",
+        "7. Target Timeline": formData.timeline || "Flexible / Not specified",
+        "8. Project Scope & Brief": formData.details?.trim() || "No additional brief provided",
+        "9. Submission Timestamp": timestamp,
+        "10. Submission Channel": "GENFREX Official Web Ecosystem"
       };
 
-      if (formData.phone?.trim()) {
-        payload["Phone / WhatsApp"] = formData.phone.trim();
-      }
-      if (formData.company?.trim()) {
-        payload["Company / Brand"] = formData.company.trim();
-      }
-
-      payload["Service Required"] = formData.service;
-      if (formData.budget) {
-        payload["Project Budget"] = formData.budget;
-      }
-      if (formData.timeline) {
-        payload["Estimated Timeline"] = formData.timeline;
-      }
-      payload["Project Requirements"] = formData.details;
-      payload["Source Platform"] = "GENFREX Website (genfrex-j3ro.vercel.app)";
-
-      const response = await fetch("https://formsubmit.co/ajax/2bd3fde99c008854100a294c8b2634c4", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json();
-
-      if (response.ok || result.success === "true" || result.success === true) {
+      if (GOOGLE_SHEETS_SCRIPT_URL && GOOGLE_SHEETS_SCRIPT_URL.trim() !== "") {
+        // Direct Google Sheets + Gmail via Google Apps Script
+        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            company: formData.company,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            budget: formData.budget,
+            timeline: formData.timeline,
+            details: formData.details,
+            source: "GENFREX Contact Page"
+          })
+        });
         setIsSubmitting(false);
         setSubmitted(true);
       } else {
-        throw new Error(result.message || "Failed to send");
+        // Standard FormSubmit Dispatch
+        const response = await fetch("https://formsubmit.co/ajax/genfrexofficial@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok || result.success === "true" || result.success === true) {
+          setIsSubmitting(false);
+          setSubmitted(true);
+        } else {
+          throw new Error(result.message || "Failed to send");
+        }
       }
     } catch (err) {
       console.warn("Direct submission notice, triggering direct client dispatch:", err);
-      // Reliable fallback: launch mailto so lead is never lost
-      const subject = encodeURIComponent(`GENFREX Project Enquiry: ${formData.service} — ${formData.name}`);
-      const bodyText = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nService: ${formData.service}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\nDetails: ${formData.details}`
-      );
-      window.location.href = `mailto:genfrexofficial@gmail.com?subject=${subject}&body=${bodyText}`;
+      // High-standard executive email template
+      const subject = encodeURIComponent(`GENFREX Project Inquiry: ${formData.service} — ${formData.name}`);
+      const formattedBody =
+        `======================================================
+           GENFREX — NEW PROJECT INQUIRY
+======================================================
+
+Dear GENFREX Growth & Leadership Team,
+
+A prospective client has submitted a project inquiry via the official website.
+
+──────────────────────────────────────────────────────
+1. CLIENT & BRAND DETAILS
+──────────────────────────────────────────────────────
+• Full Name        : ${formData.name}
+• Company / Brand  : ${formData.company?.trim() || 'Not specified / Individual'}
+• Email Address    : ${formData.email}
+• Phone / WhatsApp : ${formData.phone?.trim() || 'Not provided'}
+
+──────────────────────────────────────────────────────
+2. PROJECT PARAMETERS
+──────────────────────────────────────────────────────
+• Service Required : ${formData.service}
+• Budget Range     : ${formData.budget || 'To be discussed'}
+• Expected Timeline: ${formData.timeline || 'Flexible'}
+
+──────────────────────────────────────────────────────
+3. PROJECT BRIEF & REQUIREMENTS
+──────────────────────────────────────────────────────
+${formData.details?.trim() || 'No detailed brief provided.'}
+
+──────────────────────────────────────────────────────
+4. SUBMISSION METADATA
+──────────────────────────────────────────────────────
+• Submitted On     : ${timestamp}
+• Source Platform  : GENFREX Web Ecosystem (genfrex.com)
+• Status           : Action Required within 24 Hours
+
+======================================================
+Reply directly to ${formData.email} to initiate consultation.
+GENFREX — Where Ideas Meet Measurable Impact.
+======================================================`;
+
+      window.location.href = `mailto:genfrexofficial@gmail.com?subject=${subject}&body=${encodeURIComponent(formattedBody)}`;
       setIsSubmitting(false);
       setSubmitted(true);
     }
